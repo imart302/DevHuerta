@@ -6,3 +6,8 @@ modify 2
 
 
 modify test 1
+
+good
+good
+conflict
+conflict
