@@ -1,12 +1,14 @@
 # DevHuerta
 Generartion CH32 E-Commerce for natural products from local producers
 
-Lu Gallardo
+modify 2
 
 
-ahead 2
-ahead 1
 
+modify test 1
 
-Lu Gallardo
-test
+good
+good
+
+resolve
+resolve
