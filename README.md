@@ -9,5 +9,6 @@ modify test 1
 
 good
 good
-conflict
-conflict
+
+resolve
+resolve
