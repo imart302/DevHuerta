@@ -1,0 +1,86 @@
+:root {
+    --yellow1-base: #FFF7D4;
+    --yellow1-light:  #FCFAF0;
+    --yellow1-dark: #DECD83;
+    --yellow2-base: #FFD95A;
+    --yellow2-light: #FFE17D;
+    --yellow2-dark: #D6AB1C;
+    --yellow3-base: #C07F00;
+    --yellow3-light: #F2AB1D;
+    --yellow3-dark: #916102;
+    --brown1-base: #683F35;
+    --brown1-light: #9D6254;
+    --brown1-dark: #482B24;
+    --black: #28282B;
+    --gray: #505050;
+    --white: #F9F6EE;
+    --primary: var(--yellow2-base);
+    --primary-hover: var(--yellow2-light);
+    --secondary: var(--brown1-base);
+    --secondary-hover: var(--brown1-light);
+    --border-color: var(--black);
+    --paper-background: var(--white);
+    --font-color-light: var(--white);
+    --font-color-dark: var(--black);
+  }
+  
+  .btn-default,.btn-primary,.btn-success,.btn-info,.btn-warning,.btn-danger, .btn-secondary{
+    border-radius:23px;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--font-color-dark);
+    border-color: var(--border-color);
+  }
+  
+  .btn.btn-primary[disabled] {
+    background-color: var(--primary);
+    color: var(--gray);
+    border-style: none;
+    border-color: var(--border-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--white);
+    border-color: var(--black);
+    color: var(--black);
+  }
+  
+  .btn-primary:active {
+    background-color: var(--primary-hover);
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+    border-color: var(--black);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    border-color: var(--black);
+  }
+  
+  .btn.btn-secondary[disabled] {
+    background-color: var(--secondary);
+    color: var(--white);
+    border-color: var(--white);
+  }
+  
+  .btn-info {
+    background-color: var(--white);
+    border-color: var(--black);
+  }
+  
+  .btn-info:hover {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--white);
+  }
+  
+  .btn.btn-info[disabled] {
+    background-color: var(--white);
+    border-color: var(--black);
+  }
