@@ -1,3 +1,4 @@
+/* Paleta de colores generales */
 :root {
     --yellow1-base: #FFF7D4;
     --yellow1-light:  #FCFAF0;
@@ -24,6 +25,7 @@
     --font-color-dark: var(--black);
   }
   
+/*Inico de boton primario  */
   .btn-default,.btn-primary,.btn-success,.btn-info,.btn-warning,.btn-danger, .btn-secondary{
     border-radius:23px;
   }
@@ -33,14 +35,14 @@
     color: var(--font-color-dark);
     border-color: var(--border-color);
   }
-  
+/* boton primario desactivado  */
   .btn.btn-primary[disabled] {
     background-color: var(--primary);
     color: var(--gray);
     border-style: none;
     border-color: var(--border-color);
   }
-  
+/* Boton primario slecionado  */
   .btn-primary:hover {
     background-color: var(--primary-hover);
     border-color: var(--white);
@@ -51,36 +53,68 @@
   .btn-primary:active {
     background-color: var(--primary-hover);
   }
-  
+/* fix de bug por bootstrap  */
+  .btn-primary:active:focus {
+    background-color: var(--primary-hover);
+  } 
+  /* inicio de boton secundario  */
   .btn-secondary {
     background-color: var(--secondary);
     color: var(--white);
     border-color: var(--black);
   }
-  
+/* boton secundario selcionado */
   .btn-secondary:hover {
     background-color: var(--secondary-hover);
     border-color: var(--black);
   }
-  
+/* fix de bug por bootstrap  */
+  .btn-primary:active:focus{
+    background-color: var(--secondary-hover)
+  }
+/* boton secundario desactivado */
   .btn.btn-secondary[disabled] {
     background-color: var(--secondary);
     color: var(--white);
     border-color: var(--white);
   }
-  
+/*  inico boton info  */
   .btn-info {
     background-color: var(--white);
     border-color: var(--black);
   }
-  
+
   .btn-info:hover {
     background-color: var(--black);
     color: var(--white);
     border-color: var(--white);
   }
   
+  /* boton informacion deshabilitado */
   .btn.btn-info[disabled] {
     background-color: var(--white);
     border-color: var(--black);
   }
+
+
+/* Fuentes usadas */
+/* FUnete y tamaño de titulos para navbars*/
+.title{
+  font-family: 'Instrument Serif', serif;
+  font-size: 2em !important;
+}
+/* FUnete y tamaño de titulos*/
+h1{
+  font-family: 'Instrument Serif', serif;
+  font-size:2.5em !important;
+}
+/* FUnete y tamaño de subtitulos */
+.subtitle{
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5em !important;
+}
+/* FUnete y tamaño de texto del cuerpo */
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em !important ;
+}

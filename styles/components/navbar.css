@@ -1,0 +1,17 @@
+/*  definicion de Posisoin para que no se vaya con el scroll  */
+.navbar{
+    top: 0%;
+    position: sticky !important;
+} 
+/* color principal de la navbar */
+.nav-color{
+    background-color: var(--yellow2-base);
+}
+/* logo de img */
+.nav-img{
+    width: 50px;
+}
+/* icono de usuario  */
+.cuenta{
+    width: 30px;
+}
