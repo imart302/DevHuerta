@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nosotros</title>
-    <link rel="stylesheet" type="text/css" href="./styles/about-us.css" />
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Local imports -->
+    <link rel="stylesheet" href="/styles/about-us.css">
     <link rel="shortcut icon" href="/assets/svgs/DulceNectarSinLetras.svg">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-  </head>
+    <title>Dulce Nectar</title>
   <body>
 <!-- Inicio de Nav Bar -->
 <nav class="navbar navbar-expand-md nav-color">
@@ -53,6 +57,7 @@
     </div>
   </div>
 </nav>
+
     <main class="container">
 
       <div class="bannerContainer">
@@ -101,30 +106,29 @@
         ambiente.
       </p>
     </main>
-    <footer>
-      <div class="container_footer">
-        <div class="row_footer">
-            <div class="social_footer">
-                <a href="https://facebook.com" target="_blank"><img src="./assets/imgs/facebook.png" alt="face"></a>
-                <a href="https://instagram.com" target="_blank"><img src="./assets/imgs/instagram.png" alt="insta"></a>
-                <a href="https://twitter.com" target="_blank"><img src="./assets/imgs/x.png" alt="x"></a>
-            </div>
-            <div class="navigation_footer">
-                <div class="nav_fo"><h3>Inicio</h3></div>
-                <div class="nav_fo"><h3>Tienda</h3></div>
-                <div class="nav_fo"><h3>Reseña</h3></div>
-                <div class="nav_fo"><h3>Nosotros</h3></div>
-                <div class="nav_fo"><h3>Contacto</h3></div>             
-            </div>            
-            <div class="copyright_footer">
-                <h4>Dulce Nectar 2023. Todos los derechos reservados. </h4>
-            </div>
-        </div>
-      </div>  
 
+<!-- Inicia footer -->
+<footer>
+  <div class="container_footer">
+    <div class="social_footer">
+        <a href="https://facebook.com" target="_blank"><img src="./assets/imgs/facebook.png" alt="face"></a>
+        <a href="https://instagram.com" target="_blank"><img src="./assets/imgs/instagram.png" alt="insta"></a>
+        <a href="https://twitter.com" target="_blank"><img src="./assets/imgs/x.png" alt="x"></a>
+    </div>
+    <div class="navigation_footer">
+        <div class="nav_fo"><a href="/"><h3>Inicio</h3></a></div>
+        <div class="nav_fo"><a href="/tienda.html"><h3>Tienda</h3></a></div>
+        <div class="nav_fo"><a href="/review.html"><h3>Reseña</h3></a></div>
+        <div class="nav_fo"><a href="/about-us.html"><h3>Nosotros</h3></a></div>
+        <div class="nav_fo"><a href="/contact.html"><h3>Contacto</h3></a></div>             
+    </div>            
+    <div class="copyright_footer">
+        <h5>Dulce Nectar 2023. Todos los derechos reservados. </h5>
+    </div>
+  </div>  
+</footer>
 
-    </footer> 
-    <script src="/js/components/navbar.js"></script>
+    <script type="module" src="/js/about-us.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
