@@ -1,36 +1,36 @@
 /*  definicion de Posisoin para que no se vaya con el scroll  */
-.navbar{
+nav .navbar{
     top: 0%;
     position: sticky !important;
     z-index: 10;
 } 
 /* color principal de la navbar */
-.nav-color{
+nav {
     background-color: var(--yellow2-base);
 }
 /* logo de img */
-.nav-img{
+nav .nav-img{
     width: 50px !important;
     padding:0;
 }
 /* icono de usuario  */
-.cuenta{
+nav .cuenta{
     width: 30px !important;
     padding:0;
 }
 
-.nav-link:hover{
+nav .nav-link:hover{
     color: var(--yellow1-base) !important;
 }
 
-.title:hover{
+nav .title:hover{
     color: var(--yellow1-base) !important;
 }
 
-.selector{
+nav .selector{
     color: var(--yellow3-base) !important;
 }
 
-.title{
+nav .title{
     font-size: 1.5em !important;
 }
