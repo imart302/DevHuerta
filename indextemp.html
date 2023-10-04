@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google fonts imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Local imports -->
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="shortcut icon" href="/assets/svgs/DulceNectarSinLetras.svg">
+    
+    <title>Dulce Nectar</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-md nav-color">
+  <div class="container-fluid">
+    <a class="navbar-brand title " href="#">
+        <img src="/assets/svgs/DulceNectar.svg" alt="" class="nav-img" srcset="">DULCE HUERTA
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active subtitle" aria-current="page" href="#">Nosotoros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active subtitle" href="./contact.html">Contacto</a>
+        </li>
+      </ul>
+        <img src="/assets/svgs/person-circle.svg" class="img-fluid cuenta" alt="" srcset=""></img>
+    </div>
+  </div>
+</nav>
+
+<!-- Inicia contenido principal -->
+<main id="id-index-main" class="container">
+
+  <!-- Carousel de bienvenida -->
+  <div id="id-carousel-main" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#id-carousel-main" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#id-carousel-main" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#id-carousel-main" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="dn-carousel-inner-item">
+          <h1 class="dn-carousel-text dn-carousel-text-c1">Los mejores productos de la miel</h1>
+          <h1 class="dn-carousel-text dn-carousel-text-c3">... para tu hogar</h1>
+          <img src="./assets/imgs/honey1.webp" class="d-block w-100" alt="...">
+          <div class="dn-carousel-logo">
+            <img src="./assets/imgs/DulceNectar.png" alt="Dulce nectar logo">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="dn-carousel-inner-item">
+          <h1 class="dn-carousel-text dn-carousel-text-c1">Contamos con gran variedad de productos</h1>
+          <h1 class="dn-carousel-text dn-carousel-text-c3">... todos de origen natural</h1>
+          <img src="./assets/imgs/honey-candy.webp" class="d-block w-100" alt="...">
+          <div class="dn-carousel-logo">
+            <img src="./assets/imgs/DulceNectar.png" alt="Dulce nectar logo">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="dn-carousel-inner-item">
+          <h1 class="dn-carousel-text dn-carousel-text-c1">Visita nuestra tienda</h1>
+          <h1 class="dn-carousel-text dn-carousel-text-c3">... y encuentra lo que necesites</h1>
+          <img src="./assets/imgs/propolio.webp" class="d-block w-100" alt="...">
+          <div class="dn-carousel-logo">
+            <img src="./assets/imgs/DulceNectar.png" alt="Dulce nectar logo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev z-3" type="button" data-bs-target="#id-carousel-main" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next z-3" type="button" data-bs-target="#id-carousel-main" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Productos de la semana -->
+  <div class="container-fluid p-0 mt-5">
+    <h1>Productos de la semana</h1>
+    <div id="id-products-week" class="dn-grid">
+      <!-- Keep this for as template -->
+      <!-- <div class="dn-week-product-card">
+        <div class="card shadow-lg" style="width: 18rem;">
+          <img src="./assets/imgs/miel_frasco.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3>Title</h3>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+</main>
+
+<!-- Inicia footer -->
+<footer>
+  <div class="container_footer">
+    <div class="social_footer">
+        <a href="https://facebook.com" target="_blank"><img src="./assets/imgs/facebook.png" alt="face"></a>
+        <a href="https://instagram.com" target="_blank"><img src="./assets/imgs/instagram.png" alt="insta"></a>
+        <a href="https://twitter.com" target="_blank"><img src="./assets/imgs/x.png" alt="x"></a>
+    </div>
+    <div class="navigation_footer">
+        <div class="nav_fo"><a href="/"><h3>Inicio</h3></a></div>
+        <div class="nav_fo"><a href="/tienda.html"><h3>Tienda</h3></a></div>
+        <div class="nav_fo"><a href="/review.html"><h3>Reseña</h3></a></div>
+        <div class="nav_fo"><a href="/about-us.html"><h3>Nosotros</h3></a></div>
+        <div class="nav_fo"><a href="/contact.html"><h3>Contacto</h3></a></div>             
+    </div>            
+    <div class="copyright_footer">
+        <h5>Dulce Nectar 2023. Todos los derechos reservados. </h5>
+    </div>
+  </div>  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="./js/tempindex.js" type="module"></script>
+</body>
+</html>
