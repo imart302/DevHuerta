@@ -10,9 +10,27 @@
 }
 /* logo de img */
 .nav-img{
-    width: 50px;
+    width: 50px !important;
+    padding:0;
 }
 /* icono de usuario  */
 .cuenta{
-    width: 30px;
+    width: 30px !important;
+    padding:0;
+}
+
+.nav-link:hover{
+    color: var(--yellow1-base) !important;
+}
+
+.title:hover{
+    color: var(--yellow1-base) !important;
+}
+
+.selector{
+    color: var(--yellow3-base) !important;
+}
+
+.title{
+    font-size: 1.5em !important;
 }
