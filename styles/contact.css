@@ -1,6 +1,7 @@
 /* Se importan los estilos root y del navbar */
 @import './root.css';
 @import './components/navbar.css';
+@import '/styles/components/footer.css';
 
 /* Estilos de imagen y titulo superior */
 .img-container {
@@ -16,7 +17,7 @@
 }
 
 /* Se agrego para dar opacidad a la imagen y que el texto sea legible*/
-span {
+.Span-element {
     position: absolute;
     width: 100%;
     height: 100%;

@@ -1,4 +1,7 @@
 @import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
 
 body {
     background-color: var(--yellow1-light);
@@ -22,12 +25,12 @@ body {
     overflow: hidden;
     align-items: center;
     justify-items: center;
-    text-align: center; 
+    text-align: center;
     position: relative;
     display: flex;
     flex-direction: column;
     z-index: 3;
-    
+    margin-top:30px;
 }
 
 .honeyComb1Container{
