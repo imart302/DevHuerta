@@ -1,35 +1,50 @@
-const nameInput = document.getElementById('nameInput');
-const phoneInput = document.getElementById('phoneInput');
-const emailInput = document.getElementById('emailInput');
-const messageInput = document.getElementById('messageInput');
 const formBtn = document.getElementById('contactForm');
 
-/**Si el -imput- esta vacio, agrega la clase de bootstrap is-invalid, si ya esta completo, la quita */
-const isFilled = input => {
-    if(input.value == ''){
-        input.classList.add('is-invalid');
-    } else {
-        input.classList.remove('is-invalid');
-    };
+
+/**Se ha usado un objeto para que sea mas fácil su verificación en el evento del submit */
+const inputs = {
+    name: document.getElementById('nameInput'),
+    phone: document.getElementById('phoneInput'),
+    email: document.getElementById('emailInput'),
+    message: document.getElementById('messageInput')
 };
 
-/**Si el email es invalido, agrega la clase de bootstrap is-invalid, si es valido, la quita */
+/**Si el email es invalido, agrega la clase de bootstrap 'is-invalid', si es valido, la quita */
 const emailValidation = email => {
-    const emailPattern = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ ;
-    if( !emailPattern.test(email.value) ){
-        email.classList.add('is-invalid');
-    } else {
-        email.classList.remove('is-invalid'); 
-    };
+    const emailPattern = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    !emailPattern.test(email.value) ? email.classList.add('is-invalid') : email.classList.remove('is-invalid');
 };
 
 
 /**Eventos de los inputs en tiempo real */
+inputs.name.addEventListener('blur', () => {
+    (inputs.name.value == '') ? inputs.name.classList.add('is-invalid') : inputs.name.classList.remove('is-invalid');
+});
 
-nameInput.addEventListener('blur', () => isFilled(nameInput));
+inputs.phone.addEventListener('blur', () => {
+    String(inputs.phone.value).length === 10 ? inputs.phone.classList.remove('is-invalid')  : inputs.phone.classList.add('is-invalid');
+});
 
-phoneInput.addEventListener('blur', () => isFilled(phoneInput));
+inputs.email.addEventListener('blur', () => emailValidation(inputs.email));
 
-emailInput.addEventListener('blur', () => emailValidation(emailInput));
+inputs.message.addEventListener('blur', () => {
+    (inputs.message.value == '') ? inputs.message.classList.add('is-invalid') : inputs.message.classList.remove('is-invalid');
+});
 
-messageInput.addEventListener('blur', () => isFilled(messageInput));
+
+/**Comprueba que los inputs del form no tengan la clase 'is-invalid' y que no esten vacios */
+formBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let completedForm = true;
+    Object.values(inputs).forEach(input => {
+        if (input.classList.contains('is-invalid') || input.value == '') {
+            completedForm = false;
+        };
+    });
+    if(completedForm){
+        alert('Formulario enviado!')
+        Object.values(inputs).forEach(input => input.value = '');
+    } else {
+        alert('Por favor verifique que sus datos esten correctos y que todos los campos esten llenos.');
+    }
+});
