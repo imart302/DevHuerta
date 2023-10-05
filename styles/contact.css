@@ -26,9 +26,9 @@
     border-radius: 10px;
 }
 
-p {
+.img-container p {
     font-family: 'Instrument Serif', serif;
-    font-size: clamp(1em, 3vw, 2.5em);
+    font-size: clamp(1.5em, 3vw, 2.5em);
     font-weight: normal;
     position: absolute;
     top: 50%;                                   /*Coloca el texto en el centro verticalmente*/

@@ -126,3 +126,36 @@ MEDIA QUERIES FOR COMMON SIZES
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+/*
+----------------------------------------------------
+NEWS SECTION STYLES
+----------------------------------------------------
+*/
+
+.dn-news-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.dn-news-card{
+  width: clamp(18em ,20vw, 25em);
+  height: 30em;
+  background-color: var(--yellow1-dark);
+}
+
+.dn-p-date{
+  position: absolute;
+  width: 8em;
+  padding-left: 1em;
+  border-radius: 0 8px 8px 0;
+  color: var(--white);
+  background-color: var(--brown1-dark);
+}
+
+
+
+
+
