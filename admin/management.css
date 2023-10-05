@@ -1,9 +1,0 @@
-/*
-ESTILOS DEL PANEL DE ADMINISTRACIÓN
-*/
-
-@import '../styles/root.css';
-
-.dn-list-products {
-  max-height: 550px;
-}

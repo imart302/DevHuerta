@@ -15,14 +15,16 @@
 
     <!-- Local imports -->
     <link rel="shortcut icon" href="/assets/svgs/DulceNectarSinLetras.svg">
-    <link rel="stylesheet" href="./management.css">
-    <script type="module" src="./management.js"></script>
+    <link rel="stylesheet" href="./styles/management.css">
+    <script type="module" src="./js/management.js"></script>
     <title>Dulce Nectar</title>
 </head>
 <body>
   
   <main class="container my-5">
+    <h1>Dulce Nectar: Panel de administración</h1>
     <div class="row h-50">
+      <!-- Parte de añadir un producto -->
       <div class="col-12 col-lg-6 mt-4">
         <div class="container-fluid">
           <h3 class="mb-5">Añadir un producto</h3>
@@ -83,28 +85,28 @@
           </form>
         </div>
       </div>
-      <div class="col-12 col-md-6 mt-4">
+
+      <!-- Parte de listado de productos -->
+      <div class="col-12 col-lg-6 mt-4">
         <div class="container-fluid">
           <h3 class="mb-5">Listado</h3>
           <div class="overflow-y-scroll dn-list-products">
             <ul id="id-list-products" class="list-group">
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
-              <li class="list-group-item">item</li>
+              <!-- KEEP THIS FOR TEMPLATE -->
+              <!-- <li class="list-group-item">
+                <div class="dn-mn-product-list-item w-100">
+                  <div class="dn-mn-product-list-item-img">
+                    <img src="../assets/imgs/DulceNectar.png" alt="">
+                  </div>
+                  <div class="dn-mn-product-list-desc d-flex flex-column">
+                    <div><span class="fw-bold">Id: </span><span>1</span></div>
+                    <div><span class="fw-bold">Nombre: </span><span>Miel</span></div>
+                    <div><span class="fw-bold">Gramaje: </span><span>100g</span></div>
+                    <div><span class="fw-bold">Precio: </span><span>$100 MXN</span></div>
+                    <div><span class="fw-bold">Stock: </span><span>99</span></div>
+                  </div>
+                </div>
+              </li> -->
             </ul>
           </div>
         </div>
