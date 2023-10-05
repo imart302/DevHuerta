@@ -3,22 +3,10 @@
 @import './components/footer.css';
 
 
-body {
-    background-color: var(--yellow1-light);
-    margin: 0;
-}
-
-.container{
-    background-color: var(--yellow1-light);
-}
-
 .imagen{
     width: 50%;
     position: relative;
-
 }
-
-
 
 .bannerContainer{
     border: solid 1px;
@@ -62,8 +50,9 @@ body {
     height: 100%;
 }
 
-.contenido{
+.cont{
     text-align: center;
-    font-size: 80%;
     margin-top: 50px;
+    justify-content: center;
+
 }
