@@ -1,0 +1,83 @@
+/* Se importan los estilos root y del navbar */
+@import './root.css';
+@import './components/navbar.css';
+@import '/styles/components/footer.css';
+
+/* Estilos de imagen y titulo superior */
+.img-container {
+    position: relative;
+    min-width: 20em;
+    height: 25em;
+    margin: clamp(0.5em, 5vw, 2em);             
+    background-image: url(../assets/imgs/contactImg.webp);
+    background-size: cover;
+    background-position: center center;
+    color: var(--white);
+    border-radius: 10px;
+}
+
+/* Se agrego para dar opacidad a la imagen y que el texto sea legible*/
+.Span-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    opacity: 0.6;
+    border-radius: 10px;
+}
+
+.img-container p {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.5em, 3vw, 2.5em);
+    font-weight: normal;
+    position: absolute;
+    top: 50%;                                   /*Coloca el texto en el centro verticalmente*/
+    transform: translateY(-50%);
+    margin: 15px;
+    max-width: 55%;
+}
+
+/* Estilos para el bloque del logo y el formulario*/
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: clamp(20em, 60vw, 1000px);
+    margin: auto;
+    padding: 8px;
+    background-color: var(--yellow1-dark);
+    border-radius: 5px;
+    margin-bottom: 2em;
+}
+
+/* Estilos del logo*/
+.card-container img {
+    margin: 2em;
+    padding: 1.5em;
+    width: 20em;
+    height: min-content;
+    align-self: center;
+}
+
+/* Estilos del formulario */
+.contact-form {
+    width: 22em;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.form-group{
+    margin: 5px 0;
+}
+
+#messageInput{
+    resize: none; 
+}
+
+#contact-btn {
+    margin: 1em;
+    padding: 3px;
+    width: 10em;
+    justify-self: center;
+}

@@ -1,0 +1,161 @@
+/*Styles for the index.html*/
+
+/* Imports */
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
+
+/* Rest of the style definition */
+
+
+/* Bootstrap redefinition */
+
+.card {
+  background-color: var(--yellow2-light);
+}
+
+/* All text inside carousel */
+.carousel-item {
+  text-shadow: 0px 0px 10px var(--font-color-dark);
+  background-color: (--secondary);
+}
+
+/* Fix height of carousel items */
+.dn-carousel-inner-item {
+  position: relative;
+  height: 30rem;
+  overflow: hidden;
+}
+
+.dn-carousel-inner-item img {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  object-fit: cover;
+  filter: opacity(80%);
+}
+
+.dn-carousel-inner-item .dn-carousel-text {
+  position: absolute;
+  z-index: 2;
+}
+
+.dn-carousel-inner-item .dn-carousel-text-c1 {
+  top: 7%;
+  left: 7%;
+  color: var(--font-color-light);
+  text-align: left;
+}
+
+.dn-carousel-inner-item .dn-carousel-text-c3 {
+  bottom: 10%;
+  right: 7%;
+  color: var(--font-color-light);
+  text-align: right;
+}
+
+.dn-carousel-inner-item .dn-carousel-logo {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dn-carousel-logo img {
+  filter: drop-shadow(1px 6px 17px white);
+}
+
+/* Product weeks grid */
+.dn-grid {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 1rem;
+  width: 100%;
+}
+
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .dn-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .dn-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .dn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .dn-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .dn-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/*
+----------------------------------------------------
+NEWS SECTION STYLES
+----------------------------------------------------
+*/
+
+.dn-news-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.dn-news-card{
+  width: clamp(18em ,20vw, 25em);
+  height: 30em;
+  background-color: var(--yellow1-dark);
+}
+
+.dn-p-date{
+  position: absolute;
+  width: 8em;
+  padding-left: 1em;
+  border-radius: 0 8px 8px 0;
+  color: var(--white);
+  background-color: var(--brown1-dark);
+}
+
+
+
+
+
