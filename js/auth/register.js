@@ -75,7 +75,7 @@ function validateFields() {
     if (registerInputs[inputKey].attributes.type.nodeValue == 'email') {
       EMAIL_REGEX.test(registerInputs[inputKey].value)
         ? registerInputs[inputKey].classList.remove('is-invalid')
-        : registerInputs[inputKey].classList.remove('is-valid');
+        : registerInputs[inputKey].classList.add('is-invalid');
     }
   });
 
