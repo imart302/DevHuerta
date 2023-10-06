@@ -1,0 +1,61 @@
+@import '../root.css';
+
+.container-dn-product-shop{
+    padding: 30px;
+    width: 15rem;
+    align-items: center;
+}
+.shop-card{
+    padding: 15px;
+    background:var(--yellow3-light);
+    background: linear-gradient(149deg,var(--yellow3-light) 29%,var(--yellow2-base) 63%);
+    border: 2px var( --yellow3-dark) solid;
+    border-radius:1rem ;   
+   
+}
+.shop-card-img{    
+    display: block;
+    margin:0 auto;
+    width: 13rem;
+    border:2px var(--yellow3-dark) solid;
+    border-radius: 1rem;  
+    
+}
+.card-body{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.card-shop-actions{
+    padding: 10px;
+    
+
+
+}
+.card-shop-actions label{
+    font-weight: bold;
+    margin-right: 10px;
+
+}
+
+.card-shop-actions input{
+    width: 40px;
+    text-align: center;
+    border: 1px solid ;
+}
+
+.btn-card-agree{
+    background-color:var(--brown1-dark);
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 85px;
+    
+    
+}
+.btn-card-agree img{
+    max-width: 45%;
+    height: auto;
+    padding: 5px;
+
+}
