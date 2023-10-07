@@ -185,6 +185,17 @@ body {
   background-color: var(--primary-background) !important;
 }
 
+
+
+/*
+-----------------------------------------
+SOBRE-ESCRITURA COMPONENTE NAVBAR DE BOOTSTRAP
+-----------------------------------------
+*/
+.navbar {
+  z-index: 1030;
+}
+
 /*
 -----------------------------------------
 ELEMENTOS SEMÁNTICOS
@@ -193,5 +204,5 @@ ELEMENTOS SEMÁNTICOS
 
 main {
   min-height: 100vh; /* Para asegurar que el footer siempre este debajo */
-  margin-top: 10rem;
+  margin-top: 5rem;
 }

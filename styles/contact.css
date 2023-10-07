@@ -6,9 +6,9 @@
 /* Estilos de imagen y titulo superior */
 .img-container {
     position: relative;
-    min-width: 20em;
+    width: 100%;
     height: 25em;
-    margin: clamp(0.5em, 5vw, 2em);             
+    margin-bottom: 5rem;        
     background-image: url(../assets/imgs/contactImg.webp);
     background-size: cover;
     background-position: center center;
@@ -27,14 +27,13 @@
 }
 
 .img-container p {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(1.5em, 3vw, 2.5em);
     font-weight: normal;
+    font-size: x-large;
     position: absolute;
+    text-align: center;
+    left: 50%;
     top: 50%;                                   /*Coloca el texto en el centro verticalmente*/
-    transform: translateY(-50%);
-    margin: 15px;
-    max-width: 55%;
+    transform: translate(-50%, -50%);
 }
 
 /* Estilos para el bloque del logo y el formulario*/
@@ -80,4 +79,53 @@
     padding: 3px;
     width: 10em;
     justify-self: center;
+}
+
+
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .img-container p {
+    font-size: large;
+    width: 90%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .img-container p {
+    font-size: large;
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .img-container p {
+    font-size: x-large;
+    width: 55%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .img-container p {
+    font-size: x-large;
+    width: 55%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .img-container p {
+    font-size: x-large;
+    width: 55%;
+  }
 }
