@@ -1,3 +1,5 @@
+import './components/navbar.js';
+
 const formBtn = document.getElementById('contactForm');
 
 
