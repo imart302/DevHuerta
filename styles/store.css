@@ -1,0 +1,72 @@
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
+
+.dn-shop-card {
+  width: 20rem;
+}
+
+
+.dn-shop-container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 1rem;
+  width: 100%;
+}
+
+.dn-shop-cardControls {
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dn-buton-addToCart {
+  min-width: 5rem;
+}
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .dn-shop-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .dn-shop-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .dn-shop-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .dn-shop-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .dn-shop-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

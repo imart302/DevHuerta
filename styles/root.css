@@ -193,5 +193,5 @@ ELEMENTOS SEMÁNTICOS
 
 main {
   min-height: 100vh; /* Para asegurar que el footer siempre este debajo */
-  margin-top: 3rem;
+  margin-top: 10rem;
 }
