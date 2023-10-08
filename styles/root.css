@@ -1,7 +1,7 @@
 /**
 -------------------------------------------
   PALETA DE COLORES DEL NEGOCIO
-------------------------------------------
+-------------------------------------------
 */
 :root {
   --yellow1-base: #FFF7D4;
@@ -184,7 +184,13 @@ body {
   background-color: var(--primary-background) !important;
 }
 
+.modal-content {
+  background-color: var(--primary-background) !important;
+}
 
+.input-group-text {
+  background-color: var(--primary);
+}
 
 /*
 -----------------------------------------
@@ -205,7 +211,6 @@ main {
   min-height: 100vh; /* Para asegurar que el footer siempre este debajo */
   margin-top: 5rem;
 }
-
 
 /*
 ----------------------------------------------------
