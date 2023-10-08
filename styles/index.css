@@ -1,10 +1,9 @@
 /*Styles for the index.html*/
 
 /* Imports */
-@import './root.css';
-@import './components/navbar.css';
-@import './components/footer.css';
-
+@import 'root.css';
+@import 'components/navbar.css';
+@import 'components/footer.css';
 
 /* Rest of the style definition */
 
