@@ -17,7 +17,7 @@ export class WeekProduct extends AbstractProduct {
       <div class="card shadow-lg" style="width: 18rem;">
         <img src="${this.imgUrl}" class="card-img-top" alt="${this.title}">
         <div class="card-body">
-          <h3>${this.title}</h3>
+          <h5>${this.title}</h5>
           <p class="card-text">${this.description}</p>
         </div>
       </div>

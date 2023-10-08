@@ -136,7 +136,6 @@ SOBRE-ESCRITURA DE FUENTES
 /* Fuente y tamaño de títulos*/
 h1 {
   font-family: 'Instrument Serif', serif;
-  font-size: 2.5em !important;
 }
 
 /* Headers h1 h2 */
@@ -149,7 +148,7 @@ h3 {
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Instrument Serif', serif;
 }
 
 /* Fuente y tamaño de texto del cuerpo */
@@ -185,6 +184,17 @@ body {
   background-color: var(--primary-background) !important;
 }
 
+
+
+/*
+-----------------------------------------
+SOBRE-ESCRITURA COMPONENTE NAVBAR DE BOOTSTRAP
+-----------------------------------------
+*/
+.navbar {
+  z-index: 1030;
+}
+
 /*
 -----------------------------------------
 ELEMENTOS SEMÁNTICOS
@@ -193,5 +203,38 @@ ELEMENTOS SEMÁNTICOS
 
 main {
   min-height: 100vh; /* Para asegurar que el footer siempre este debajo */
-  margin-top: 10rem;
+  margin-top: 5rem;
+}
+
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }
