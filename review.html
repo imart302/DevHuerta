@@ -18,16 +18,16 @@
 </head>
 
 <body>
-  <!-- Inicio de Nav Bar -->
-  <nav class="navbar navbar-expand-md nav-color">
+  <!-- Inicio de navbar -->
+  <nav class="navbar navbar-expand-md nav-color position-fixed w-100 top-0 shadow">
     <div class="container-fluid">
       <!-- Inicio y logo -->
       <div class="navbar-nav">
-        <a class="navbar-brand  nav-link  title  " href="/index.html">
-          <img src="/assets/svgs/DulceNectar.svg" alt="" class="nav-img" srcset="">DULCE NECTAR
+        <a class="navbar-brand nav-link title" href="">
+          <img src="assets/svgs/DulceNectar.svg" alt="" class="nav-img" srcset="" />DULCE NECTAR
         </a>
+        <!-- menu Hamburger -->
       </div>
-      <!-- menu Hamburger -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,25 +35,26 @@
       <!-- lista de links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"></li>
           <li class="nav-item">
+            <a class="nav-link active subtitle" aria-current="page" href="about-us.html" id="about">Nosotoros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active subtitle" aria-current="page" href="/about-us.html" id="about">Nosotoros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active subtitle" href="/contact.html" id="contacto">Contacto</a>
-          </li>
-          <!-- Conexion ya pre hecha favor de llamar el archivo como dice el href -->
-          <li class="nav-item">
-            <a class="nav-link active subtitle" href="/ tienda.html" id="shop">Tienda</a>
+            <a class="nav-link active subtitle" href="contact.html" id="contacto">Contacto</a>
           </li>
           <!-- Conexion ya pre hecha favor de llamar el archivo como dice el href -->
           <li class="nav-item">
-            <a class="nav-link active subtitle" href="/reseña.html" id="review">Reseña</a>
+            <a class="nav-link active subtitle" href="store.html" id="shop">Tienda</a>
+          </li>
+          <!-- Conexion ya pre hecha favor de llamar el archivo como dice el href -->
+          <li class="nav-item">
+            <a class="nav-link active subtitle" href="review.html" id="review">Reseña</a>
+          </li>
         </ul>
+
         <!-- Conexion ya pre hecha favor de llamar el archivo como dice el href -->
-        <a class="navbar-brand title " href="/cuenta.html">
-          <img src="/assets/svgs/person-circle.svg" class="img-fluid cuenta" alt="" srcset=""></img>
+        <a class="navbar-brand title" href="cuenta.html">
+          <img src="assets/svgs/person-circle.svg" class="img-fluid cuenta" alt="" srcset="" />
         </a>
       </div>
     </div>
@@ -61,14 +62,16 @@
 
 
   <!-- inicia contenido main de la página de reseñas -->
-  <div class="main container my-4">
-    <div class="dn-reviews-head w-100 p-5 mb-5 position-relative">
+  <main class="container position-relative py-5">
+    <div class="dn-reviews-head p-5 mb-5 position-relative border">
       <h1 class="text-center mb-2">¿Te gustan nuestros productos?</h1>
       <h2 class="text-center mt-4">¡Dejanos una reseña!</h2>
       <img src="assets/imgs/honeycomb.png" alt="honetcomb">
     </div>
 
+    <!-- contenedor de formulario y lista de reseñas -->
     <div class="card dn-reviews-cont d-flex flex-row flex-wrap">
+
       <!-- Inicia formulario de reseñas -->
       <form action="#" class="dn-review-form card m-3 p-3">
 
@@ -115,7 +118,7 @@
           <label for="reviewInput">Reseña</label>
           <textarea class="form-control" id="reviewInput" rows="4"></textarea>
           <div class="invalid-feedback text-center">
-            Por favor, deja una reseña.
+            Dejanos una reseña!
           </div>
         </div>
 
@@ -158,7 +161,7 @@
 
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Inicia footer -->
   <footer>

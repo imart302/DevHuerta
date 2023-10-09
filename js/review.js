@@ -4,6 +4,11 @@ import { ReviewCard } from "/js/lib/minirender/reviewsCard.js";
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
 const reviewlist = document.getElementById('review-list');
+/**Simulación de usuario logeado en la pagina */
+const User = 'Antoniolm386';
+localStorage.setItem('currentUser', User);
+
+
 
 /* Objeto de los inputs del formulario de reseñas */
 const formInputs = {
@@ -26,7 +31,6 @@ stars.forEach((star, index) => {
         ratingValue = index + 1;
     });
 });
-
 
 /**Funcion para validar los inputs, recibe el elemento html, y el valor invalido, retorna 'true o flase' */
 function inputValidation(input, invalidValue){
@@ -58,7 +62,7 @@ formInputs.productName.addEventListener('blur', () => {
 /**Validacion del rating*/
 let isRatingComplete = false;
 formSubmit.addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
     if (ratingValue == 0) {
         formInputs.rating.classList.add('is-invalid');
         isRatingComplete = false;
@@ -75,7 +79,7 @@ formInputs.review.addEventListener('blur', () => {
 });
 
 
-/**Funcion para  limpiar el formulario*/
+/**Funcion para  limpiar el formulario despues de gregar una reseña-------------------*/
 const clearForm = () => {
     formInputs.productCategory.value = 'Categoria';
     formInputs.productName.value = 'Producto';
@@ -86,27 +90,34 @@ const clearForm = () => {
     formSubmit.classList.remove('is-invalid');
 };
 
-/**Targetas previamenete cargadas */
+
+
+
+
+/**Array de reseñas, con dos previamente cargadas */
 let reviewsArray = [
-    new ReviewCard('toño', 'miel', 'liquidos', 1, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?', 'assets/imgs/miel_frasco.webp'),
-    new ReviewCard('ivan', 'jabon1', 'liquidos', 2, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?', 'assets/imgs/miel_frasco.webp')
+    new ReviewCard('lu-gallardo', 'miel', 'liquidos', 1, 'Lorem ipsum Nostrum atque quia soluta sequi', 'assets/imgs/miel_frasco.webp'),
+    new ReviewCard('ivan-martinez', 'jabon1', 'liquidos', 2, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?', 'assets/imgs/miel_frasco.webp'),
+    new ReviewCard('johan', 'Dulces', 'liquidos', 2, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores', 'assets/imgs/miel_frasco.webp')
 ];
+
+/**Renderizado de las tragetas de reseñas del 'reviewsArray' en el html */
 reviewsArray.forEach(review => {
     reviewlist.insertAdjacentHTML('beforeend', review.renderCard(review))
 })
 
 function createReview(review){
-    reviewlist.insertAdjacentHTML('beforeend', review.renderCard(review));
+    reviewlist.insertAdjacentHTML('beforeend', review.renderCard());
 };
 
-/**Eventos del submit */
+/**Eventos del submit al agregar reseñas */
 formSubmit.addEventListener('click', (e) => {
-    e.preventDefault;
+    e.preventDefault();
     let isFormValid = (isProductValid && isRatingComplete && isReviewFill) ? true : false;
     if (!isFormValid) {
         formSubmit.classList.add('is-invalid');
     } else {
-        const newReview = new ReviewCard('toño', formInputs.productName.value, formInputs.productCategory.value, ratingValue, formInputs.review.value, 'assets/imgs/miel_frasco.webp');
+        const newReview = new ReviewCard(localStorage.getItem('currentUser'), formInputs.productName.value, formInputs.productCategory.value, ratingValue, formInputs.review.value, 'assets/imgs/miel_frasco.webp');
         reviewsArray.push(newReview);
         createReview(newReview);
         clearForm();

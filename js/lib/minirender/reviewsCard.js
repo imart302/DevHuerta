@@ -1,5 +1,5 @@
 
-
+/**Clase para renderizar una nueva tarjeta de reeñas en la pagina de reseñas */
 
 export class ReviewCard {
     userName = '';
@@ -18,6 +18,7 @@ export class ReviewCard {
         this.imgUrl = imgUrl;
     }
 
+    /**Metodo que devuelve un string de formato html que genera la tarjeta de reseña en la lista de reseña */
     renderCard(){
 
       let stars  = '';
