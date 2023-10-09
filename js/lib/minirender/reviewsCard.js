@@ -28,12 +28,12 @@ export class ReviewCard {
       }
 
         return `
-        <div class="dn-review-card w-100 border d-flex flex-wrap m-1 p-1" >
+        <div class="dn-review-card w-99 border d-flex flex-wrap m-1 p-1" >
           <div class="mx-auto my-auto card">
             <img class="dn-review-img card-img" src="${this.imgUrl}" alt="">
           </div>
           <div class="review-description card m-1 p-1 d-flex flex-column">
-              <div class="review-desc-head d-flex flex-wrap space-beetwen align-center">
+              <div class="review-desc-head d-flex flex-wrap space-beetwen">
                 <p class="m-0 p-1"><b>Producto: ${this.productName}</b></p>
                 <div class="rating-cont-2 text-center m-0 p-1">
                   ${stars}

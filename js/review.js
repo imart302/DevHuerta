@@ -13,7 +13,7 @@ const formInputs = {
     review: document.getElementById('reviewInput')
 }
 
-/* Evento para que el imput de rating sea dinamico -------------*/
+/* Evento para que el imput de rating sea dinamico, devuelve el valor del rating*/
 let ratingValue = 0;
 stars.forEach((star, index) => {
     star.addEventListener('click', () => {
@@ -28,33 +28,37 @@ stars.forEach((star, index) => {
 });
 
 
-/* Validaciones de los inputs en tiempo real------------- */
-/**Categoria del producto */
-formInputs.productCategory.addEventListener('blur', () => {
-    if (formInputs.productCategory.value == 'Categoria') {
-        formInputs.productCategory.classList.add('is-invalid');
-        formInputs.productName.setAttribute('disabled', '');
+/**Funcion para validar los inputs, recibe el elemento html, y el valor invalido, retorna 'true o flase' */
+function inputValidation(input, invalidValue){
+    if(input.value == invalidValue){
+        input.classList.add('is-invalid');
+        return false;
     } else {
-        formInputs.productCategory.classList.remove('is-invalid');
-        formInputs.productName.removeAttribute('disabled');
-    }
+        input.classList.remove('is-invalid');
+        return true;
+    };
+};
+
+/* Validaciones de los inputs en tiempo real------------- */
+/**Input select de categoria */
+formInputs.productCategory.addEventListener('blur', () => {
+    if(inputValidation(formInputs.productCategory, 'Categoria')){
+        formInputs.productName.removeAttribute('disabled', '');
+    } else {
+        formInputs.productName.setAttribute('disabled', '');
+    };
 });
 
-/**Nombre del producto */
+/**Input select de nombre del producto */
 let isProductValid = false;
 formInputs.productName.addEventListener('blur', () => {
-    if (formInputs.productName.value == 'Producto') {
-        formInputs.productName.classList.add('is-invalid');
-        isProductValid = false;
-    } else {
-        formInputs.productName.classList.remove('is-invalid');
-        isProductValid = true;
-    }
-});
+    (inputValidation(formInputs.productName, 'Producto')) ? isProductValid = true : isProductValid = false;
+})
 
-/**Evento del rating */
+/**Validacion del rating*/
 let isRatingComplete = false;
-formSubmit.addEventListener('click', () => {
+formSubmit.addEventListener('click', (e) => {
+    e.preventDefault;
     if (ratingValue == 0) {
         formInputs.rating.classList.add('is-invalid');
         isRatingComplete = false;
@@ -64,16 +68,10 @@ formSubmit.addEventListener('click', () => {
     }
 });
 
-/**Evento del textarea */
+/**validacioon del text area */
 let isReviewFill = false;
 formInputs.review.addEventListener('blur', () => {
-    if (formInputs.review.value == '') {
-        formInputs.review.classList.add('is-invalid');
-        isReviewFill = false;
-    } else {
-        formInputs.review.classList.remove('is-invalid');
-        isReviewFill = true;
-    };
+    (inputValidation(formInputs.review, '')) ? isReviewFill = true : isReviewFill = false;
 });
 
 
@@ -81,17 +79,25 @@ formInputs.review.addEventListener('blur', () => {
 const clearForm = () => {
     formInputs.productCategory.value = 'Categoria';
     formInputs.productName.value = 'Producto';
+    formInputs.productName.setAttribute('disabled', '');
     formInputs.review.value = '';
     stars.forEach(star => star.classList.remove('checked'));
     ratingValue = 0;
+    formSubmit.classList.remove('is-invalid');
 };
 
-/**Inicia la logica de la lista de reseñas */
+/**Targetas previamenete cargadas */
 let reviewsArray = [
     new ReviewCard('toño', 'miel', 'liquidos', 1, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?', 'assets/imgs/miel_frasco.webp'),
     new ReviewCard('ivan', 'jabon1', 'liquidos', 2, 'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?', 'assets/imgs/miel_frasco.webp')
 ];
+reviewsArray.forEach(review => {
+    reviewlist.insertAdjacentHTML('beforeend', review.renderCard(review))
+})
 
+function createReview(review){
+    reviewlist.insertAdjacentHTML('beforeend', review.renderCard(review));
+};
 
 /**Eventos del submit */
 formSubmit.addEventListener('click', (e) => {
@@ -102,16 +108,7 @@ formSubmit.addEventListener('click', (e) => {
     } else {
         const newReview = new ReviewCard('toño', formInputs.productName.value, formInputs.productCategory.value, ratingValue, formInputs.review.value, 'assets/imgs/miel_frasco.webp');
         reviewsArray.push(newReview);
-        reviewlist.insertAdjacentHTML('beforeend', newReview.renderCard(newReview));
+        createReview(newReview);
         clearForm();
-        formSubmit.classList.remove('is-invalid');
     }
 });
-
-
-
-
-reviewsArray.forEach(review => {
-    reviewlist.insertAdjacentHTML('beforeend', review.renderCard(review))
-})
-
