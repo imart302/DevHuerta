@@ -1,0 +1,82 @@
+/* Se importan los estilos root, del nabvar y del footer */
+@import './root.css';
+@import './components/navbar.css';
+@import '/styles/components/footer.css';
+
+.dn-reviews-head{
+    background-color: var(--yellow1-base);
+    overflow: hidden;
+}
+
+.dn-reviews-head img{
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    height: 140px;
+}
+
+.dn-reviews-cont{
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--brown1-light);
+    border:  rebeccapurple dotted 2px;
+}
+
+.stars{
+    font-size: 20px;
+    color: var(--gray);
+}
+
+.stars:hover{
+    color: gold;
+}
+
+.dn-review-form{
+    width: clamp(18em, 40vw, 25em);
+    background-color: var(--yellow1-dark);
+}
+
+.dn-reviews-cont textarea{
+    resize: none;
+}
+
+.dn-review-list{
+    width: clamp(18em, 50vw, 35em);
+    height: 800px;
+    overflow-y: scroll;
+}
+
+.checked{
+    color: gold;
+}
+/*Inicia estilos de la tarjeta de reseñas.--------------------------*/
+.dn-review-card{
+    background-color: var(--yellow1-base);
+}
+
+.dn-review-img{
+    width: 80px;
+    height: 80px;
+}
+
+.review-description{
+    width: 80%;
+    background-color: transparent;
+    border: none;
+}
+
+.review-desc-head{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.review-desc-body{
+    height: fit-content;
+    width: 100%;
+}
+
+.rating-cont-2{
+    color: var(--gray);
+    font-size: 1em;
+}
