@@ -48,5 +48,5 @@ const cardsList = [
 
 /*cada tarjeta creada en 'cardsList' se renderiza en index.html mediante el metodo 'renderCard' de la clase 'NewCard'*/
 cardsList.forEach(card => {
-    newsContainer.insertAdjacentHTML('beforeend', card.renderCard(card));
+    newsContainer.insertAdjacentHTML('beforeend', card.renderCard());
 });
