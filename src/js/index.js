@@ -1,12 +1,13 @@
 import { WeekProduct } from './lib/minirender/weekProduct.js';
 import { NewCard } from './lib/minirender/newsCard.js';
 import './components/navbar.js';
+import mielfrasco from '../assets/imgs/miel_frasco.webp';
 
 export const productosFake = [
 	new WeekProduct(
 		'Title1',
 		'Quick description',
-		'./assets/imgs/miel_frasco.webp'
+		mielfrasco
 	),
 	new WeekProduct(
 		'Title2',
