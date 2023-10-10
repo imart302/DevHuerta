@@ -1,4 +1,4 @@
-import '/js/components/navbar.js';
+import './components/navbar.js';
 
 const formBtn = document.getElementById('contactForm');
 

@@ -1,1 +1,1 @@
-import 'components/navbar.js';
+import './components/navbar.js';

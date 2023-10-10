@@ -1,6 +1,6 @@
-import { getProducts } from '/js/api/products.js';
-import '/js/components/navbar.js';
-import { ProductShopCard } from '/js/lib/minirender/productShopCard.js';
+import { getProducts } from './api/products.js';
+import './components/navbar.js';
+import { ProductShopCard } from './lib/minirender/productShopCard.js';
 
 /**
  * Elementos del DOM del store.html
