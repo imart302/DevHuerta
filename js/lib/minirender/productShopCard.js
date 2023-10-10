@@ -5,22 +5,21 @@ import { Product } from '../../api/dtos/product.js';
  * de compra, extiende del Dto Product de la API
  */
 export class ProductShopCard {
-  
-  /**
-   * {Product}
-   */
-  product = null;
+	/**
+	 * {Product}
+	 */
+	product = null;
 
-  /**
-   * Constructor
-   * @param {Product} product 
-   */
-  constructor(product) {
-    this.product = product;
-  }
+	/**
+	 * Constructor
+	 * @param {Product} product
+	 */
+	constructor(product) {
+		this.product = product;
+	}
 
-  renderStr() {
-    return `
+	renderStr() {
+		return `
       <div class="dn-shop-card card shadow-lg">
       <img
         src="${this.product.imgUrl}"
@@ -57,30 +56,34 @@ export class ProductShopCard {
       </div>
     </div>
     `;
-  }
+	}
 
-  renderDom() {
-    const auxDiv = document.createElement('div');
-    auxDiv.innerHTML = this.renderStr();
-    const btnAddToCart = auxDiv.querySelector('.dn-button-addToCart');
-    
-    /**
-     * Implementar el botón agregar al carrito debe
-     * añadir el objeto en un array dentro de local Storage
-     */
-    btnAddToCart.addEventListener('click', () => {
-      const inputQtyCart = Number.parseInt(auxDiv.querySelector('input').value);
-      const quantity = (Number.isNaN(inputQtyCart) || inputQtyCart < 0) ? 1 : inputQtyCart;
-      if(localStorage.getItem('cart')){
-        const cartJson = JSON.parse(localStorage.getItem('cart'));
-        cartJson.push({ product: this.product, quantity });
-        localStorage.setItem('cart', JSON.stringify(cartJson));
-      } else {
-        localStorage.setItem('cart', JSON.stringify([ { product: this.product, quantity } ]));
-      }
-    });
+	renderDom() {
+		const auxDiv = document.createElement('div');
+		auxDiv.innerHTML = this.renderStr();
+		const btnAddToCart = auxDiv.querySelector('.dn-button-addToCart');
 
-    //Retorna el contenedor de la tarjeta solamente;
-    return auxDiv;
-  }
+		/**
+		 * Implementar el botón agregar al carrito debe
+		 * añadir el objeto en un array dentro de local Storage
+		 */
+		btnAddToCart.addEventListener('click', () => {
+			const inputQtyCart = Number.parseInt(auxDiv.querySelector('input').value);
+			const quantity =
+				Number.isNaN(inputQtyCart) || inputQtyCart < 0 ? 1 : inputQtyCart;
+			if (localStorage.getItem('cart')) {
+				const cartJson = JSON.parse(localStorage.getItem('cart'));
+				cartJson.push({ product: this.product, quantity });
+				localStorage.setItem('cart', JSON.stringify(cartJson));
+			} else {
+				localStorage.setItem(
+					'cart',
+					JSON.stringify([{ product: this.product, quantity }])
+				);
+			}
+		});
+
+		//Retorna el contenedor de la tarjeta solamente;
+		return auxDiv;
+	}
 }
