@@ -1,28 +1,26 @@
-
-
 export class ProductList {
-  id = 0;
-  gram = 0;
-  imgFile = '';
-  info = '';
-  name = '';
-  price = 0;
-  stock = 0;
-  typeGram = '';
+	id = 0;
+	gram = 0;
+	imgFile = '';
+	info = '';
+	name = '';
+	price = 0;
+	stock = 0;
+	typeGram = '';
 
-  constructor(id, gram, imgFile, info, name, price, stock, typeGram) {
-    this.id = id;
-    this.gram = gram;
-    this.imgFile = imgFile;
-    this.info = info;
-    this.name = name;
-    this.price = price;
-    this.stock = stock;
-    this.typeGram = typeGram;
-  }
+	constructor(id, gram, imgFile, info, name, price, stock, typeGram) {
+		this.id = id;
+		this.gram = gram;
+		this.imgFile = imgFile;
+		this.info = info;
+		this.name = name;
+		this.price = price;
+		this.stock = stock;
+		this.typeGram = typeGram;
+	}
 
-  renderStr() {
-    return `
+	renderStr() {
+		return `
     <div class="dn-mn-product-list-item w-100">
       <div class="dn-mn-product-list-item-img">
         <img src="${this.imgFile}" alt="${this.name}">
@@ -35,17 +33,17 @@ export class ProductList {
         <div><span class="fw-bold">Stock: </span><span>${this.stock}</span></div>
       </div>
     </div>
-    `
-  }
+    `;
+	}
 
-  renderDom(classList = "list-group-item") {
-    const liBase = document.createElement('li');
-    liBase.classList.add(classList);
-    liBase.innerHTML = this.renderStr();
-    const itemContainer = liBase.querySelector('.dn-mn-product-list-item');
-    itemContainer.addEventListener('click', () => {
-      window.location.href = `/admin/product.html?product=${this.id}`;
-    });
-    return liBase;
-  }
+	renderDom(classList = 'list-group-item') {
+		const liBase = document.createElement('li');
+		liBase.classList.add(classList);
+		liBase.innerHTML = this.renderStr();
+		const itemContainer = liBase.querySelector('.dn-mn-product-list-item');
+		itemContainer.addEventListener('click', () => {
+			window.location.href = `/admin/product.html?product=${this.id}`;
+		});
+		return liBase;
+	}
 }

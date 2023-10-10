@@ -1,5 +1,5 @@
 /* Se importa la clase que renderiza las tarjetas de reseñas */
-import { ReviewCard } from '/js/lib/minirender/reviewsCard.js';
+import { ReviewCard } from './lib/minirender/reviewsCard.js';
 
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
