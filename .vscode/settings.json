@@ -2,6 +2,7 @@
   "cSpell.words": [
 		"dtos",
 		"minirender",
+		"propolio",
 		"renderizá",
 		"renderizados",
 		"renderizar",
@@ -34,9 +35,7 @@
   "editor.detectIndentation": false,
   "editor.insertSpaces": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.useTabs": true,
-
+  "prettier.useTabs": false,
 	"liveServer.settings.root": "/dist",
 	"liveServer.settings.port": 5501
-	
 }

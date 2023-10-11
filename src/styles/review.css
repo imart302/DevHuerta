@@ -1,7 +1,7 @@
 /* Se importan los estilos root, del nabvar y del footer */
 @import './root.css';
 @import './components/navbar.css';
-@import '/styles/components/footer.css';
+@import './components/footer.css';
 
 /*Encabezado del main container*/
 .dn-reviews-head {

@@ -2,23 +2,23 @@
  * que se muestran al final de la pagina de inicio */
 
 export class NewCard {
-	title = '';
-	abstract = '';
-	date = '';
-	imgURL = '';
-	url = '';
+  title = '';
+  abstract = '';
+  date = '';
+  imgURL = '';
+  url = '';
 
-	constructor(title, abstract, date, imgURL, url) {
-		this.title = title;
-		this.abstract = abstract;
-		this.date = date;
-		this.imgURL = imgURL;
-		this.url = url;
-	}
+  constructor(title, abstract, date, imgURL, url) {
+    this.title = title;
+    this.abstract = abstract;
+    this.date = date;
+    this.imgURL = imgURL;
+    this.url = url;
+  }
 
-	/* Regresa la tarjeta de la noticia en d¿formato html para ser insertado en el index.html*/
-	renderCard() {
-		return `
+  /* Regresa la tarjeta de la noticia en d¿formato html para ser insertado en el index.html*/
+  renderCard() {
+    return `
         <div class="card m-4 position-relative  dn-news-card">
             <p class="mt-3 dn-p-date p-1">${this.date}</p>
             <img class="w-100 card-img-top" src="${this.imgURL}" alt="">
@@ -29,5 +29,5 @@ export class NewCard {
             </div>
         </div>
         `;
-	}
+  }
 }

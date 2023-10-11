@@ -11,13 +11,13 @@ const REGISTER_DOM = {
     inputConfirmPassword: document.getElementById('id-input-confirmPassword'),
   },
 
-  clearFormInputs: function() {
+  clearFormInputs: function () {
     const registerInputs = this.formInputs;
 
     Object.keys(registerInputs).forEach((inputKey) => {
       registerInputs[inputKey].value = '';
     });
-  }
+  },
 };
 
 /**
@@ -28,9 +28,8 @@ const swalWithBootstrapButtons = Swal.mixin({
   customClass: {
     confirmButton: 'btn btn-info',
   },
-  buttonsStyling: false
-})
-
+  buttonsStyling: false,
+});
 
 /**
  * Establece event listeners del form Registrase
@@ -58,7 +57,6 @@ Object.keys(REGISTER_DOM.formInputs).forEach((registerKey) => {
   });
 });
 
-
 /**
  * Valida que los campos del form sean validos
  */
@@ -80,62 +78,61 @@ function validateFields() {
   });
 
   /* Si los email no coinciden manda una alerta */
-  if(registerInputs.inputEmail.value != registerInputs.inputConfirmEmail.value){
+  if (
+    registerInputs.inputEmail.value != registerInputs.inputConfirmEmail.value
+  ) {
     badRequest = true;
     swalWithBootstrapButtons.fire({
       title: 'Los email no coinciden',
       icon: 'error',
-      confirmButtonText: 'Entendido'
+      confirmButtonText: 'Entendido',
     });
 
     return !badRequest;
   }
 
-   /* Si los password no coinciden manda una alerta */
-  if(registerInputs.inputPassword.value != registerInputs.inputConfirmPassword.value){
+  /* Si los password no coinciden manda una alerta */
+  if (
+    registerInputs.inputPassword.value !=
+    registerInputs.inputConfirmPassword.value
+  ) {
     badRequest = true;
     swalWithBootstrapButtons.fire({
       title: 'Las contraseñas no coinciden',
       icon: 'error',
-      confirmButtonText: 'Entendido'
+      confirmButtonText: 'Entendido',
     });
 
     return !badRequest;
   }
 
   return !badRequest;
-
 }
-
 
 /**
  * Función para enviar un request a la API
  */
-function registerUser(user){
-  
+function registerUser(user) {
   console.log(user);
   REGISTER_DOM.clearFormInputs();
 }
 
-
 REGISTER_DOM.registerForm.addEventListener('submit', (ev) => {
   ev.preventDefault();
 
-  if(validateFields()){
+  if (validateFields()) {
     const registerInputs = REGISTER_DOM.formInputs;
 
     const userData = {
       firstName: registerInputs.inputFirstName.value,
       lastName: registerInputs.inputLastName.value,
       email: registerInputs.inputEmail.value,
-      password: registerInputs.inputPassword.value
-    }
+      password: registerInputs.inputPassword.value,
+    };
 
     console.log('EVERYTHING LOOKS GOOD');
     registerUser(userData);
-
   } else {
     console.log('BAD REQUEST');
   }
-
 });

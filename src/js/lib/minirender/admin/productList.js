@@ -1,3 +1,4 @@
+
 export class ProductList {
 	id = 0;
 	gram = 0;
@@ -42,7 +43,7 @@ export class ProductList {
 		liBase.innerHTML = this.renderStr();
 		const itemContainer = liBase.querySelector('.dn-mn-product-list-item');
 		itemContainer.addEventListener('click', () => {
-			window.location.href = `/admin/product.html?product=${this.id}`;
+			window.location.href = `product.html?product=${this.id}`;
 		});
 		return liBase;
 	}

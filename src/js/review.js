@@ -1,5 +1,7 @@
 /* Se importa la clase que renderiza las tarjetas de reseñas */
 import { ReviewCard } from './lib/minirender/reviewsCard.js';
+import './components/navbar.js';
+import mielFrasco from '../assets/imgs/miel_frasco.webp';
 
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
@@ -100,7 +102,7 @@ let reviewsArray = [
 		'líquidos',
 		1,
 		'Lorem ipsum Nostrum atque quia soluta sequi',
-		'assets/imgs/miel_frasco.webp'
+		mielFrasco
 	),
 	new ReviewCard(
 		'ivan-Martinez',
@@ -108,7 +110,7 @@ let reviewsArray = [
 		'liquidos',
 		2,
 		'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus? Pariatur?',
-		'assets/imgs/miel_frasco.webp'
+		mielFrasco
 	),
 	new ReviewCard(
 		'johan',
@@ -116,7 +118,7 @@ let reviewsArray = [
 		'liquidos',
 		2,
 		'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores',
-		'assets/imgs/miel_frasco.webp'
+		mielFrasco
 	),
 ];
 
@@ -143,7 +145,7 @@ formSubmit.addEventListener('click', (e) => {
 			formInputs.productCategory.value,
 			ratingValue,
 			formInputs.review.value,
-			'assets/imgs/miel_frasco.webp'
+			mielFrasco
 		);
 		reviewsArray.push(newReview);
 		createReview(newReview);
