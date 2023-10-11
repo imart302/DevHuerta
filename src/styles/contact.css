@@ -1,7 +1,7 @@
 /* Se importan los estilos root y del navbar */
-@import 'root.css';
-@import 'components/navbar.css';
-@import 'components/footer.css';
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
 
 /* Estilos de imagen y titulo superior */
 .img-container {
