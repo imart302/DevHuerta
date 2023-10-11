@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 
 export default config = defineConfig({
 	root: path.resolve(__dirname, "src"),
-	//base: '/DevHuerta/',  //<-- Usar cuando se utilice github page
+	base: '/DevHuerta/',  //<-- Usar cuando se utilice github page
   build: {
 		outDir: path.resolve(__dirname, "dist"),
     rollupOptions: {
@@ -17,8 +17,6 @@ export default config = defineConfig({
 				register: path.resolve(__dirname, "src/auth/register.html"),
 				management: path.resolve(__dirname, "src/admin/management.html"),
 				product: path.resolve(__dirname, "src/admin/product.html"),
-
-				
 			}
     }
   }
