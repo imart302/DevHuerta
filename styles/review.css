@@ -3,86 +3,85 @@
 @import './components/navbar.css';
 @import '/styles/components/footer.css';
 
-
 /*Encabezado del main container*/
-.dn-reviews-head{
-    background-color: var(--yellow1-dark);
-    overflow: hidden;
+.dn-reviews-head {
+	background-color: var(--yellow1-dark);
+	overflow: hidden;
 }
 /*honey comb*/
-.dn-reviews-head img{
-    position: absolute;
-    right: -50px;
-    bottom: -50px;
-    height: 140px;
+.dn-reviews-head img {
+	position: absolute;
+	right: -50px;
+	bottom: -50px;
+	height: 140px;
 }
 
 /*contenedor del formulario y de la lista de reseñas*/
-.dn-reviews-cont{
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-color: var(--brown1-light);
+.dn-reviews-cont {
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	background-color: var(--brown1-light);
 }
 
 /*Formulario-----*/
-.dn-review-form{
-    width: clamp(18em, 40vw, 25em);
-    background-color: var(--yellow1-dark);
+.dn-review-form {
+	width: clamp(18em, 40vw, 25em);
+	background-color: var(--yellow1-dark);
 }
 
-.stars{
-    font-size: 20px;
-    color: var(--gray);
+.stars {
+	font-size: 20px;
+	color: var(--gray);
 }
 
-.stars:hover{
-    color: gold;
+.stars:hover {
+	color: gold;
 }
 
-.dn-review-form textarea{
-    resize: none;
+.dn-review-form textarea {
+	resize: none;
 }
 
 /**Lista de reseñas*/
-.dn-review-list{
-    width: clamp(18em, 50vw, 35em);
-    height: 800px;
-    overflow-y: scroll;
+.dn-review-list {
+	width: clamp(18em, 50vw, 35em);
+	height: 800px;
+	overflow-y: scroll;
 }
 
 /*Clase para colorear las estrellas de el rating*/
-.checked{
-    color: gold;
+.checked {
+	color: gold;
 }
 
 /*Inicia estilos para las tarjeta de reseñas*/
-.dn-review-card{
-    background-color: var(--yellow1-base);
+.dn-review-card {
+	background-color: var(--yellow1-base);
 }
 
-.dn-review-img{
-    width: 80px;
-    height: 80px;
+.dn-review-img {
+	width: 80px;
+	height: 80px;
 }
 
-.review-description{
-    width: 80%;
-    background-color: transparent;
-    border: none;
+.review-description {
+	width: 80%;
+	background-color: transparent;
+	border: none;
 }
 
-.review-desc-head{
-    width: 100%;
-    justify-content: space-between;
+.review-desc-head {
+	width: 100%;
+	justify-content: space-between;
 }
 
-.review-desc-body{
-    height: fit-content;
-    width: 100%;
+.review-desc-body {
+	height: fit-content;
+	width: 100%;
 }
 
-.rating-cont-2{
-    color: var(--gray);
-    font-size: 1em;
+.rating-cont-2 {
+	color: var(--gray);
+	font-size: 1em;
 }
