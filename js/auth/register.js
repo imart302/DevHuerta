@@ -130,7 +130,7 @@ REGISTER_DOM.registerForm.addEventListener('submit', (ev) => {
       email: registerInputs.inputEmail.value,
       password: registerInputs.inputPassword.value
     }
-
+		
     console.log('EVERYTHING LOOKS GOOD');
     registerUser(userData);
 
