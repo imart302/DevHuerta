@@ -127,15 +127,9 @@ REGISTER_DOM.registerForm.addEventListener('submit', (ev) => {
       firstName: registerInputs.inputFirstName.value,
       lastName: registerInputs.inputLastName.value,
       email: registerInputs.inputEmail.value,
-<<<<<<< HEAD:js/auth/register.js
-      password: registerInputs.inputPassword.value
-    }
-		
-=======
       password: registerInputs.inputPassword.value,
     };
 
->>>>>>> 7f6d691d3c384cbf1b8f134c272c1a30d93cf8aa:src/js/auth/register.js
     console.log('EVERYTHING LOOKS GOOD');
     registerUser(userData);
   } else {
