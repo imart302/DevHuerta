@@ -33,7 +33,7 @@
   "cSpell.enableFiletypes": ["es"],
   "cSpell.language": "en,es-ES",
   "editor.detectIndentation": false,
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.useTabs": false,
 	"liveServer.settings.root": "/dist",

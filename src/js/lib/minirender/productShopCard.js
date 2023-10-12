@@ -1,4 +1,4 @@
-import { Product } from '../../api/dtos/product.js';
+import { ProductDbDto } from '../../api/dtos/product.js';
 
 /**
  * Clase para hace render de una tarjeta de producto
@@ -12,7 +12,7 @@ export class ProductShopCard {
 
   /**
    * Constructor
-   * @param {Product} product
+   * @param {ProductDbDto} product
    */
   constructor(product) {
     this.product = product;

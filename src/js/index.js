@@ -1,15 +1,9 @@
-import { WeekProduct } from './lib/minirender/weekProduct.js';
+import { WeekProductCard } from './lib/minirender/weekProductCard.js';
 import { NewCard } from './lib/minirender/newsCard.js';
 import './components/navbar.js';
-import mielFrasco from '../assets/imgs/miel_frasco.webp';
 import newImg from '../assets/imgs/newsImg.webp';
+import { getWeekProducts } from './api/products.js';
 
-export const productosFake = [
-  new WeekProduct('Title1', 'Quick description', mielFrasco),
-  new WeekProduct('Title2', 'Quick description', mielFrasco),
-  new WeekProduct('Title3', 'Quick description', mielFrasco),
-  new WeekProduct('Title4', 'Quick description', mielFrasco),
-];
 
 /**
  * Aquí van todos los elementos DOM que se requieran del index.html
@@ -19,15 +13,29 @@ const INDEX_ELEMENTS = {
   productWeekContainer: document.getElementById('id-products-week'),
 };
 
-window.addEventListener('load', () => {
-  //Aquí es el momento ideal para obtener los productos de la semana de la API
-  productosFake.forEach((p) => {
-    INDEX_ELEMENTS.productWeekContainer.insertAdjacentHTML(
-      'beforeend',
-      p.renderStr()
-    );
-  });
+/**
+ * Funcion para llamar a la API y obtener los productos de la semana
+ * debe gestionar la promesa del servidor
+ */
+function fetchWeekProducts() {
+  getWeekProducts().then((products) => {
+    products.forEach((product) => {
+      INDEX_ELEMENTS.productWeekContainer.insertAdjacentHTML(
+        'beforeend',
+        (new WeekProductCard(product)).renderStr()
+      );
 
+    });
+  });
+}
+
+/**
+ * Event listener cuando el DomEs cagado
+ */
+window.addEventListener('load', () => {
+
+  // Obten los productos de la semana
+  fetchWeekProducts();
   /* Mas fetch a la API */
 });
 
@@ -61,6 +69,7 @@ const cardsList = [
     '#'
   ),
 ];
+
 /**sintaxis: NewCard('titulo', 'resumen', 'fecha', 'url dela imagen', 'url de la noticia') */
 
 /*cada tarjeta creada en 'cardsList' se renderizá en index.html mediante el método 'renderCard' de la clase 'NewCard'*/
