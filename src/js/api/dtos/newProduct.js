@@ -1,9 +1,8 @@
 /**
- * Estructura esperada de la respuesta de la
- * API de un producto
+ * Estructura para mandar a la API
+ * para que nos cree un nuevo producto
  */
-export class ProductDbDto {
-  id = 0;
+export class NewProductDto {
   category = '';
   gram = 0;
   imgUrl = '';
@@ -13,8 +12,7 @@ export class ProductDbDto {
   stock = 0;
   typeGram = '';
 
-  constructor(id, category, gram, imgUrl, info, name, price, stock, typeGram) {
-    this.id = id;
+  constructor(category, gram, imgUrl, info, name, price, stock, typeGram) {
     this.category = category;
     this.gram = gram;
     this.imgUrl = imgUrl;

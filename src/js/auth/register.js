@@ -1,3 +1,5 @@
+import { createUser } from '../api/auth.js';
+import { CreateUserDto } from '../api/dtos/createUser.js';
 import { EMAIL_REGEX } from '../utils/constants.js';
 
 const REGISTER_DOM = {
@@ -111,10 +113,21 @@ function validateFields() {
 
 /**
  * Función para enviar un request a la API
+ * para crear registrar un nuevo usuario
  */
 function registerUser(user) {
-  console.log(user);
   REGISTER_DOM.clearFormInputs();
+  createUser(user).then((result) => {
+    swalWithBootstrapButtons.fire({
+      title: "Registro con exito",
+      icon: "success",
+      confirmButtonText: "Entendido"
+    })
+    .then(() => {
+      //Redirecciona a login cuando termine
+      window.location.href = "login.html";
+    })
+  });
 }
 
 REGISTER_DOM.registerForm.addEventListener('submit', (ev) => {
@@ -123,12 +136,12 @@ REGISTER_DOM.registerForm.addEventListener('submit', (ev) => {
   if (validateFields()) {
     const registerInputs = REGISTER_DOM.formInputs;
 
-    const userData = {
-      firstName: registerInputs.inputFirstName.value,
-      lastName: registerInputs.inputLastName.value,
-      email: registerInputs.inputEmail.value,
-      password: registerInputs.inputPassword.value,
-    };
+    const userData = new CreateUserDto(
+      registerInputs.inputFirstName.value,
+      registerInputs.inputLastName.value,
+      registerInputs.inputEmail.value,
+      registerInputs.inputPassword.value
+    )
 
     console.log('EVERYTHING LOOKS GOOD');
     registerUser(userData);
