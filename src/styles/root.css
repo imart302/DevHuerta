@@ -192,6 +192,15 @@ body {
   background-color: var(--primary);
 }
 
+.dropdown-menu {
+  background-color: var(--white);
+}
+
+.dropdown-item:hover {
+  background-color: var(--yellow1-dark);
+}
+
+
 /*
 -----------------------------------------
 SOBRE-ESCRITURA COMPONENTE NAVBAR DE BOOTSTRAP

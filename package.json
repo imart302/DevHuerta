@@ -4,13 +4,14 @@
   "description": "Generartion CH32 E-Commerce for natural products from local producers",
   "main": "index.js",
   "scripts": {
-		"dev": "vite",
-		"build": "vite build",
+    "dev": "vite",
+    "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "vite": "^4.4.11"
-  }
+  },
+  "keywords": []
 }

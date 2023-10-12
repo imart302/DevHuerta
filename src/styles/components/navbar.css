@@ -1,36 +1,81 @@
 /*  definicion de Posisoin para que no se vaya con el scroll  */
-nav .navbar{
-    top: 0%;
-    position: sticky !important;
-    z-index: 10;
-} 
+nav .navbar {
+  top: 0%;
+  position: sticky !important;
+  z-index: 10;
+}
+
 /* color principal de la navbar */
 nav {
-    background-color: var(--yellow2-base);
+  background-color: var(--yellow2-base);
 }
+
 /* logo de img */
-nav .nav-img{
-    width: 50px !important;
-    padding:0;
+nav .nav-img {
+  width: 50px !important;
+  padding: 0;
 }
+
 /* icono de usuario  */
-nav .cuenta{
-    width: 30px !important;
-    padding:0;
+nav .cuenta {
+  width: 30px !important;
+  padding: 0;
 }
 
-nav .nav-link:hover{
-    color: var(--yellow1-base) !important;
+nav .nav-link:hover {
+  color: var(--yellow1-base) !important;
 }
 
-nav .title:hover{
-    color: var(--yellow1-base) !important;
+nav .title:hover {
+  color: var(--yellow1-base) !important;
 }
 
-nav .selector{
-    color: var(--yellow3-base) !important;
+nav .selector {
+  color: var(--yellow3-base) !important;
 }
 
-nav .title{
-    font-size: 1.5em !important;
+nav .title {
+  font-size: 1.5em !important;
+}
+
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  nav #id-navbar-account-dropdown-list {
+    transform: translateX(calc(100% - 10px));
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  nav #id-navbar-account-dropdown-list {
+    transform: translateX(calc(100% - 10px));
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  nav #id-navbar-account-dropdown-list {
+    transform: translateX(-25%);
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  nav #id-navbar-account-dropdown-list {
+    transform: translateX(calc(-100% + 10px));
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  nav #id-navbar-account-dropdown-list {
+    transform: translateX(calc(-100% + 10px));
+  }
 }

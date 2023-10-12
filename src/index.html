@@ -21,6 +21,12 @@
       crossorigin="anonymous"
     />
 
+    <!-- Bootstrap 5 Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
     <!-- Local imports -->
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
@@ -84,23 +90,47 @@
             </li>
             <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
             <li class="nav-item">
-              <a
-                class="nav-link active subtitle"
-                href="review.html"
-                id="review"
+              <a class="nav-link active subtitle" href="review.html" id="review"
                 >Reseña</a
               >
             </li>
           </ul>
 
-          <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
-          <a class="navbar-brand title" href="cuenta.html">
-            <img
-              src="./assets/svgs/person-circle.svg"
-              class="img-fluid cuenta"
-              alt="Icon"
-            />
-          </a>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-bs-toggle="dropdown"
+              data-bs-display="static"
+              aria-expanded="false"
+            >
+              <i class="bi bi-person-circle"></i>
+            </button>
+            <ul
+              id="id-navbar-account-dropdown-list"
+              class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"
+            >
+              <li>
+                <a class="dropdown-item" type="button" href="account.html"
+                  >Mi cuenta</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" type="button" href="cart.html"
+                  >Mi carrito</a
+                >
+              </li>
+              <hr class="dropdown-divider" />
+              <li id="id-navbar-account-dropdown-login">
+                <a class="dropdown-item" type="button" href="auth/login.html">
+                  Iniciar sesión
+                </a>
+              </li>
+              <li id="id-navbar-account-dropdown-logout" class="d-none">
+                <button class="dropdown-item" type="button">Salir</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -221,7 +251,7 @@
         <h1 class="text-center my-5">Productos de la semana</h1>
         <div id="id-products-week" class="dn-grid">
           <!-- Keep this for as template -->
-					<!--
+          <!--
           <div class="dn-week-product-card">
             <div class="card shadow-lg" style="width: 18rem">
               <img
