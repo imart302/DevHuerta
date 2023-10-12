@@ -2,8 +2,6 @@
  * Estructura esperada de la respuesta de la
  * API para un usuario loggeado
  */
-
-
 export class LoggedUser{
 	id= 0;
 	firstName= "";

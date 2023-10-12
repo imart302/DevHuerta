@@ -94,14 +94,22 @@ function loginUser(userData) {
 	login(userData).then((loggedUser) => {
 		const userString = JSON.stringify(loggedUser);
 		localStorage.setItem("userLogged",userString);
-		LOGIN_DOM.clearFormInputs();
+    LOGIN_DOM.clearFormInputs();
+    swalBootstrapBtn.fire({
+      title: 'Bienvenido',
+			text: `${loggedUser.firstName} ${loggedUser.lastName}`,
+      icon: 'success',
+      confirmButtonText: 'Siguiente'
+		}).then(() => {
+      // Cuando te has logeado con exito redirecciona a la pagina principal
+      window.location.href = "../";
+    });
 	});
 }
 
 /**
  * Aquí vamos a escuchar el evento submit del form del login
  */
-
 LOGIN_DOM.loginForm.addEventListener('submit', (ev) => {
 	ev.preventDefault();
 	if (validateFields()) {
@@ -109,12 +117,6 @@ LOGIN_DOM.loginForm.addEventListener('submit', (ev) => {
 			email: LOGIN_DOM.formInputs.inputEmail.value,
 			password: LOGIN_DOM.formInputs.inputPassword.value,
 		};
-		swalBootstrapBtn.fire({
-      title: 'Bienvenido',
-			//text: `${LoggedUser.firstName} ${LoggedUser.lastName}`,
-      icon: 'success',
-      confirmButtonText: 'Siguiente'
-		})
 		console.log(userData);
 		loginUser(userData);
 	} else {

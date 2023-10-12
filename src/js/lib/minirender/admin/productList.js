@@ -1,37 +1,29 @@
+import { ProductDbDto } from "../../../api/dtos/product";
 
 export class ProductList {
-	id = 0;
-	gram = 0;
-	imgFile = '';
-	info = '';
-	name = '';
-	price = 0;
-	stock = 0;
-	typeGram = '';
 
-	constructor(id, gram, imgFile, info, name, price, stock, typeGram) {
-		this.id = id;
-		this.gram = gram;
-		this.imgFile = imgFile;
-		this.info = info;
-		this.name = name;
-		this.price = price;
-		this.stock = stock;
-		this.typeGram = typeGram;
+  product = null;
+
+  /**
+   * 
+   * @param {ProductDbDto} product 
+   */
+	constructor(product) {
+    this.product = product
 	}
 
 	renderStr() {
 		return `
     <div class="dn-mn-product-list-item w-100">
       <div class="dn-mn-product-list-item-img">
-        <img src="${this.imgFile}" alt="${this.name}">
+        <img src="${this.product.imgUrl}" alt="${this.product.name}">
       </div>
       <div class="dn-mn-product-list-desc d-flex flex-column">
-        <div><span class="fw-bold">Id: </span><span>${this.id}</span></div>
-        <div><span class="fw-bold">Nombre: </span><span>${this.name}</span></div>
-        <div><span class="fw-bold">Gramaje: </span><span>${this.gram} ${this.typeGram}</span></div>
-        <div><span class="fw-bold">Precio: </span><span>$${this.price} MXN</span></div>
-        <div><span class="fw-bold">Stock: </span><span>${this.stock}</span></div>
+        <div><span class="fw-bold">Id: </span><span>${this.product.id}</span></div>
+        <div><span class="fw-bold">Nombre: </span><span>${this.product.name}</span></div>
+        <div><span class="fw-bold">Gramaje: </span><span>${this.product.gram} ${this.product.typeGram}</span></div>
+        <div><span class="fw-bold">Precio: </span><span>$${this.product.price} MXN</span></div>
+        <div><span class="fw-bold">Stock: </span><span>${this.product.stock}</span></div>
       </div>
     </div>
     `;

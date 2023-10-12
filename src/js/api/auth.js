@@ -1,3 +1,4 @@
+import { CreateUserDto } from "./dtos/createUser.js";
 import {LoggedUser} from "./dtos/loggedUser.js"
 
 /**
@@ -15,4 +16,13 @@ const userLoggedFake = new LoggedUser(123,"Alberto","Diaz","albertodiaz@hotmail.
 export async function login(userData){
 	userLoggedFake.email = userData.email;
 	return userLoggedFake;
+}
+
+/**
+ * 
+ * @param {CreateUserDto} userData 
+ * @returns 
+ */
+export async function createUser(userData){
+  return true;
 }

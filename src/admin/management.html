@@ -21,6 +21,9 @@
       crossorigin="anonymous"
     />
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Local imports -->
     <link rel="shortcut icon" href="../assets/svgs/DulceNectarSinLetras.svg" />
     <link rel="stylesheet" href="./styles/management.css" />
@@ -60,6 +63,20 @@
                   id="id-input-productInfo"
                   placeholder="Miel de abeja"
                 />
+                <p class="invalid-feedback">
+                  Por favor, añada una descripción breve.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-category" class="form-label"
+                  >Categoría</label
+                >
+                <select id="id-input-category" class="form-select" aria-label="Default select example">
+                  <option value="C1" selected>Cate 1</option>
+                  <option value="C2">Cate 2</option>
+                  <option value="C3">Cate 3</option>
+                  <option value="C4">Cate 4</option>
+                </select>                
                 <p class="invalid-feedback">
                   Por favor, añada una descripción breve.
                 </p>
@@ -130,12 +147,26 @@
                 </p>
               </div>
               <div class="mb-3">
+                <label for="id-input-imgUrl" class="form-label"
+                  >Link a imagen de producto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id-input-imgUrl"
+                  placeholder="https://www.cdn.org/1d3fs.webp"
+                />
+                <p class="invalid-feedback">
+                  Por favor ingrese un URL valido
+                </p>
+              </div>
+              <!-- <div class="mb-3">
                 <label for="id-input-pic">Imagen del producto</label>
                 <input type="file" class="form-control" id="id-input-pic" />
                 <p class="invalid-feedback">
                   Por favor, añada una imagen del producto
                 </p>
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-primary">Añadir</button>
             </form>
           </div>
