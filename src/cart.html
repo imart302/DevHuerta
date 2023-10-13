@@ -134,62 +134,138 @@
       </div>
     </nav>
 
-    <main class="container-fluid-grid">
+    <!-- <main class="container-fluid-grid">
       <div></div>
       <div class="CartContainer">
-        <h2>TU CARRITO</h2>
-        <div class="cartInfoContainer">
-        <div class="CartInfo">
+       
+        <div id="profiles" class="dn-list-products"></div>
+      </div>
+
+      <div></div>
+    </main> -->
+
+
+    <main class="container pt-5">
+    <h2>TU CARRITO</h2>
+    <div class="cartInfoContainer">
+      <div class="CartInfo">
         <h3>Costo total:</h3>
         <h3 id="Total" class="CostoTotal"></h3>
       </div>
       <div class="PayButton">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Proceder con la compra</button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="Nombre-text" class="col-form-label">Nombre</label>
-                  <textarea class="form-control" id="Nombre-text"></textarea>
-                </div>
-                <div class="mb-3">
-                  <label for="Numero-text" class="col-form-label">Numero de telefono</label>
-                  <textarea class="form-control" id="Numero-text"></textarea>
-                </div>
-                
-                <div class="mb-3 Direcion-container">
-                  <label for="CodigoPostal-name" class="col-form-label">Codigo Postal:</label>
-                  <input type="text" class="form-control" id="CodigoPostal-name">
-                  <label for="Direccion-name" class="col-form-label">Colonia</label>
-                  <input type="text" class="form-control" id="Colonia-name">
-                </div>
-                <div class="mb-3">
-                  <label for="Calle-text" class="col-form-label">Calle</label>
-                  <textarea class="form-control" id="Calle-text"></textarea>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Terminar Compra</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@mdo"
+        >
+          Proceder con la compra
+        </button>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Detalles de compra
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="Nombre-text" class="col-form-label"
+                      >Nombre</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="Nombre-text"
+                    ></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label for="Numero-text" class="col-form-label"
+                      >Numero de telefono</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="Numero-text"
+                    ></textarea>
+                  </div>
+
+                  <div class="mb-3 Direcion-container">
+                    <label for="CodigoPostal-name" class="col-form-label"
+                      >Codigo Postal:</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="CodigoPostal-name"
+                    />
+                    <label for="Direccion-name" class="col-form-label"
+                      >Colonia</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Colonia-name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="Calle-text" class="col-form-label"
+                      >Calle</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="Calle-text"
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Terminar Compra
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-      <div id="profiles" class="dn-list-products">
-        
+
+      <div class="dn-cartInfoContainer"></div>
+      <div id="id-cartItemContainer" class="dn-cartItemsContainer">
+        <div class="dn-product-cartItem w-100">
+          <img src="../assets/imgs/DulceNectar.png" alt="" />
+          <div class="dn-mn-cartlistInfo d-flex flex-column">
+            <div><span class="fw-bold">Nombre: </span><span>Miel blanca sacada de la cola de la vaca </span></div>
+            <div><span class="fw-bold">Gramaje: </span><span>100g</span></div>
+            <div>
+              <span class="fw-bold">Precio: </span><span>$100 MXN</span>
+            </div>
+            <div><span class="fw-bold">Cantidad: </span><span>99</span></div>
+            <div><span class="fw-bold">SubTotal: </span><span></span></div>
+            <div class="button-container"><button class="btn btn-primary"><i class="bi bi-trash"></i></button></div>
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <div></div>
     </main>
 
     <footer>
