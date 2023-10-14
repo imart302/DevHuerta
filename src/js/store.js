@@ -70,7 +70,7 @@ STORE_DOM.filterModal.buttons.clear.addEventListener('click', () => {
  * cuando se hace click debe ir a mi carrito
  */
 STORE_DOM.fabCart.addEventListener('click', () => {
-  window.location.href = '/cart.html';
+  window.location.href = './cart.html';
 });
 
 /**
