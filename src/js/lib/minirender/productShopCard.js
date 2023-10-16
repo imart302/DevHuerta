@@ -1,4 +1,5 @@
 import { ProductDbDto } from '../../api/dtos/product.js';
+import { swalWithBootstrapButtons } from '../../utils/sweetAlert.js'
 
 /**
  * Clase para hace render de una tarjeta de producto
@@ -81,6 +82,11 @@ export class ProductShopCard {
           JSON.stringify([{ product: this.product, quantity }])
         );
       }
+      swalWithBootstrapButtons.fire({
+        title: "Se agrego al carrito",
+        icon: "success",
+        confirmButtonText: "Continuar",
+      });
     });
 
     //Retorna el contenedor de la tarjeta solamente;
