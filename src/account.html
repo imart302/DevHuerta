@@ -21,18 +21,21 @@
       crossorigin="anonymous"
     />
 
-<!-- Bootstrap 5 Icons -->
+    <!-- Bootstrap 5 Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Local imports -->
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
-    <link rel="stylesheet" href="./styles/contact.css" />
-    <title>Dulce Nectar</title>
-  </head>
+    <link rel="stylesheet" href="./styles/account.css" />
 
+    <title>Mi cuenta</title>
+  </head>
   <body>
     <!-- Inicio de navbar -->
     <nav
@@ -134,64 +137,22 @@
         </div>
       </div>
     </nav>
-    <!-- Inicia contenido principal pagina de contacto -->
-    <main id="id-contact-main" class="container position-relative pt-5">
-      <div class="img-container shadow">
-        <span class="Span-element"></span>
-        <p>
-          ¡Endulza nuestra bandeja de entrada con tus comentarios o sugerencias!
-        </p>
+
+    <main class="container position-relative">
+      <div class="dn-account-cont card mb-5 mx-auto">
+        <div class="card dn-profileCard my-4">
+          <div class="dn-profileCard-head">
+            <img class="dn-avatar" src="./assets/imgs/DulceNectar.png" alt="" />
+          </div>
+          <div class="dn-acount-data pt-5 mt-5">
+            <h2 id="firstName" class="my-3"></h2>
+            <p id="lastName" class="my-3"></p>
+            <p id="email"></p>
+          </div>
+        </div>
+        <img class="dn-account-svg my-4" src="./assets/svgs/account.svg" alt="" />
       </div>
-
-      <div class="card-container shadow-lg">
-        <img src="./assets/svgs/contacto.svg" alt="logo-dulceNectar" />
-
-        <form action="#" class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="nameInput">Nombre</label>
-            <input type="text" class="form-control" id="nameInput" />
-            <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
-          </div>
-
-          <div class="form-group">
-            <label for="phoneInput">Número de teléfono</label>
-            <input type="number" class="form-control" id="phoneInput" />
-            <div class="invalid-feedback">Por favor, verifica tu numero.</div>
-          </div>
-
-          <div class="form-group">
-            <label for="emailInput">Dirección de correo electrónico</label>
-            <input
-              type="email"
-              class="form-control"
-              id="emailInput"
-              placeholder="name@example.com"
-            />
-            <div class="invalid-feedback">
-              Por favor, ingresa una dirección de correo valida.
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="messageInput">Mensaje</label>
-            <textarea
-              class="form-control"
-              id="messageInput"
-              rows="6"
-            ></textarea>
-            <div class="invalid-feedback">
-              Por favor, déjanos un mensaje o sugerencia.
-            </div>
-          </div>
-
-          <input
-            type="submit"
-            value="enviar"
-            class="btn btn-primary"
-            id="contact-btn"
-          />
-        </form>
-      </div>
+      
     </main>
 
     <!-- Inicia footer -->
@@ -246,6 +207,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/contact.js" type="module" defer></script>
+    <script src="./js/account.js" type="module" defer></script>
   </body>
 </html>

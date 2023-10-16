@@ -12,7 +12,6 @@ let reviewList = [
   new Review(
     1,
     'antonio',
-    'mieles',
     'miel de 100ml',
     mielImg,
     3,
@@ -21,7 +20,6 @@ let reviewList = [
   new Review(
     2,
     'ivan_mtz',
-    'dulces',
     'dulce de miel',
     mielImg,
     5,
@@ -30,7 +28,6 @@ let reviewList = [
   new Review(
     3,
     'lu-gallardo',
-    'Jabones',
     'jabon 60g',
     mielImg,
     2,
@@ -39,7 +36,6 @@ let reviewList = [
   new Review(
     4,
     'johann',
-    'dulces',
     'dulce de miel',
     mielImg,
     4,

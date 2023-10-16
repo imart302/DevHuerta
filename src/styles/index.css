@@ -189,7 +189,7 @@ NEWS SECTION STYLES
 }
 
 .dn-news-card {
-	width: clamp(18em, 20vw, 25em);
+	width: clamp(18em, 20vw, 22em);
 	height: 30em;
 	background-color: var(--yellow1-dark);
 }

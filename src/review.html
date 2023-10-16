@@ -27,6 +27,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Local imports -->
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
     <link rel="stylesheet" href="./styles/review.css" />
@@ -146,8 +149,8 @@
       <div class="card dn-reviews-cont d-flex flex-row flex-wrap">
         <!-- Inicia formulario de reseñas -->
         <form action="#" class="dn-review-form card m-3 p-3">
-          <div>
-            <label for="productCategory"
+          <!-- <div>
+            <label for="productName"
               >Seleccione el producto a calificar</label
             >
             <select
@@ -162,19 +165,19 @@
             <div class="invalid-feedback text-center">
               Por favor, seleccione una categoría.
             </div>
-          </div>
+          </div> -->
 
           <div>
+            <label for="productName"
+              >Seleccione el producto a calificar</label
+            >
             <select
               class="form-select my-3"
               aria-label="Default select example"
               id="productName"
-              disabled
             >
-              <option selected>Producto</option>
-              <option>producto 1</option>
-              <option>producto 3</option>
-              <option>producto 4</option>
+              <!-- <option selected>Producto</option> -->
+              <!-- <option>producto 1</option> -->
             </select>
             <div class="invalid-feedback text-center">
               Por favor, Selecciona un producto.
