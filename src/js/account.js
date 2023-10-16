@@ -1,3 +1,5 @@
+import { LOGGED_USER_LS_KEY } from "./utils/constants";
+
 /**Obtenemos los elementos html donde mostraremos los datos */
 const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
@@ -14,10 +16,10 @@ const sweetAlertBtn = Swal.mixin({
 /**Función para obtener los datos del usuario */
 async function getUser() {
   try {
-    const user = JSON.parse(localStorage.getItem('userLogged'));
+    const user = await JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY));
     return user;
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
 }
 

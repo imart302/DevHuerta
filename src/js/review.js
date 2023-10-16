@@ -1,20 +1,19 @@
 /* Se importa la clase que renderiza las tarjetas de reseñas */
 import { Review } from './api/dtos/review.js';
 import { getReviews } from './api/reviews.js';
+import { getProducts } from './api/products.js';
 import { ReviewCard } from './lib/minirender/reviewsCard.js';
 import './components/navbar.js';
-import mielFrasco from '../assets/imgs/miel_frasco.webp';
+import { LOGGED_USER_LS_KEY } from './utils/constants.js';
 
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
 const reviewlist = document.getElementById('review-list');
 
-/* Objeto de los inputs del formulario de reseñas */
-const formInputs = {
-  productName: document.getElementById('productName'),
-  rating: document.getElementById('ratingContainer'),
-  review: document.getElementById('reviewInput'),
-};
+/* inputs del formulario de reseñas */
+const productName = document.getElementById('productName');
+const rating = document.getElementById('ratingContainer');
+const review = document.getElementById('reviewInput');
 
 /**Declaración del sweet alert */
 const sweetAlertBtn = Swal.mixin({
@@ -26,11 +25,22 @@ const sweetAlertBtn = Swal.mixin({
 
 /**Evento para cargar las reseñas existentes al cargar la pagina */
 window.addEventListener('DOMContentLoaded', () => {
-  getReviews().then( reviews => {
-    reviews.forEach( review => {
+  getReviews().then((reviews) => {
+    reviews.forEach((review) => {
       const cardReview = new ReviewCard(review).renderCard();
       reviewlist.insertAdjacentHTML('beforeend', cardReview);
     });
+  });
+});
+
+/**Se carga la lista de productos en el select del formulario */
+let productList;
+window.addEventListener('DOMContentLoaded', async () => {
+  productList = await getProducts();
+  console.log(productList);
+  productList.forEach((product) => {
+    const option = `<option value="${product.id}" >${product.info}</option>`;
+    productName.insertAdjacentHTML('beforeend', option);
   });
 });
 
@@ -54,30 +64,29 @@ let isRatingComplete = false;
 formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
   if (ratingValue == 0) {
-    formInputs.rating.classList.add('is-invalid');
+    rating.classList.add('is-invalid');
     isRatingComplete = false;
   } else {
-    formInputs.rating.classList.remove('is-invalid');
+    rating.classList.remove('is-invalid');
     isRatingComplete = true;
   }
 });
 
 /**validación del text area */
 let isReviewFill = false;
-formInputs.review.addEventListener('blur', () => {
-  if (!formInputs.review.value) {
-    formInputs.review.classList.add('is-invalid');
+review.addEventListener('blur', () => {
+  if (!review.value) {
+    review.classList.add('is-invalid');
     isReviewFill = false;
   } else {
-    formInputs.review.classList.remove('is-invalid');
+    review.classList.remove('is-invalid');
     isReviewFill = true;
   }
 });
 
 /**Función para  limpiar el formulario después de agregar una reseña-------------------*/
 const clearForm = () => {
-  formInputs.productName.value = 'Producto 1';
-  formInputs.review.value = '';
+  review.value = '';
   stars.forEach((star) => star.classList.remove('checked'));
   ratingValue = 0;
   formSubmit.classList.remove('is-invalid');
@@ -87,7 +96,7 @@ const clearForm = () => {
 formSubmit.addEventListener('click', (e) => {
   e.preventDefault();
   const userLogged = localStorage.getItem('userLogged');
-
+  /**Verifica si el usuario ya inicio sesion */
   if (!userLogged) {
     sweetAlertBtn
       .fire({
@@ -99,18 +108,18 @@ formSubmit.addEventListener('click', (e) => {
         window.location.href = '../auth/login.html?fromReview=true';
       });
   } else {
-    let isFormValid =
-      isRatingComplete && isReviewFill ? true : false;
+    let isFormValid = isRatingComplete && isReviewFill ? true : false;
     if (!isFormValid) {
       formSubmit.classList.add('is-invalid');
     } else {
+      //creacion de nueva reseña
       const newReview = new Review(
         4,
-        JSON.parse(localStorage.getItem('userLogged')).firstName,
-        formInputs.productName.value,
-        mielFrasco,
+        JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).firstName,
+        productList[productName.value].info,
+        productList[productName.value].imgUrl,
         ratingValue,
-        formInputs.review.value
+        review.value
       );
       const addReview = new ReviewCard(newReview);
       reviewlist.insertAdjacentHTML('beforeend', addReview.renderCard());

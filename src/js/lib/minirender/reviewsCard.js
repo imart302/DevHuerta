@@ -22,9 +22,9 @@ export class ReviewCard {
             <img class="dn-review-img card-img" src="${this.review.imgUrl}" alt="">
           </div>
           <div class="review-description card m-1 p-1 d-flex flex-column">
-              <div class="review-desc-head d-flex flex-wrap space-beetwen">
+              <div class="review-desc-head d-flex">
                 <p class="m-0 p-1"><b>Producto: ${this.review.product}</b></p>
-                <div class="rating-cont-2 text-center m-0 p-1">
+                <div class="rating-cont-2 m-0 p-1">
                   ${stars}
                 </div>
               </div>

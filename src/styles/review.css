@@ -73,7 +73,7 @@
 
 .review-desc-head {
 	width: 100%;
-	justify-content: space-between;
+  flex-direction: column;
 }
 
 .review-desc-body {
