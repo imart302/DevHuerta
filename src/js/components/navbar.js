@@ -1,4 +1,4 @@
-import { PAGES } from '../utils/constants.js';
+import { PAGES, LOGGED_USER_LS_KEY } from '../utils/constants.js';
 //const Shop = document.getElementById('about');
 
 const NAVBAR_DOM = {
@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
 
 // Cuando se hace click en logout debe borrar el usuario de localStorage
 NAVBAR_DOM.dropdown.logout.addEventListener('click', () => {
-  localStorage.removeItem('currentUser');
+  localStorage.removeItem(LOGGED_USER_LS_KEY);
   NAVBAR_DOM.dropdown.login.classList.remove('d-none');
   NAVBAR_DOM.dropdown.logout.classList.add('d-none');
 });
@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Obtener el usuario logeado de local storage
-  const loggedUser = localStorage.getItem('currentUser');
+  const loggedUser = localStorage.getItem(LOGGED_USER_LS_KEY);
+  console.log(loggedUser);
   if (loggedUser) {
     // No hay que mostrar login cuando hay un usuario logeado
     NAVBAR_DOM.dropdown.login.classList.add('d-none');

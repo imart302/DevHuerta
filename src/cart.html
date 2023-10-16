@@ -27,6 +27,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Local imports -->
     <link rel="stylesheet" href="./styles/cart.css" />
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
@@ -144,127 +147,235 @@
       <div></div>
     </main> -->
 
-
-    <main class="container pt-5">
-    <h2>TU CARRITO</h2>
-    <div class="cartInfoContainer">
-      <div class="CartInfo">
-        <h3>Costo total:</h3>
-        <h3 id="Total" class="CostoTotal"></h3>
-      </div>
-      <div class="PayButton">
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          data-bs-whatever="@mdo"
-        >
-          Proceder con la compra
-        </button>
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Detalles de compra
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form>
+    <!-- Modal de terminar compra -->
+    <div
+      class="modal fade"
+      id="id-modal-finish-buy"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="exampleModalLabel">
+              Terminar compra
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="container-fluid w-100">
+              <div class="row">
+                <div class="col-8">
                   <div class="mb-3">
-                    <label for="Nombre-text" class="col-form-label"
-                      >Nombre</label
+                    <label for="id-input-card-number" class="form-label"
+                      >Numero de tarjeta:</label
                     >
-                    <textarea
+                    <input
+                      type="number"
                       class="form-control"
-                      id="Nombre-text"
-                    ></textarea>
+                      id="id-input-card-number"
+                    />
                   </div>
+                </div>
+                <div class="col-4">
                   <div class="mb-3">
-                    <label for="Numero-text" class="col-form-label"
-                      >Numero de telefono</label
+                    <label for="id-input-card-cvv" class="form-label"
+                      >CVV:</label
                     >
-                    <textarea
+                    <input
+                      type="password"
                       class="form-control"
-                      id="Numero-text"
-                    ></textarea>
+                      id="id-input-card-cvv"
+                    />
                   </div>
+                </div>
 
-                  <div class="mb-3 Direcion-container">
-                    <label for="CodigoPostal-name" class="col-form-label"
-                      >Codigo Postal:</label
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="id-input-state" class="form-label"
+                      >Estado:</label
                     >
                     <input
                       type="text"
                       class="form-control"
-                      id="CodigoPostal-name"
+                      id="id-input-state"
                     />
-                    <label for="Direccion-name" class="col-form-label"
-                      >Colonia</label
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="id-input-city" class="form-label"
+                      >Ciudad:</label
                     >
                     <input
                       type="text"
                       class="form-control"
-                      id="Colonia-name"
+                      id="id-input-city"
                     />
                   </div>
+                </div>
+
+                <div class="col-8">
                   <div class="mb-3">
-                    <label for="Calle-text" class="col-form-label"
-                      >Calle</label
+                    <label for="id-input-address" class="form-label"
+                      >Dirección:</label
                     >
-                    <textarea
+                    <input
+                      type="text"
                       class="form-control"
-                      id="Calle-text"
-                    ></textarea>
+                      id="id-input-address"
+                      placeholder="Calle 123 Av. Colon"
+                    />
                   </div>
-                </form>
+                </div>
+                <div class="col-4">
+                  <div class="mb-3">
+                    <label for="id-input-number" class="form-label"
+                      >Número:</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="id-input-number"
+                      placeholder="4000"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label for="id-input-postal-code" class="form-label"
+                      >Código postal:</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="id-input-postal-code"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label for="id-input-phone" class="form-label"
+                      >Teléfono de contacto:</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="id-input-phone"
+                    />
+                  </div>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cerrar
-                </button>
-                <button type="button" class="btn btn-primary">
-                  Terminar Compra
-                </button>
-              </div>
-            </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              id="id-btn-finish-buy"
+              type="button"
+              class="btn btn-primary"
+            >
+              Terminar Compra
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-      <div class="dn-cartInfoContainer"></div>
-      <div id="id-cartItemContainer" class="dn-cartItemsContainer">
-        <div class="dn-product-cartItem w-100">
+    <main class="container pt-5">
+      <h1 class="mb-5">Mi carrito</h1>
+      <div id="id-cart-info-container" class="d-flex flex-column flex-md-row justify-content-end justify-content-md-between mb-4 d-none">
+        <div class="d-flex gap-1 ms-auto ms-md-0">
+          <h3>Costo total: </h3>
+          <h3 id="Total" class="CostoTotal"></h3>
+        </div>
+        <div class="ms-auto ms-md-0">
+          <button
+            id="id-btn-confirm-buy"
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+          >
+            Confirmar pedido
+          </button>
+        </div>
+      </div>
+
+      <div id="id-empty-cart-container" class="d-none">
+        <div class="dn-empty-cart-animation position-relative overflow-hidden">
+          <div class="dn-cart-icon"><i class="bi bi-cart-x"></i></div>
+          <img
+            class="dn-empty-cactus"
+            src="./assets/imgs/pngwing.com.png"
+            alt=""
+          />
+          <img
+            class="dn-empty-cactus"
+            src="./assets/imgs/pngwing.com.png"
+            alt=""
+          />
+          <img
+            class="dn-empty-cactus"
+            src="./assets/imgs/pngwing.com.png"
+            alt=""
+          />
+          <img
+            class="dn-empty-cactus"
+            src="./assets/imgs/pngwing.com.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="d-flex flex-column gap-4 justify-content-center align-content-center"
+        >
+          <h2 class="text-center mb-0">¡Tu carrito esta vacío!</h2>
+          <a href="store.html" class="btn btn-primary m-auto"
+            >Tienda &#10142;</a
+          >
+        </div>
+      </div>
+
+      <div id="id-cartItemContainer" class="dn-cartItemsContainer mb-5">
+        <!-- <div class="dn-empty-cart-container position-relative w-100 overflow-hidden">
+          Tu carrito esta vacío
+          <div class="dn-empty-cart-icon">
+            <i class="bi bi-cart-x"></i>
+          </div>
+        </div> -->
+        <!-- <div class="dn-product-cartItem w-100">
           <img src="../assets/imgs/DulceNectar.png" alt="" />
           <div class="dn-mn-cartlistInfo d-flex flex-column">
-            <div><span class="fw-bold">Nombre: </span><span>Miel blanca sacada de la cola de la vaca </span></div>
+            <div>
+              <span class="fw-bold">Nombre: </span
+              ><span>Miel blanca sacada de la cola de la vaca </span>
+            </div>
             <div><span class="fw-bold">Gramaje: </span><span>100g</span></div>
             <div>
               <span class="fw-bold">Precio: </span><span>$100 MXN</span>
             </div>
             <div><span class="fw-bold">Cantidad: </span><span>99</span></div>
             <div><span class="fw-bold">SubTotal: </span><span></span></div>
-            <div class="button-container"><button class="btn btn-primary"><i class="bi bi-trash"></i></button></div>
+            <div class="button-container">
+              <button class="btn btn-primary">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 

@@ -8,3 +8,15 @@ export const PAGES = [
 	"review",
 	"about-us",
 ];
+
+export const LOGGED_USER_LS_KEY = 'userLogged';
+
+export const PRODUCT_CATEGORIES = [
+  "MIEL",
+  "HIGIENE",
+  "SALUD",
+  "COSMETICO",
+  "DULCE",
+  "HORNEADOS",
+  "OTROS"
+]

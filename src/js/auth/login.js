@@ -1,4 +1,4 @@
-import { EMAIL_REGEX } from '../utils/constants.js';
+import { EMAIL_REGEX, LOGGED_USER_LS_KEY } from '../utils/constants.js';
 import { login } from '../api/auth.js';
 import { LoggedUser } from '../api/dtos/loggedUser.js';
 
@@ -93,7 +93,7 @@ function validateFields() {
 function loginUser(userData) {
 	login(userData).then((loggedUser) => {
 		const userString = JSON.stringify(loggedUser);
-		localStorage.setItem("userLogged",userString);
+		localStorage.setItem(LOGGED_USER_LS_KEY, userString);
     LOGIN_DOM.clearFormInputs();
     swalBootstrapBtn.fire({
       title: 'Bienvenido',

@@ -1,9 +1,6 @@
 @import './root.css';
 @import './components/navbar.css';
 @import './components/footer.css';
-/* @import '../admin/styles/management.css'; */
-
-
 
 
 .cartInfoContainer{
@@ -112,6 +109,7 @@ img{
 
 
 /* Estilos nuevos */
+
 .dn-cartItemsContainer{
   display: flex;
   flex-direction: column;
@@ -168,6 +166,76 @@ margin: auto;
     justify-content:right;
   }
 }
+
+.dn-empty-cart-animation {
+  width: 100%;
+  height: 10rem;
+}
+
+.dn-cart-icon {
+  margin-bottom: 0;
+  width: 100%;
+  position: absolute;
+  font-size: 100px;
+  animation-name: move-cart;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  z-index: 100;
+}
+
+.dn-empty-cactus {
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  z-index: 3;
+  margin-bottom: 2rem;
+}
+
+.dn-empty-cactus2 {
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  width: 80px;
+  z-index: 3;
+  margin-bottom: 2rem;
+}
+
+.dn-empty-cactus {
+  position: absolute;
+  z-index: 3;
+  margin-bottom: 2rem;
+  bottom: 0;
+}
+
+.dn-empty-cactus:nth-child(1){
+  bottom: 0;
+  width: 50px;
+}
+
+.dn-empty-cactus:nth-child(2){
+  left: 30%;
+  width: 80px;
+}
+
+.dn-empty-cactus:nth-child(3){
+  left: 60%;
+  width: 60px;
+}
+
+.dn-empty-cactus:nth-child(4){
+  right: 0;
+  width: 100px;
+}
+
+@keyframes move-cart {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
 
 @media only screen and (min-width: 600px) {
   /*El grid contenedor solo tiene una columna*/

@@ -27,6 +27,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
 
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Local imports -->
     <link rel="stylesheet" href="./styles/store.css" />
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
@@ -153,6 +156,22 @@
       </button>
     </div>
 
+    <!-- El background con abejas y panales -->
+    <div class="fancy_background">
+      <img class="fancy_background_item" src="./assets/imgs/bee.png" />
+      <img class="fancy_background_item" src="./assets/imgs/bee.png" />
+      <img
+        class="fancy_background_item"
+        src="./assets/imgs/honeycomb.png"
+        alt=""
+      />
+      <img
+        class="fancy_background_item"
+        src="./assets/imgs/honeycomb.png"
+        alt=""
+      />
+    </div>
+
     <!-- Modal para filtrar productos -->
     <div
       class="modal fade"
@@ -184,9 +203,13 @@
                     >
                     <select class="form-select" id="id-input-modal-cat">
                       <option value="" selected></option>
-                      <option value="1">One</option>
-                      <option value="2">One</option>
-                      <option value="3">Three</option>
+                      <option value="MIEL">Miel</option>
+                      <option value="HIGIENE">Higiene</option>
+                      <option value="SALUD">Salud</option>
+                      <option value="COSMETICO">Cosméticos</option>
+                      <option value="DULCE">Dulces</option>
+                      <option value="HORNEADOS">Horneados</option>
+                      <option value="OTROS">Otros</option>
                     </select>
                   </div>
                 </div>
