@@ -32,10 +32,10 @@
 
     <!-- Local imports -->
     <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
-    <link rel="stylesheet" href="./styles/review.css" />
-    <title>Dulce Nectar</title>
-  </head>
+    <link rel="stylesheet" href="./styles/account.css" />
 
+    <title>Mi cuenta</title>
+  </head>
   <body>
     <!-- Inicio de navbar -->
     <nav
@@ -137,116 +137,22 @@
         </div>
       </div>
     </nav>
-    <!-- inicia contenido main de la página de reseñas -->
-    <main class="container position-relative py-5">
-      <div class="dn-reviews-head p-5 mb-5 position-relative border">
-        <h1 class="text-center mb-2">¿Te gustan nuestros productos?</h1>
-        <h2 class="text-center mt-4">¡Déjanos una reseña!</h2>
-        <img src="assets/imgs/honeycomb.png" alt="honeycomb" />
-      </div>
 
-      <!-- contenedor de formulario y lista de reseñas -->
-      <div class="card dn-reviews-cont d-flex flex-row flex-wrap">
-        <!-- Inicia formulario de reseñas -->
-        <form action="#" class="dn-review-form card m-3 p-3">
-          <!-- <div>
-            <label for="productName"
-              >Seleccione el producto a calificar</label
-            >
-            <select
-              class="form-select mt-3"
-              aria-label="Default select example"
-              id="productCategory"
-            >
-              <option selected>Categoría</option>
-              <option>Dulces</option>
-              <option>Jabones</option>
-            </select>
-            <div class="invalid-feedback text-center">
-              Por favor, seleccione una categoría.
-            </div>
-          </div> -->
-
-          <div>
-            <label for="productName"
-              >Seleccione el producto a calificar</label
-            >
-            <select
-              class="form-select my-3"
-              aria-label="Default select example"
-              id="productName"
-
-            >
-              <option selected>Producto 1</option>
-              <option>producto 2</option>
-              <option>producto 3</option>
-              <option>producto 4</option>
-            </select>
-            <div class="invalid-feedback text-center">
-              Por favor, Selecciona un producto.
-            </div>
+    <main class="container position-relative">
+      <div class="dn-account-cont card my-auto mx-auto">
+        <div class="card dn-profileCard my-4">
+          <div class="dn-profileCard-head">
+            <img class="dn-avatar" src="./assets/imgs/DulceNectar.png" alt="" />
           </div>
-
-          <div class="form-group my-3">
-            <p>Calificación</p>
-            <div class="rating-cont text-center my-2" id="ratingContainer">
-              <i class="bi bi-star-fill stars mx-1"></i>
-              <i class="bi bi-star-fill stars mx-1"></i>
-              <i class="bi bi-star-fill stars mx-1"></i>
-              <i class="bi bi-star-fill stars mx-1"></i>
-              <i class="bi bi-star-fill stars mx-1"></i>
-            </div>
-            <div class="invalid-feedback text-center">
-              Por favor, califica el producto.
-            </div>
+          <div class="dn-acount-data pt-5 mt-5">
+            <h2 id="firstName"></h2>
+            <p id="lastName"></p>
+            <p id="email"></p>
           </div>
-
-          <div class="form-group">
-            <label for="reviewInput">Reseña</label>
-            <textarea class="form-control" id="reviewInput" rows="4"></textarea>
-            <div class="invalid-feedback text-center">Déjanos una reseña!</div>
-          </div>
-
-          <div class="text-center">
-            <input
-              type="submit"
-              class="btn btn-primary my-3"
-              value="Agregar reseña"
-              id="reviewSubmit"
-            />
-            <div class="invalid-feedback text-center">
-              Completa todos los campos.
-            </div>
-          </div>
-        </form>
-
-        <!-- Lista de reseñas ********************************* -->
-        <div class="dn-review-list card border m-4" id="review-list">
-          <!-- Template de la reseña -->
-          <!--  <div class="dn-review-card w-100 border d-flex flex-wrap m-1 p-1">
-          <div class="mx-auto my-auto card">
-            <img class="dn-review-img card-img" src="assets/imgs/miel_frasco.webp" alt="">
-          </div>
-          <div class="review-description card m-1 p-1 d-flex flex-column">
-            <div class="review-desc-head d-flex flex-wrap space-beetwen align-center">
-              <p class="m-0 p-1">Nombre del producto</p>
-              <div class="rating-cont-2 text-center m-0 p-1">
-                <i class="bi bi-star-fill mx-1 checked"></i>
-                <i class="bi bi-star-fill mx-1 checked"></i>
-                <i class="bi bi-star-fill mx-1"></i>
-                <i class="bi bi-star-fill mx-1"></i>
-                <i class="bi bi-star-fill mx-1"></i>
-              </div>
-            </div>
-            <p class="m-0 p-1">User x</p>
-            <div class="review-desc-body p-1">
-              Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsa
-              consequuntur minus? Pariatur?
-            </div>
-          </div>
-        </div> -->
         </div>
+        <img class="dn-account-svg my-4" src="./assets/svgs/account.svg" alt="" />
       </div>
+      
     </main>
 
     <!-- Inicia footer -->
@@ -301,6 +207,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/review.js" type="module" defer></script>
+    <script src="./js/account.js" type="module" defer></script>
   </body>
 </html>
