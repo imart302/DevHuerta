@@ -25,7 +25,7 @@ export class NewCard {
             <div class="card-body d-flex flex-column">
                 <h3 class="card-title">${this.title}</h3>
                 <p class="card-text my-3">${this.abstract}</p>
-                <a href="${this.url}" class="d-block btn btn-secondary mx-5 mt-auto ">leer mas</a>
+                <a href="${this.url}" class="d-block btn btn-secondary mx-5 mt-auto" target="_blank">leer mas</a>
             </div>
         </div>
         `;
