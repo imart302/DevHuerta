@@ -1,0 +1,398 @@
+/**
+-------------------------------------------
+  PALETA DE COLORES DEL NEGOCIO
+-------------------------------------------
+*/
+:root {
+  --yellow1-base: #FFF7D4;
+  --yellow1-light: #FCFAF0;
+  --yellow1-dark: #DECD83;
+  --yellow2-base: #FFD95A;
+  --yellow2-light: #FFE17D;
+  --yellow2-dark: #D6AB1C;
+  --yellow3-base: #C07F00;
+  --yellow3-light: #F2AB1D;
+  --yellow3-dark: #916102;
+  --brown1-base: #683F35;
+  --brown1-light: #9D6254;
+  --brown1-dark: #482B24;
+  --black: #28282B;
+  --gray: #505050;
+  --white: #F9F6EE;
+  --primary: var(--yellow2-base);
+  --primary-hover: var(--yellow2-light);
+  --secondary: var(--brown1-base);
+  --secondary-hover: var(--brown1-light);
+  --border-color: var(--black);
+  --primary-background: var(--yellow1-light);
+  --paper-background: var(--white);
+  --font-color-light: var(--white);
+  --font-color-dark: var(--black);
+}
+
+/**
+-------------------------------------------
+  SOBRE-ESCRITURA DE BOTONES DE BOOTSTRAP 
+------------------------------------------
+*/
+
+/* Todos los botones */
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger,
+.btn-secondary {
+  border-radius: 23px;
+}
+
+/* BOTÓN PRIMARIO */
+
+/* Botón primario solo  */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--font-color-dark);
+  border-color: var(--border-color);
+}
+
+/* Botón primario desactivado  */
+.btn.btn-primary[disabled] {
+  background-color: var(--primary);
+  color: var(--gray);
+  border-style: none;
+  border-color: var(--border-color);
+}
+
+/* Botón primario hover */
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--white);
+  border-color: var(--black);
+  color: var(--black);
+}
+
+/* Botón primario activo y activo con focus  */
+.btn-primary:active,
+.btn-primary:active:focus {
+  background-color: var(--primary-hover);
+}
+
+/* BOTÓN SECUNDARIO  */
+
+/* Botón secundario normal */
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* Botón secundario hover */
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--black);
+}
+
+/* Botón secundario activo y activo con focus  */
+.btn-primary:active,
+.btn-primary:active:focus {
+  background-color: var(--secondary-hover)
+}
+
+/* Botón secundario desactivado */
+.btn.btn-secondary[disabled] {
+  background-color: var(--secondary);
+  color: var(--white);
+  border-color: var(--white);
+}
+
+/*  BOTÓN DE INFO AUXILIAR */
+
+/* Botón info por defecto */
+.btn-info {
+  background-color: var(--white);
+  border-color: var(--black);
+}
+
+/*Botón info en hover*/
+.btn-info:hover {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--white);
+}
+
+/* Botón info deshabilitado */
+.btn.btn-info[disabled] {
+  background-color: var(--white);
+  border-color: var(--black);
+}
+
+/*
+-----------------------------------------
+SOBRE-ESCRITURA DE FUENTES
+-----------------------------------------
+*/
+
+/* Fuente y tamaño de títulos*/
+h1 {
+  font-family: 'Instrument Serif', serif;
+}
+
+/* Headers h1 h2 */
+h2,
+h3 {
+  font-family: 'Instrument Serif', serif;
+}
+
+/* Headers h4, h5, h6*/
+h4,
+h5,
+h6 {
+  font-family: 'Instrument Serif', serif;
+}
+
+/* Fuente y tamaño de texto del cuerpo */
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Fuente y tamaño de títulos para navbars*/
+.title {
+  font-family: 'Instrument Serif', serif !important;
+}
+
+/* Fuente y tamaño de subtítulos */
+.subtitle {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5em !important;
+}
+
+/*
+-----------------------------------------
+SOBRE-ESCRITURA DE BACKGROUND DE CONTENDEDORES
+-----------------------------------------
+*/
+
+/* container de bootstrap y body */
+body, .carousel {
+  background-color: var(--primary-background) !important;
+}
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl
+{
+  background-color: transparent !important;
+}
+
+.modal-content {
+  background-color: var(--primary-background) !important;
+}
+
+.input-group-text {
+  background-color: var(--primary);
+}
+
+.dropdown-menu {
+  background-color: var(--white);
+}
+
+.dropdown-item:hover {
+  background-color: var(--yellow1-dark);
+}
+
+
+/*
+-----------------------------------------
+SOBRE-ESCRITURA COMPONENTE NAVBAR DE BOOTSTRAP
+-----------------------------------------
+*/
+.navbar {
+  z-index: 1030;
+}
+
+
+/*
+-----------------------------------------
+ELEMENTOS SEMÁNTICOS
+-----------------------------------------
+*/
+
+main {
+  min-height: 100vh; /* Para asegurar que el footer siempre este debajo */
+  margin-top: 5rem;
+}
+
+body {
+  z-index: -2;
+  position: relative;
+}
+
+.fancy_background {
+  z-index: -1;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fancy_background_item {
+  position: absolute;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 5px 5px var(--black));
+  filter: drop-shadow(5px 5px 5px var(--black));
+  opacity: 0.7;
+  /*
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-delay: 500ms;
+  */
+}
+
+.fancy_background img:nth-child(1){
+  width: 10rem;
+  height: 10rem;
+  top: 30rem;
+  left: 2rem;
+  transform: rotate(90deg);
+}
+
+.fancy_background img:nth-child(2){
+  width: 10rem;
+  height: 10rem;
+  top: 50rem;
+  right: 1%;
+  transform: rotate(-45deg);
+  /*animation-name: move2;*/
+}
+
+.fancy_background img:nth-child(3){
+  left: -20%;
+  width: 120vw;
+  top: 100vh;
+  opacity: 0.3;
+}
+
+.fancy_background img:nth-child(4){
+  right: -20%;
+  width: 120vw;
+  top: 200vh;
+  opacity: 0.3;
+  transform: rotate(90deg);
+}
+
+/* @keyframes move1 {
+  0% {
+    transform: translate(-10rem, -10rem) rotate(90deg);
+  }
+  25% {
+    transform: translate(0, 0) rotate(90deg);
+  }
+  50% {
+    transform: rotate(-90deg) translate(10rem, 10rem);
+  }
+  75% {
+    transform: translate(-10rem, -10rem) rotate(-90deg);
+  }
+  100% {
+    transform: translate(-10rem, -10rem) rotate(90deg);
+  }
+}
+
+@keyframes move2 {
+  0% {
+    transform: translate(-10rem, -10rem) rotate(90deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(90deg);
+  }
+} */
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .fancy_background img:nth-child(3){
+    left: -20%;
+    width: 110vw;
+    top: 100vh;
+    opacity: 0.3;
+  }
+
+  .fancy_background img:nth-child(4){
+    right: -20%;
+    width: 110vw;
+    top: 200vh;
+    opacity: 0.3;
+    transform: rotate(90deg);
+  }
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .fancy_background img:nth-child(3){
+    left: -20%;
+    width: 100vw;
+    top: 100vh;
+  }
+
+  .fancy_background img:nth-child(4){
+    right: -20%;
+    width: 100vw;
+    top: 200vh;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .fancy_background img:nth-child(3){
+    left: -20%;
+    width: 90vw;
+    top: 100vh;
+  }
+
+  .fancy_background img:nth-child(4){
+    right: -20%;
+    width: 90vw;
+    top: 200vh;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .fancy_background img:nth-child(3){
+    left: -10%;
+    width: 50vw;
+    top: 100vh;
+  }
+
+  .fancy_background img:nth-child(4){
+    right: -10%;
+    width: 50vw;
+    top: 200vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .fancy_background img:nth-child(3){
+    left: -10%;
+    width: 50vw;
+    top: 100vh;
+  }
+
+  .fancy_background img:nth-child(4){
+    right: -10%;
+    width: 50vw;
+    top: 200vh;
+  }
+}

@@ -1,0 +1,45 @@
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
+.container{
+  padding-top: 6em;
+}
+
+.dn-account-cont{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  background-color: var(--yellow1-dark);
+  justify-content: space-evenly;
+  padding: 2em;
+}
+
+.dn-account-svg{
+  width: clamp(18em, 30vw, 25em);
+}
+
+.dn-profileCard{
+  text-align: center;
+  height: 32em;
+  width: clamp(18em, 30vw, 25em);
+  overflow: hidden;
+}
+
+.dn-profileCard-head{
+  background-color: var(--brown1-light);
+  height: 35%;
+  position: relative;
+}
+
+.dn-avatar{
+  background-color: var(--yellow1-base);
+  position: absolute;
+  border: var(--brown1-light) solid 3px;
+  border-radius: 50%;
+  width: 12em;
+  bottom: -40%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 10;
+}

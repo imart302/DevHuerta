@@ -1,0 +1,54 @@
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
+.imagen {
+	width: 50%;
+	position: relative;
+}
+
+.bannerContainer {
+	border: solid 1px;
+	overflow: hidden;
+	align-items: center;
+	justify-items: center;
+	text-align: center;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	z-index: 3;
+	margin-top: 30px;
+}
+
+.honeyComb1Container {
+	position: absolute;
+	bottom: -50px;
+	left: -55px;
+	z-index: -1;
+	opacity: 0.5;
+}
+.honeyComb1Container img {
+	width: clamp(100px, 200px, 500px);
+	height: auto;
+}
+
+.honeyComb2Container {
+	width: 200px;
+	height: 200px;
+	top: -50px;
+	right: -50px;
+	position: absolute;
+	z-index: -1;
+	opacity: 0.5;
+}
+
+.honeyComb2Container img {
+	width: 100%;
+	height: 100%;
+}
+
+.cont {
+	text-align: center;
+	margin-top: 50px;
+	justify-content: center;
+}

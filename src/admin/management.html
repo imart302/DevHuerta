@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google fonts imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 styles -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Sweet Alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Local imports -->
+    <link rel="shortcut icon" href="../assets/svgs/DulceNectarSinLetras.svg" />
+    <link rel="stylesheet" href="./styles/management.css" />
+    <script type="module" src="./js/management.js" defer></script>
+    <title>Dulce Nectar</title>
+  </head>
+  <body>
+    <main class="container my-5">
+      <h1>Dulce Nectar: Panel de administración</h1>
+      <div class="row h-50">
+        <!-- Parte de añadir un producto -->
+        <div class="col-12 col-lg-6 mt-4">
+          <div class="container-fluid">
+            <h3 class="mb-5">Añadir un producto</h3>
+            <form id="id-add-product-form">
+              <div class="mb-3">
+                <label for="id-input-productName" class="form-label"
+                  >Nombre del producto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id-input-productName"
+                  placeholder="miel"
+                />
+                <p class="invalid-feedback">
+                  Por favor, ingrese el nombre del producto.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-productInfo" class="form-label"
+                  >Descripción del producto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id-input-productInfo"
+                  placeholder="Miel de abeja"
+                />
+                <p class="invalid-feedback">
+                  Por favor, añada una descripción breve.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-category" class="form-label"
+                  >Categoría</label
+                >
+                <select id="id-input-category" class="form-select" aria-label="Default select example">
+                  <option value="C1" selected>Cate 1</option>
+                  <option value="C2">Cate 2</option>
+                  <option value="C3">Cate 3</option>
+                  <option value="C4">Cate 4</option>
+                </select>                
+                <p class="invalid-feedback">
+                  Por favor, añada una descripción breve.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-grammage" class="form-label"
+                  >El gramaje del producto</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="id-input-grammage"
+                  min="1"
+                  placeholder="100"
+                />
+                <p class="invalid-feedback">
+                  Por favor, ingrese el gramaje del producto
+                </p>
+              </div>
+              <div class="mb-3">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="id-input-g"
+                    value="g"
+                    checked
+                  />
+                  <label class="form-check-label" for="id-input-g">Gramo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="id-input-l"
+                    value="l"
+                  />
+                  <label class="form-check-label" for="id-input-l">Litro</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-price" class="form-label"
+                  >Precio del producto en MXN</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="id-input-price"
+                  min="1"
+                  placeholder="100"
+                />
+                <p class="invalid-feedback">
+                  Por favor, ingrese el precio del producto en pesos mexicanos.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-stock">Cantidad en almacén</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="id-input-stock"
+                  placeholder="100"
+                />
+                <p class="invalid-feedback">
+                  Por favor, ingrese la cantidad de producto en stock.
+                </p>
+              </div>
+              <div class="mb-3">
+                <label for="id-input-imgUrl" class="form-label"
+                  >Link a imagen de producto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="id-input-imgUrl"
+                  placeholder="https://www.cdn.org/1d3fs.webp"
+                />
+                <p class="invalid-feedback">
+                  Por favor ingrese un URL valido
+                </p>
+              </div>
+              <!-- <div class="mb-3">
+                <label for="id-input-pic">Imagen del producto</label>
+                <input type="file" class="form-control" id="id-input-pic" />
+                <p class="invalid-feedback">
+                  Por favor, añada una imagen del producto
+                </p>
+              </div> -->
+              <button type="submit" class="btn btn-primary">Añadir</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Parte de listado de productos -->
+        <div class="col-12 col-lg-6 mt-4">
+          <div class="container-fluid">
+            <h3 class="mb-5">Listado</h3>
+            <div class="overflow-y-scroll dn-list-products">
+              <ul id="id-list-products" class="list-group">
+                <!-- KEEP THIS FOR TEMPLATE -->
+                <!-- <li class="list-group-item">
+                <div class="dn-mn-product-list-item w-100">
+                  <div class="dn-mn-product-list-item-img">
+                    <img src="../assets/imgs/DulceNectar.png" alt="">
+                  </div>
+                  <div class="dn-mn-product-list-desc d-flex flex-column">
+                    <div><span class="fw-bold">Id: </span><span>1</span></div>
+                    <div><span class="fw-bold">Nombre: </span><span>Miel</span></div>
+                    <div><span class="fw-bold">Gramaje: </span><span>100g</span></div>
+                    <div><span class="fw-bold">Precio: </span><span>$100 MXN</span></div>
+                    <div><span class="fw-bold">Stock: </span><span>99</span></div>
+                  </div>
+                </div>
+              </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

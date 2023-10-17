@@ -1,0 +1,204 @@
+/*Styles for the index.html*/
+
+/* Imports */
+@import './root.css';
+@import './components/navbar.css';
+@import './components/footer.css';
+
+/* Rest of the style definition */
+
+/* Bootstrap redefinition */
+
+.card {
+	background-color: var(--yellow2-light);
+}
+
+/* All text inside carousel */
+.carousel-item {
+	text-shadow: 0px 0px 10px var(--font-color-dark);
+	background-color: (--secondary);
+}
+
+/* Fix height of carousel items */
+.dn-carousel-inner-item {
+	position: relative;
+	height: 30rem;
+	overflow: hidden;
+}
+
+/* Estilos de la imagen de background del carousel */
+.dn-carousel-inner-item img {
+	position: absolute;
+	z-index: 1;
+	height: 100%;
+	object-fit: cover;
+	filter: opacity(80%);
+}
+
+/* Estilos del texto dentro del carousel */
+.dn-carousel-inner-item .dn-carousel-text {
+	position: absolute;
+	z-index: 2;
+}
+
+/* Estilos para poner el text en la parte izquierda superior del carousel*/
+.dn-carousel-inner-item .dn-carousel-text-c1 {
+	top: 7%;
+	left: 7%;
+	color: var(--font-color-light);
+	text-align: left;
+}
+
+/* Estilos para poner el text en la parte derecha inferior del carousel*/
+.dn-carousel-inner-item .dn-carousel-text-c3 {
+	bottom: 10%;
+	right: 7%;
+	color: var(--font-color-light);
+	text-align: right;
+}
+
+/*Logo central del carousel*/
+.dn-carousel-inner-item .dn-carousel-logo {
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Aplica un filtro al logo central del carousel */
+.dn-carousel-logo img {
+	filter: drop-shadow(1px 6px 17px white);
+}
+
+/* Contenedor de los productos de la semana */
+.dn-grid {
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 1rem;
+	gap: 2rem;
+	width: 100%;
+}
+
+/* Estilos de las tarjetas de productos de la semana */
+.dn-week-product-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  width: 290px;
+  height: 430px;
+  overflow: hidden;
+  background-color: var(--font-color-light);
+}
+
+.dn-week-product-card .dn-card-body {
+  padding: 13px;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.dn-week-product-card img {
+  height: 60%;
+  object-fit: cover;
+}
+
+.dn-week-product-card .dn-card-body p {
+  height: 60%;
+  text-overflow: clip;
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.dn-week-product-card .dn-card-body p::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.dn-week-product-card .dn-card-body p {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/*
+----------------------------------------------------
+MEDIA QUERIES FOR COMMON SIZES
+----------------------------------------------------
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /*El grid contenedor solo tiene una columna*/
+	.dn-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  /*El grid contenedor solo tiene una columna*/
+	.dn-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  /*El grid contenedor tiene dos columnas*/
+	.dn-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  /*El grid contenedor solo tiene 3 columnas*/
+	.dn-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  /*El grid contenedor solo tiene 3 columnas*/
+	.dn-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/*
+----------------------------------------------------
+NEWS SECTION STYLES
+----------------------------------------------------
+*/
+
+.dn-news-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.dn-news-card {
+	width: clamp(18em, 20vw, 22em);
+	height: 30em;
+	background-color: var(--yellow1-dark);
+}
+
+.dn-p-date {
+	position: absolute;
+	width: 8em;
+	padding-left: 1em;
+	border-radius: 0 8px 8px 0;
+	color: var(--white);
+	background-color: var(--brown1-dark);
+}

@@ -1,18 +1,19 @@
 {
   "cSpell.words": [
-		"dtos",
-		"minirender",
-		"renderizá",
-		"renderizados",
-		"renderizar",
-		"swal"
-	],
+    "dtos",
+    "minirender",
+    "propolio",
+    "renderizá",
+    "renderizados",
+    "renderizar",
+    "swal"
+  ],
   "liveServer.settings.donotShowInfoMsg": true,
   "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "prettier.singleQuote": true,
   "editor.tabSize": 2,
@@ -20,19 +21,21 @@
   "terminal.integrated.env.windows": {},
   "files.eol": "\n",
   "[json]": {
-      "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "cSpell.userWords": ["testconsole"],
   "[css]": {
-      "editor.defaultFormatter": "vscode.css-language-features"
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[javascriptreact]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.enableFiletypes": ["es"],
   "cSpell.language": "en,es-ES",
   "editor.detectIndentation": false,
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "prettier.useTabs": true
+  "prettier.useTabs": false,
+  "liveServer.settings.root": "/dist",
+  "liveServer.settings.port": 5501
 }
