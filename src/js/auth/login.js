@@ -97,15 +97,35 @@ function loginUser(userData) {
     LOGIN_DOM.clearFormInputs();
     swalBootstrapBtn.fire({
       title: 'Bienvenido',
-			text: `${loggedUser.firstName} ${loggedUser.lastName}`,
+      text: `${loggedUser.firstName} ${loggedUser.lastName}`,
       icon: 'success',
       confirmButtonText: 'Siguiente'
-		}).then(() => {
-      // Cuando te has logeado con exito redirecciona a la pagina principal
-      window.location.href = "../";
+    }).then(() => {
+      // Obtén el parámetro de redirección de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromCart = urlParams.get('fromCart');
+      const fromReview=urlParams.get('fromReview');
+      const fromAccount = urlParams.get('fromAccount');
+      
+      // Construye la URL de redirección basada en los parámetros
+      let redirectUrl = "../";
+      if (fromCart && fromCart.toLowerCase() === 'true') {
+        redirectUrl = "../cart.html";
+      }
+
+      if(fromReview && fromReview.toLowerCase() === 'true') {
+        redirectUrl = "../review.html";
+      }
+
+      if(fromAccount && fromAccount.toLowerCase() === 'true') {
+        redirectUrl = "../account.html";
+      }
+      // Redirecciona a la página correspondiente
+      window.location.href = redirectUrl;
     });
-	});
+  });
 }
+
 
 /**
  * Aquí vamos a escuchar el evento submit del form del login
