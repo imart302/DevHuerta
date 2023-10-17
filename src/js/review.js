@@ -105,7 +105,7 @@ formSubmit.addEventListener('click', (e) => {
         confirmButtonText: 'Iniciar sesión',
       })
       .then(() => {
-        window.location.href = '../auth/login.html?fromReview=true';
+        window.location.href = 'auth/login.html?fromReview=true';
       });
   } else {
     let isFormValid = isRatingComplete && isReviewFill ? true : false;
