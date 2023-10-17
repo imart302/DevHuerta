@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 export default config = defineConfig({
   // root es la raiz de nuestro proyecto es src
 	root: path.resolve(__dirname, "src"),
-	//base: '/DevHuerta/',  //<-- Usar cuando se utilice github page
+	base: '/DevHuerta/',  //<-- Usar cuando se utilice github page
   build: {
     // el build del proyecto estará en la carpeta dist
 		outDir: path.resolve(__dirname, "dist"),
