@@ -22,6 +22,7 @@ export default config = defineConfig({
 				management: path.resolve(__dirname, "src/admin/management.html"),
 				product: path.resolve(__dirname, "src/admin/product.html"),
 				cart: path.resolve(__dirname, "src/cart.html"),
+	      			account: path.resolve(__dirname, "src/account.html")
 			}
     }
   }
