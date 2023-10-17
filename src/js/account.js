@@ -1,4 +1,5 @@
 import { LOGGED_USER_LS_KEY } from "./utils/constants";
+import './components/navbar.js';
 
 /**Obtenemos los elementos html donde mostraremos los datos */
 const firstName = document.getElementById('firstName');
@@ -42,7 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
           confirmButtonText: 'Iniciar sesión',
         })
         .then(() => {
-          window.location.href = '../auth/login.html?fromAccount=true';
+          window.location.href = 'auth/login.html?fromAccount=true';
         });
     });
 });
