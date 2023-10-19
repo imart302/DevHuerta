@@ -1,5 +1,6 @@
 
 /**
+ * @deprecated
  * Clase para gestionar renderizados
  * de tarjetas de productos
  * usar esta como base
