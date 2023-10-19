@@ -158,8 +158,8 @@
 
     <!-- El background con abejas y panales -->
     <div class="fancy_background">
-      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt=""/>
-      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt=""/>
+      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
+      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
       <img
         class="fancy_background_item"
         src="./assets/imgs/honeycomb.png"
@@ -201,7 +201,13 @@
                     <label class="form-label" for="id-input-modal-cat"
                       >Categoría</label
                     >
-                    <select class="form-select" id="id-input-modal-cat">
+                    <select
+                      onfocus="this.size=1;"
+                      onblur="this.size=0;"
+                      onchange="this.size=1; this.blur()"
+                      class="form-select custom-select"
+                      id="id-input-modal-cat"
+                    >
                       <option value="" selected></option>
                       <option value="MIEL">Miel</option>
                       <option value="HIGIENE">Higiene</option>
