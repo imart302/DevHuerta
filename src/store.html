@@ -1,322 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google fonts imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bootstrap 5 styles -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
+  <!-- Google fonts imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat&display=swap"
+    rel="stylesheet" />
 
-    <!-- Bootstrap 5 Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
+  <!-- Bootstrap 5 styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-    <!-- Sweet Alert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Bootstrap 5 Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 
-    <!-- Local imports -->
-    <link rel="stylesheet" href="./styles/store.css" />
-    <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
-    <title>Tienda</title>
-  </head>
+  <!-- Sweet Alert 2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <body>
-    <!-- Inicio de navbar -->
-    <nav
-      class="navbar navbar-expand-md nav-color position-fixed w-100 top-0 shadow"
-    >
-      <div class="container-fluid">
-        <!-- Inicio y logo -->
-        <div class="navbar-nav">
-          <a class="navbar-brand nav-link title" href="index.html">
-            <img
-              src="./assets/svgs/DulceNectar.svg"
-              alt="Logo Dulce Nectar"
-              class="nav-img"
-            />DULCE NECTAR
-          </a>
-          <!-- menu Hamburger -->
-        </div>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- lista de links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"></li>
-            <li class="nav-item">
-              <a
-                class="nav-link active subtitle"
-                aria-current="page"
-                href="about-us.html"
-                id="about"
-                >Nosotros</a
-              >
+  <!-- Local imports -->
+  <link rel="stylesheet" href="./styles/store.css" />
+  <link rel="shortcut icon" href="./assets/svgs/DulceNectarSinLetras.svg" />
+  <title>Tienda</title>
+</head>
+
+<body>
+  <!-- Inicio de navbar -->
+  <nav class="navbar navbar-expand-md nav-color position-fixed w-100 top-0 shadow">
+    <div class="container-fluid">
+      <!-- Inicio y logo -->
+      <div class="navbar-nav">
+        <a class="navbar-brand nav-link title" href="index.html">
+          <img src="./assets/svgs/DulceNectar.svg" alt="Logo Dulce Nectar" class="nav-img" />DULCE NECTAR
+        </a>
+        <!-- menu Hamburger -->
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- lista de links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"></li>
+          <li class="nav-item">
+            <a class="nav-link active subtitle" aria-current="page" href="about-us.html" id="about">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active subtitle" href="contact.html" id="contacto">Contacto</a>
+          </li>
+          <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
+          <li class="nav-item">
+            <a class="nav-link active subtitle" href="store.html" id="shop">Tienda</a>
+          </li>
+          <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
+          <li class="nav-item">
+            <a class="nav-link active subtitle" href="review.html" id="review">Reseña</a>
+          </li>
+        </ul>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+            data-bs-display="static" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+          </button>
+          <ul id="id-navbar-account-dropdown-list" class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+            <li>
+              <a class="dropdown-item" type="button" href="account.html">Mi cuenta</a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active subtitle"
-                href="contact.html"
-                id="contacto"
-                >Contacto</a
-              >
+            <li>
+              <a class="dropdown-item" type="button" href="cart.html">Mi carrito</a>
             </li>
-            <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
-            <li class="nav-item">
-              <a class="nav-link active subtitle" href="store.html" id="shop"
-                >Tienda</a
-              >
+            <hr class="dropdown-divider" />
+            <li id="id-navbar-account-dropdown-login">
+              <a class="dropdown-item" type="button" href="auth/login.html">
+                Iniciar sesión
+              </a>
             </li>
-            <!-- Conexión ya pre hecha favor de llamar el archivo como dice el href -->
-            <li class="nav-item">
-              <a class="nav-link active subtitle" href="review.html" id="review"
-                >Reseña</a
-              >
+            <li id="id-navbar-account-dropdown-logout" class="d-none">
+              <button class="dropdown-item" type="button">Salir</button>
             </li>
           </ul>
-
-          <div class="btn-group">
-            <button
-              type="button"
-              class="btn btn-primary dropdown-toggle"
-              data-bs-toggle="dropdown"
-              data-bs-display="static"
-              aria-expanded="false"
-            >
-              <i class="bi bi-person-circle"></i>
-            </button>
-            <ul
-              id="id-navbar-account-dropdown-list"
-              class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"
-            >
-              <li>
-                <a class="dropdown-item" type="button" href="account.html"
-                  >Mi cuenta</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" type="button" href="cart.html"
-                  >Mi carrito</a
-                >
-              </li>
-              <hr class="dropdown-divider" />
-              <li id="id-navbar-account-dropdown-login">
-                <a class="dropdown-item" type="button" href="auth/login.html">
-                  Iniciar sesión
-                </a>
-              </li>
-              <li id="id-navbar-account-dropdown-logout" class="d-none">
-                <button class="dropdown-item" type="button">Salir</button>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
-    </nav>
-    <!-- Filter floating action button -->
-    <div
-      id="id-fab-filter"
-      class="position-fixed"
-      data-bs-toggle="modal"
-      data-bs-target="#id-modal-filter"
-    >
-      <button type="button" class="btn btn-secondary shadow">
-        <i class="bi bi-funnel"></i>
-      </button>
     </div>
+  </nav>
+  <!-- Filter floating action button -->
+  <div id="id-fab-filter" class="position-fixed" data-bs-toggle="modal" data-bs-target="#id-modal-filter">
+    <button type="button" class="btn btn-secondary shadow">
+      <i class="bi bi-funnel"></i>
+    </button>
+  </div>
 
-    <!-- Cart floating action button -->
-    <div id="id-fab-cart" class="position-fixed">
-      <button type="button" class="btn btn-primary shadow">
-        <i class="bi bi-cart"></i>
-      </button>
-    </div>
+  <!-- Cart floating action button -->
+  <div id="id-fab-cart" class="position-fixed">
+    <button type="button" class="btn btn-primary shadow">
+      <i class="bi bi-cart"></i>
+    </button>
+  </div>
 
-    <!-- El background con abejas y panales -->
-    <div class="fancy_background">
-      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
-      <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
-      <img
-        class="fancy_background_item"
-        src="./assets/imgs/honeycomb.png"
-        alt=""
-      />
-      <img
-        class="fancy_background_item"
-        src="./assets/imgs/honeycomb.png"
-        alt=""
-      />
-    </div>
+  <!-- El background con abejas y panales -->
+  <div class="fancy_background">
+    <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
+    <img class="fancy_background_item" src="./assets/imgs/bee.png" alt="" />
+    <img class="fancy_background_item" src="./assets/imgs/honeycomb.png" alt="" />
+    <img class="fancy_background_item" src="./assets/imgs/honeycomb.png" alt="" />
+  </div>
 
-    <!-- Modal para filtrar productos -->
-    <div
-      class="modal fade"
-      id="id-modal-filter"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Filtrar productos
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="container justify-content-center">
-              <div class="row justify-content-center">
-                <div class="col-12">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-cat"
-                      >Categoría</label
-                    >
-                    <select
-                      onfocus="this.size=1;"
-                      onblur="this.size=0;"
-                      onchange="this.size=1; this.blur()"
-                      class="form-select custom-select"
-                      id="id-input-modal-cat"
-                    >
-                      <option value="" selected></option>
-                      <option value="MIEL">Miel</option>
-                      <option value="HIGIENE">Higiene</option>
-                      <option value="SALUD">Salud</option>
-                      <option value="COSMETICO">Cosméticos</option>
-                      <option value="DULCE">Dulces</option>
-                      <option value="HORNEADOS">Horneados</option>
-                      <option value="OTROS">Otros</option>
-                    </select>
-                  </div>
+  <!-- Modal para filtrar productos -->
+  <div class="modal fade" id="id-modal-filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Filtrar productos
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container justify-content-center">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-cat">Categoría</label>
+                  <select onfocus="this.size=1;" onblur="this.size=0;" onchange="this.size=1; this.blur()"
+                    class="form-select custom-select" id="id-input-modal-cat">
+                    <option value="" selected></option>
+                    <option value="MIEL">Miel</option>
+                    <option value="HIGIENE">Higiene</option>
+                    <option value="SALUD">Salud</option>
+                    <option value="COSMETICO">Cosméticos</option>
+                    <option value="DULCE">Dulces</option>
+                    <option value="HORNEADOS">Horneados</option>
+                    <option value="OTROS">Otros</option>
+                  </select>
                 </div>
-                <div class="col-12">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-gram"
-                      >Tipo de gramaje</label
-                    >
-                    <select class="form-select" id="id-input-modal-gram">
-                      <option value="" selected></option>
-                      <option value="l">Litro</option>
-                      <option value="g">Gramo</option>
-                    </select>
-                  </div>
+              </div>
+              <div class="col-12">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-gram">Tipo de gramaje</label>
+                  <select class="form-select" id="id-input-modal-gram">
+                    <option value="" selected></option>
+                    <option value="l">Litro</option>
+                    <option value="g">Gramo</option>
+                  </select>
                 </div>
-                <div class="col-6">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-ming"
-                      >Mínimo gramaje</label
-                    >
-                    <input
-                      id="id-input-modal-ming"
-                      type="number"
-                      class="form-control"
-                      aria-label="Max liter or gram"
-                      placeholder="Gramo o Litro"
-                    />
-                  </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-ming">Mínimo gramaje</label>
+                  <input id="id-input-modal-ming" type="number" class="form-control" aria-label="Max liter or gram"
+                    placeholder="Gramo o Litro" />
                 </div>
-                <div class="col-6">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-maxg"
-                      >Máximo gramaje</label
-                    >
-                    <input
-                      id="id-input-modal-maxg"
-                      type="number"
-                      class="form-control"
-                      aria-label="Max liter or gram"
-                      placeholder="Gramo o Litro"
-                    />
-                  </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-maxg">Máximo gramaje</label>
+                  <input id="id-input-modal-maxg" type="number" class="form-control" aria-label="Max liter or gram"
+                    placeholder="Gramo o Litro" />
                 </div>
-                <div class="col-6">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-minp"
-                      >Precio mínimo</label
-                    >
-                    <input
-                      id="id-input-modal-minp"
-                      type="number"
-                      class="form-control"
-                      aria-label="Max liter or gram"
-                      placeholder="Pesos mexicanos"
-                    />
-                  </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-minp">Precio mínimo</label>
+                  <input id="id-input-modal-minp" type="number" class="form-control" aria-label="Max liter or gram"
+                    placeholder="Pesos mexicanos" />
                 </div>
-                <div class="col-6">
-                  <div class="mb-2">
-                    <label class="form-label" for="id-input-modal-maxp"
-                      >Precio máximo</label
-                    >
-                    <input
-                      id="id-input-modal-maxp"
-                      type="number"
-                      class="form-control"
-                      aria-label="Max liter or gram"
-                      placeholder="Pesos mexicanos"
-                    />
-                  </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-2">
+                  <label class="form-label" for="id-input-modal-maxp">Precio máximo</label>
+                  <input id="id-input-modal-maxp" type="number" class="form-control" aria-label="Max liter or gram"
+                    placeholder="Pesos mexicanos" />
                 </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button
-              id="id-btn-filter-modal-clear"
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Limpiar
-            </button>
-            <button
-              id="id-btn-filter-modal-apply"
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-            >
-              Aplicar
-            </button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="id-btn-filter-modal-clear" type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Limpiar
+          </button>
+          <button id="id-btn-filter-modal-apply" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            Aplicar
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <main class="container pt-5 position-relative mb-5">
-      <h1 class="mb-4">Bienvenido a la tienda</h1>
-      <div id="id-shop-container" class="dn-shop-container container">
-        <!-- Template de la tarjeta de compra -->
-        <!-- <div>
+  <main class="container pt-5 position-relative mb-5">
+    <h1 class="mb-4">Bienvenido a la tienda</h1>
+    <div id="id-shop-container" class="dn-shop-container container">
+      <!-- Template de la tarjeta de compra -->
+      <!-- <div>
           <div class="dn-shop-card card shadow-lg">
             <img
               src="./assets/imgs/mascarilla.webp"
@@ -353,61 +234,56 @@
             </div>
           </div>
         </div> -->
-      </div>
-    </main>
+    </div>
+  </main>
 
-    <!-- Inicia footer -->
-    <footer>
-      <div class="container_footer">
-        <div class="social_footer">
-          <a href="https://facebook.com" target="_blank" rel="noopener"
-            ><img src="./assets/imgs/facebook.png" alt="face"
-          /></a>
-          <a href="https://instagram.com" target="_blank" rel="noopener"
-            ><img src="./assets/imgs/instagram.png" alt="insta"
-          /></a>
-          <a href="https://twitter.com" target="_blank" rel="noopener"
-            ><img src="./assets/imgs/x.png" alt="x"
-          /></a>
+  <!-- Inicia footer -->
+  <footer>
+    <div class="container_footer">
+      <div class="social_footer">
+        <a href="https://facebook.com" target="_blank" rel="noopener"><img src="./assets/imgs/facebook.png"
+            alt="face" /></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener"><img src="./assets/imgs/instagram.png"
+            alt="insta" /></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener"><img src="./assets/imgs/x.png" alt="x" /></a>
+      </div>
+      <div class="navigation_footer">
+        <div class="nav_fo">
+          <a href="index.html">
+            <h3>Inicio</h3>
+          </a>
         </div>
-        <div class="navigation_footer">
-          <div class="nav_fo">
-            <a href="index.html">
-              <h3>Inicio</h3>
-            </a>
-          </div>
-          <div class="nav_fo">
-            <a href="store.html">
-              <h3>Tienda</h3>
-            </a>
-          </div>
-          <div class="nav_fo">
-            <a href="review.html">
-              <h3>Reseña</h3>
-            </a>
-          </div>
-          <div class="nav_fo">
-            <a href="about-us.html">
-              <h3>Nosotros</h3>
-            </a>
-          </div>
-          <div class="nav_fo">
-            <a href="contact.html">
-              <h3>Contacto</h3>
-            </a>
-          </div>
+        <div class="nav_fo">
+          <a href="store.html">
+            <h3>Tienda</h3>
+          </a>
         </div>
-        <div class="copyright_footer">
-          <h5>Dulce Nectar 2023 | Todos los derechos reservados.</h5>
+        <div class="nav_fo">
+          <a href="review.html">
+            <h3>Reseña</h3>
+          </a>
+        </div>
+        <div class="nav_fo">
+          <a href="about-us.html">
+            <h3>Nosotros</h3>
+          </a>
+        </div>
+        <div class="nav_fo">
+          <a href="contact.html">
+            <h3>Contacto</h3>
+          </a>
         </div>
       </div>
-    </footer>
+      <div class="copyright_footer">
+        <h5>Dulce Nectar 2023 | Todos los derechos reservados.</h5>
+      </div>
+    </div>
+  </footer>
 
-    <script src="./js/store.js" type="module" defer></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <script src="./js/store.js" type="module" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
