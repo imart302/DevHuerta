@@ -24,4 +24,5 @@ export class ProductDbDto {
     this.stock = stock;
     this.typeGram = typeGram;
   }
+
 }
