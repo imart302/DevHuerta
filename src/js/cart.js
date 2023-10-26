@@ -21,8 +21,11 @@ const CART_DOM = {
       contactPhone: document.getElementById('id-input-phone'),
     },
     btnFinish: document.getElementById('id-btn-finish-buy'),
-    modal: bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('id-modal-finish-buy')
+    modal:new bootstrap.Modal(
+      document.getElementById('id-modal-finish-buy'),
+      {
+        backdrop: true
+      }
     ),
     cleanModal: function () {
       Object.keys(CART_DOM.finishBuyModal.inputs).forEach((inputKey) => {
@@ -229,7 +232,7 @@ CART_DOM.btnConfirmBuy.addEventListener('click', () => {
     return;
   }
 
-  CART_DOM.finishBuyModal.modal.show();
+  CART_DOM.finishBuyModal.modal.hide();
 });
 
 
