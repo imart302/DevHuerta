@@ -148,10 +148,10 @@ function validateFieldsOnSubmit(formToValidate) {
       } else {
         input.classList.remove('is-invalid');
       }
-    }
-    //Si todas las validaciones son aprobadas, badrequest permanece en 0
-    return !badRequest;
+    } 
   });
+  //Si todas las validaciones son aprobadas, badrequest permanece en 0
+  return !badRequest;
 }
 
 /**
