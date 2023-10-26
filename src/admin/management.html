@@ -59,7 +59,8 @@
                 <option value="COSMETICO">COSMETICO</option>
                 <option value="DULCE">DULCE</option>
                 <option value="HORNEADOS">HORNEADOS</option>
-                <option value="OTROS">OTROS</option>              </select>
+                <option value="OTROS">OTROS</option>              
+              </select>
               <p class="invalid-feedback">
                 Por favor, añada una descripción breve.
               </p>
@@ -98,7 +99,7 @@
             </div>
             <div class="mb-3">
               <label for="id-input-imgUrl" class="form-label">Link a imagen de producto</label>
-              <input type="text" class="form-control" id="id-input-imgUrl"
+              <input type="url" class="form-control" id="id-input-imgUrl"
                 placeholder="https://www.cdn.org/1d3fs.webp" />
               <p class="invalid-feedback">
                 Por favor ingrese un URL valido
@@ -237,7 +238,7 @@
             </div>
             <div class="mb-3">
               <label for="id-input-modifyImgUrl" class="form-label">Link a imagen de producto</label>
-              <input type="text" class="form-control" id="id-input-modifyImgUrl"
+              <input type="url" class="form-control" id="id-input-modifyImgUrl"
                 placeholder="https://www.cdn.org/1d3fs.webp" />
               <p class="invalid-feedback">
                 Por favor ingrese un URL valido
@@ -260,7 +261,7 @@
             data-bs-dismiss="modal">
             Eliminar
           </button>
-          <button id="id-btn-modifyProduct-modal-save" type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          <button id="id-btn-modifyProduct-modal-save" type="button" class="btn btn-primary" >
             Guardar
           </button>
         </div>
