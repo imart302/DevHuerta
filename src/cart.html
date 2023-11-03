@@ -118,9 +118,9 @@
                 >
               </li>
               <li>
-                <a class="dropdown-item" type="button" href="cart.html"
-                  >Mi carrito</a
-                >
+                <a class="dropdown-item" type="button" href="cart.html">
+                  Mi carrito
+                </a>
               </li>
               <hr class="dropdown-divider" />
               <li id="id-navbar-account-dropdown-login">
@@ -137,23 +137,12 @@
       </div>
     </nav>
 
-    <!-- <main class="container-fluid-grid">
-      <div></div>
-      <div class="CartContainer">
-       
-        <div id="profiles" class="dn-list-products"></div>
-      </div>
-
-      <div></div>
-    </main> -->
 
     <!-- Modal de terminar compra -->
     <div
       class="modal fade"
       id="id-modal-finish-buy"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
     >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -165,7 +154,8 @@
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
+              aria-label="close"
+              data-bs-target="#id-modal-finish-buy"
             ></button>
           </div>
           <div class="modal-body">
@@ -281,6 +271,7 @@
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
+              data-bs-target="#id-modal-finish-buy"
             >
               Cerrar
             </button>
@@ -309,6 +300,7 @@
             type="button"
             class="btn btn-primary"
             data-bs-toggle="modal"
+            data-bs-target="#id-modal-finish-buy"
           >
             Confirmar pedido
           </button>
@@ -356,6 +348,7 @@
             <i class="bi bi-cart-x"></i>
           </div>
         </div> -->
+        <!-- KEEP THIS AS TEMPLATE -->
         <!-- <div class="dn-product-cartItem w-100">
           <img src="../assets/imgs/DulceNectar.png" alt="" />
           <div class="dn-mn-cartlistInfo d-flex flex-column">
@@ -367,10 +360,16 @@
             <div>
               <span class="fw-bold">Precio: </span><span>$100 MXN</span>
             </div>
-            <div><span class="fw-bold">Cantidad: </span><span>99</span></div>
-            <div><span class="fw-bold">SubTotal: </span><span></span></div>
-            <div class="button-container">
-              <button class="btn btn-primary">
+            
+            <div><span class="fw-bold">Sub-total: </span><span>$100 MXN</span></div>
+            <div class="dn-cart-item-buttons d-flex mt-4 align-content-center justify-content-between">
+              <div class="dn-cart-item-quantity-container align-content-center">
+                <span class="fw-bold">Cantidad:</span>
+                <span id="id-cart-item-quantity">99</span>
+                <button id="id-cart-item-decrement" class="btn btn-primary w-auto ms-1"><i class="bi bi-dash-circle"></i></button>
+                <button id="id-cart-item-increment" class="btn btn-primary w-auto"><i class="bi bi-plus-circle"></i></button>
+              </div>
+              <button class="btn btn-primary me-2">
                 <i class="bi bi-trash"></i>
               </button>
             </div>

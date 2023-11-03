@@ -284,6 +284,50 @@ body {
   transform: rotate(90deg);
 }
 
+.form-control:focus {
+  border-color: var(--yellow3-base);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--yellow3-light);
+}
+
+.form-check-input:focus,
+.form-check-input:checked,
+.form-check-input::before 
+{
+  border-color: var(--yellow3-light);
+  background-color: var(--yellow3-base);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--yellow3-light);
+}
+
+.form-select:focus{
+  border-color: var(--yellow3-base);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--yellow3-light);
+}
+
+/* option{
+  background-color: var(--yellow1-light)
+}*/
+
+select option:hover {
+  background-color: var(--yellow1-light);
+  color:white;
+}
+select option:checked{
+  background-color: var(--yellow2-light);
+  }
+/* Establece el fondo transparente por defecto para todas las opciones */
+/* Establece el fondo transparente por defecto para todas las opciones */
+
+.dropdown-toggle:focus,
+.dropdown-toggle:active
+{
+  background-color: var(--yellow3-base);
+  border: var(--yellow2-base);
+
+}
+/* Cambia el color del fondo solo para la opción seleccionada al hacer hover */
+
+/* Cambia el color del fondo solo para la opción seleccionada */
+
 /* @keyframes move1 {
   0% {
     transform: translate(-10rem, -10rem) rotate(90deg);

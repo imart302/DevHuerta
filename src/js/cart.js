@@ -21,8 +21,11 @@ const CART_DOM = {
       contactPhone: document.getElementById('id-input-phone'),
     },
     btnFinish: document.getElementById('id-btn-finish-buy'),
-    modal: bootstrap.Modal.getOrCreateInstance(
-      document.getElementById('id-modal-finish-buy')
+    modal:new bootstrap.Modal(
+      document.getElementById('id-modal-finish-buy'),
+      {
+        backdrop: true
+      }
     ),
     cleanModal: function () {
       Object.keys(CART_DOM.finishBuyModal.inputs).forEach((inputKey) => {
@@ -122,6 +125,42 @@ function viewCartNotEmpty() {
 }
 
 /**
+ * Funcion auxiliar para renderizar el total
+ * de la compra en el DOM Itera sobre todo el 
+ * carrito en local storage y calcula la suma
+ * @returns 
+ */
+function renderTotalShop(){
+  const totalDiv = document.getElementById('Total');
+
+  const cart = localStorage.getItem('cart');
+  if(!cart){
+    return;
+  }
+
+  const cartObject = JSON.parse(cart);
+  const cartClean = cartObject.reduce((accumulator, currentValue) => {
+    const item = accumulator.find(
+      (cartItem) => cartItem.product.id === currentValue.product.id
+    );
+    if (item) {
+      item.quantity += currentValue.quantity;
+    } else {
+      accumulator.push(currentValue);
+    }
+    return accumulator;
+  }, []);
+
+  const totalCart = cartClean.reduce(
+    (total, actualItemCart) =>
+      (total += actualItemCart.product.price * actualItemCart.quantity),
+    0
+  );
+
+  totalDiv.textContent = ` $${totalCart} MXN`;
+}
+
+/**
  * Renderiza todos los items del cart
  * en el local storage en su respectivo
  * contenedor
@@ -166,7 +205,7 @@ function renderLocalStorageCart() {
   cartClean.forEach((cartItem) => {
     const cartRenderItem = new CartItem(cartItem.product, cartItem.quantity);
     CART_DOM.cartContainer.appendChild(
-      cartRenderItem.renderDOM(renderLocalStorageCart, cartObject)
+      cartRenderItem.renderDOM(renderLocalStorageCart, cartObject, renderTotalShop)
     );
   });
 }
@@ -193,7 +232,7 @@ CART_DOM.btnConfirmBuy.addEventListener('click', () => {
     return;
   }
 
-  CART_DOM.finishBuyModal.modal.show();
+  CART_DOM.finishBuyModal.modal.hide();
 });
 
 

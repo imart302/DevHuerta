@@ -1,9 +1,9 @@
 import { ProductDbDto } from "../../../api/dtos/product";
 
-export class ProductList {
+export class ProductListItem {
 
   product = null;
-
+  
   /**
    * 
    * @param {ProductDbDto} product 
@@ -14,7 +14,7 @@ export class ProductList {
 
 	renderStr() {
 		return `
-    <div class="dn-mn-product-list-item w-100">
+    <div class="dn-mn-product-list-item  w-100" data-bs-toggle="modal" data-bs-target="#id-modal-modifyProducts" >
       <div class="dn-mn-product-list-item-img">
         <img src="${this.product.imgUrl}" alt="${this.product.name}">
       </div>
@@ -29,14 +29,18 @@ export class ProductList {
     `;
 	}
 
-	renderDom(classList = 'list-group-item') {
+	renderDom(cbSetModalData) {
 		const liBase = document.createElement('li');
-		liBase.classList.add(classList);
+		liBase.classList.add('list-group-item');
+    liBase.id = `id-product-${this.product.id}`;
 		liBase.innerHTML = this.renderStr();
 		const itemContainer = liBase.querySelector('.dn-mn-product-list-item');
 		itemContainer.addEventListener('click', () => {
-			window.location.href = `product.html?product=${this.id}`;
+      cbSetModalData(this.product)
+			// window.location.href = `product.html?product=${this.id}`;
 		});
 		return liBase;
 	}
+
+  
 }
