@@ -28,6 +28,7 @@ export class CartItem {
     return `
       <div class="dn-product-cartItem w-100">
       <img src="${this.product.imgUrl}" alt="" />
+      <hr>
       <div class="dn-mn-cartlistInfo d-flex flex-column">
         <div>
           <span class="fw-bold">Nombre: </span
@@ -43,10 +44,11 @@ export class CartItem {
           <div class="dn-cart-item-quantity-container align-content-center">
             <span class="fw-bold">Cantidad: </span>
             <span id="id-cart-item-quantity-${this.product.id}">${this.quantity}</span>
-            <button id="id-cart-item-decrement-${this.product.id}" class="btn btn-primary w-auto ms-1"><i class="bi bi-dash-circle"></i></button>
-            <button id="id-cart-item-increment-${this.product.id}" class="btn btn-primary w-auto"><i class="bi bi-plus-circle"></i></button>
+            <button id="id-cart-item-decrement-${this.product.id}" class="btn btn-primary ms-1"><i class="bi bi-dash-circle"></i></button>
+            <button id="id-cart-item-increment-${this.product.id}" class="btn btn-primary"><i class="bi bi-plus-circle"></i></button>
           </div>
-          <button id="id-btn-erase-${this.product.id}" class="btn btn-primary me-2">
+          <hr>
+          <button id="id-btn-erase-${this.product.id}" class="btn btn-secondary me-2">
             <i class="bi bi-trash"></i>
           </button>
         </div>

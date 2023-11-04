@@ -232,7 +232,7 @@ CART_DOM.btnConfirmBuy.addEventListener('click', () => {
     return;
   }
 
-  CART_DOM.finishBuyModal.modal.hide();
+  CART_DOM.finishBuyModal.modal.show();
 });
 
 
