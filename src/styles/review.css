@@ -3,21 +3,10 @@
 @import './components/navbar.css';
 @import './components/footer.css';
 
-/*Encabezado del main container*/
-.dn-reviews-head {
-	background-color: var(--yellow1-dark);
-	overflow: hidden;
-}
-/*honey comb*/
-.dn-reviews-head img {
-	position: absolute;
-	right: -50px;
-	bottom: -50px;
-	height: 140px;
-}
-
 /*contenedor del formulario y de la lista de reseñas*/
 .dn-reviews-cont {
+  margin: 0 auto;
+  width: 90%;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
