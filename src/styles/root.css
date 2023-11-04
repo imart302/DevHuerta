@@ -445,7 +445,9 @@ MEDIA QUERIES FOR COMMON SIZES
   Banner
  ------------------------------------------------*/
 .bannerContainer {
-	border: solid 1px;
+  border-color: var(--yellow1-dark);
+  border-style: solid;
+  border-width: 1px;
 	overflow: hidden;
 	text-align: center;
 	position: relative;
@@ -453,19 +455,26 @@ MEDIA QUERIES FOR COMMON SIZES
   padding: 10px 0;
   margin-bottom: 4rem;
   min-height: 13em;
+  border-radius: 7px;
+  box-shadow: 1px -1px 23px 5px rgba(150,150,150,0.38) inset;
+  -webkit-box-shadow: 1px -1px 23px 5px rgba(150,150,150,0.38) inset;
+  -moz-box-shadow: 1px -1px 23px 5px rgba(150,150,150,0.38) inset;
 }
 
 .banner-logo {
 	width: 90px;
   margin: 0 auto;
+  -webkit-filter: drop-shadow(5px 5px 5px var(--black));
+  filter: drop-shadow(5px 5px 5px var(--black));
 }
+
 .banner-honeyComb1{
 	position: absolute;
   width: clamp(150px, 20vw, 230px);
 	bottom: -55px;
 	left: -55px;
 	z-index: -1;
-	opacity: 0.7;
+	opacity: 0.4;
 }
 
 .banner-honeyComb2{
@@ -474,5 +483,5 @@ MEDIA QUERIES FOR COMMON SIZES
 	top: -50px;
 	right: -55px;
 	z-index: -1;
-	opacity: 0.7;
+	opacity: 0.4;
 }
