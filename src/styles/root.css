@@ -440,3 +440,39 @@ MEDIA QUERIES FOR COMMON SIZES
     top: 200vh;
   }
 }
+
+/*------------------------------------------------
+  Banner
+ ------------------------------------------------*/
+.bannerContainer {
+	border: solid 1px;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+	z-index: 3;
+  padding: 10px 0;
+  margin-bottom: 4rem;
+  min-height: 13em;
+}
+
+.banner-logo {
+	width: 90px;
+  margin: 0 auto;
+}
+.banner-honeyComb1{
+	position: absolute;
+  width: clamp(150px, 20vw, 230px);
+	bottom: -55px;
+	left: -55px;
+	z-index: -1;
+	opacity: 0.7;
+}
+
+.banner-honeyComb2{
+	position: absolute;
+  width: clamp(150px, 20vw, 230px);
+	top: -50px;
+	right: -55px;
+	z-index: -1;
+	opacity: 0.7;
+}
