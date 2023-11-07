@@ -20,3 +20,5 @@ export const PRODUCT_CATEGORIES = [
   "HORNEADOS",
   "OTROS"
 ]
+
+export const BE_URL = import.meta.env.VITE_BE_URL;
