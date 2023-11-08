@@ -3,15 +3,13 @@
  */
 
 export class Review {
-  id = 0;
   username = '';
   productName = '';
   ImgUrl = '';
   rating = 0;
   review = '';
 
-  constructor(id, username, productName, imgUrl, rating, review) {
-    this.id = id;
+  constructor(username, productName, imgUrl, rating, review) {
     this.username = username;
     this.productName = productName;
     this.imgUrl = imgUrl;

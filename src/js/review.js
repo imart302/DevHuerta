@@ -9,8 +9,7 @@ import { getReviews } from './api/reviews.js';
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
 const reviewlist = document.getElementById('review-list');
-
-/* inputs del formulario de reseñas */
+const reviewFilter = document.getElementById('reviewfilter');
 const productName = document.getElementById('productName');
 const rating = document.getElementById('ratingContainer');
 const review = document.getElementById('reviewInput');
@@ -24,20 +23,43 @@ const sweetAlertBtn = Swal.mixin({
 });
 
 /**Evento para cargar las reseñas existentes al cargar la pagina */
+let reviewsDB = [];
+let filterValues = [];
 window.addEventListener('DOMContentLoaded', async () => {
-    const reviewsDB = await getReviews();
-    renderReview(reviewsDB);
-});
+    const response = await getReviews();
+    response.forEach(review => {
+      const reviewCard = new ReviewCard(review);
+      reviewsDB.push(reviewCard);
+      filterValues.push(review.productName)
+    })
+    /**Obtnemos los productos para renderizarlos en el filtro 
+     * se usa un Set, para evitar valores repetidos
+    */
+    renderReviewList(reviewsDB);
+    [...new Set(filterValues)].forEach(product => {
+      reviewFilter.insertAdjacentHTML('beforeend', `<option>${product}</option>`);
+    })
+  });
 
-/**Funcion para renderizar reviews en la lista de reviews */
-function renderReview(arr){
-  arr.forEach(review => {
-    const cardReview = new ReviewCard(review);
-    reviewlist.insertAdjacentHTML('beforeend', cardReview.renderCard());
+/**Filtro de la lista de reseñas */
+reviewFilter.addEventListener('change', () => {
+  let selected = reviewFilter.value;
+  if(selected == 'Todos los productos'){
+    renderReviewList(reviewsDB);
+  } else {
+    const filtered = reviewsDB.filter(rev => rev.review.productName === selected);
+    renderReviewList( filtered )
+  }
+})
+
+/*Funcion para enderizar las reseñas en la lista de reseñas*/
+function renderReviewList(arr){
+  let reviewsHTML = '';
+  arr.forEach( rev => {
+    reviewsHTML += rev.renderCard();
   })
+  reviewlist.innerHTML = reviewsHTML;
 }
-
-/**Filtro de reviews */
 
 
 /**Se carga la lista de productos en el select del formulario */
@@ -120,7 +142,6 @@ formSubmit.addEventListener('click', (e) => {
     } else {
       //creacion de nueva reseña
       const newReview = new Review(
-        4,
         JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).firstName,
         productList[productName.value].info,
         productList[productName.value].imgUrl,
@@ -128,7 +149,8 @@ formSubmit.addEventListener('click', (e) => {
         review.value
       );
       const addReview = new ReviewCard(newReview);
-      reviewlist.insertAdjacentHTML('beforeend', addReview.renderCard());
+      reviewsDB.push(addReview);
+      reviewlist.insertAdjacentHTML('afterbegin', addReview.renderCard());
       clearForm();
     }
   }

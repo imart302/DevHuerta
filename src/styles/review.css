@@ -33,16 +33,25 @@
 	resize: none;
 }
 
-/**Lista de reseñas*/
-.dn-review-list {
-	width: clamp(18em, 50vw, 40em);
-	max-height: 80vh;
-	overflow-y: scroll;
-}
-
 /*Clase para colorear las estrellas de el rating*/
 .checked {
 	color: gold;
+}
+
+.reviewlist-header{
+  width: clamp(18em, 50vw, 40em);
+  color: white;
+}
+
+#reviewfilter{
+  width: clamp(18em, 50vw, 40em);
+}
+
+/**Lista de reseñas*/
+.dn-review-list {
+	width: clamp(18em, 50vw, 40em);
+	height: 80vh;
+	overflow-y: scroll;
 }
 
 /*Inicia estilos para las tarjeta de reseñas*/

@@ -163,10 +163,11 @@
 
       <!-- Lista de reseñas ********************************* -->
       <div class="reviewList--wrapper">
-        <div class=" mx-4 mt-4">
-          <select class="form-select mx-6" aria-label="Default select example" id="reviewfilter">
-          <option selected>Filtrar por producto</option>
-            <option>miel de abeja</option>
+        <div class="mx-4 mt-4 d-flex flex-wrap reviewlist-header">
+          <p class="my-1">Filtrar reseñas por producto: </p>
+          <select class="form-select" aria-label="Default-select example" id="reviewfilter">
+            <option>Todos los productos</option>
+            <option>Mis reseñas</option>
           </select>
         </div>
         <div class="dn-review-list card border m-4" id="review-list">
