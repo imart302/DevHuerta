@@ -1,18 +1,15 @@
-import { LOGGED_USER_LS_KEY } from '../utils/constants';
+import { LOGGED_USER_LS_KEY, BE_URL } from '../utils/constants';
 
-const URL = 'http://localhost:8081/api/review';
-
-const URL_PRODUCT = 'http://localhost:8081/api/product';
 async function getProdTemp() {
-    const response = await fetch(URL_PRODUCT);
-    const data = await response.json();
-    return data;
+  const response = await fetch(`${BE_URL}/product`);
+  const data = await response.json();
+  return data;
 }
 
 /**Petición GET para la lista de reseñas */
 async function getReviews() {
   try {
-    const response = await fetch(URL);
+    const response = await fetch(`${BE_URL}/review`);
     if (response.status !== 302) {
       throw new Error('No se pudieron obtener los datos de la API');
     }
@@ -24,14 +21,12 @@ async function getReviews() {
   }
 }
 
-
 /**Petición POST para crear una reseña */
 let currentUser = JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY));
-let postHeaders = new Headers();
-postHeaders.append('Content-Type', 'application/json');
-postHeaders.append('Authorization', `Bearer ${currentUser.token}`);
-
 async function createReview(reviewValue, ratingValue, productIdValue) {
+  let postHeaders = new Headers();
+  postHeaders.append('Content-Type', 'application/json');
+  postHeaders.append('Authorization', `Bearer ${currentUser.token}`);
   let raw = JSON.stringify({
     review: reviewValue,
     rating: ratingValue,
@@ -46,20 +41,15 @@ async function createReview(reviewValue, ratingValue, productIdValue) {
 
   try {
     const response = await fetch(URL, requestOptions);
-    if(response.status !== 201){
-      throw new Error("Error en el servidor al crear la reseña")
+    if (response.status !== 201) {
+      throw new Error('Error en el servidor al crear la reseña');
     }
     const data = await response.json();
     return data;
   } catch (error) {
-    alert("No se pudo crear la reseña, intentelo mas tarde");
-    console.error(error)
+    alert('No se pudo crear la reseña, intentelo mas tarde');
+    console.error(error);
   }
 }
 
-export {
-  getProdTemp,
-  getReviews,
-  createReview,
-  currentUser
-}
+export { getProdTemp, getReviews, createReview, currentUser };
