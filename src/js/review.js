@@ -54,7 +54,7 @@ reviewFilter.addEventListener('change', () => {
     if (currentUser == null) {
       sweetAlertBtn
       .fire({
-        title: 'Inicia sesión para ver sus reseñas',
+        title: 'Inicia sesión para ver tus reseñas',
         icon: 'error',
         confirmButtonText: 'Iniciar sesión',
       })
