@@ -11,6 +11,7 @@ import honeyImg from '../../assets/imgs/honey1.webp';
 import { NewProductDto } from './dtos/newProduct.js';
 import { BE_URL } from '../utils/constants.js';
 import { LOGGED_USER_LS_KEY } from '../utils/constants.js';
+import { LoggedUser } from './dtos/loggedUser.js';
 
 
 const stubProducts = [
@@ -316,7 +317,7 @@ const products2 = [
     'l'
   ),
 ];
-
+//HAce los elementos individuales
 const stubWeekProductDb = [
   new ProductDbDto(
     1,
@@ -364,8 +365,11 @@ const stubWeekProductDb = [
   ),
 ];
 
+let loggedUserVer;
+if (localStorage.getItem(LOGGED_USER_LS_KEY)){
+   loggedUserVer =  'Bearer ' + JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).token;
+}
 
-const loggedUserVer =  'Bearer ' + JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).token;
 
 
 /**
@@ -378,7 +382,7 @@ export async function getProducts() {
     redirect: 'follow',
   };
   try {
-    let getPoductsResponse = await fetch(`${BE_URL}/api/product`, requestOptions);
+    let getPoductsResponse = await fetch(`${BE_URL}/product`, requestOptions);
     let productsList = await getPoductsResponse.json();
     return productsList;
   } catch (error) {
@@ -392,16 +396,16 @@ export async function getProducts() {
  * @returns
  */
 export async function createProduct(product) {
-  const productDto = new ProductDbDto(
-    product.category,
-    product.gram,
-    product.imgUrl,
-    product.info,
-    product.name,
-    product.price,
-    product.stock,
-    product.typeGram
-  );
+  // const productDto = new NewProductDto(
+  //   product.category,
+  //   product.gram,
+  //   product.imgUrl,
+  //   product.info,
+  //   product.name,
+  //   product.price,
+  //   product.stock,
+  //   product.typeGram
+  // );
   
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
@@ -410,7 +414,7 @@ export async function createProduct(product) {
     loggedUserVer
   );
 
-  var raw = JSON.stringify(productDto);
+  var raw = JSON.stringify(product);
 
   var requestOptions = {
     method: 'POST',
@@ -420,13 +424,14 @@ export async function createProduct(product) {
   };
   try {
     let createdPoductResponse = await fetch(
-      `${BE_URL}/api/product`,
+      `${BE_URL}/product`,
       requestOptions
     );
     let createdProduct = await createdPoductResponse.json();
     return createdProduct;
   } catch (error) {
-    console.log('Something Went Wrong!', error);
+    let val = !loggedUserVer ? "Administrator Login Required": `Something went wrong: ${error}`;
+    console.log(val);
   }
 }
 
@@ -462,12 +467,13 @@ export async function deleteProduct(id) {
   
 
   try {
-    let deleteResponse = await fetch(`${BE_URL}/api/product/${id}`, requestOptions);
+    let deleteResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
     // const response = await fetch(URL + product.id, { method: 'DELETE' });
     // return response;
     return deleteResponse;
   } catch (error) {
-    console.log('Unable to delete:', error);
+    let val = !loggedUserVer ? "Administrator Login Required": `Unable to Delete: ${error}`
+    console.log(val);
   }
 }
 
@@ -477,6 +483,16 @@ export async function deleteProduct(id) {
  */
 export async function updateProduct(id, product) {
   //
+  const productDto = new NewProductDto(
+    product.category,
+    product.gram,
+    product.imgUrl,
+    product.info,
+    product.name,
+    product.price,
+    product.stock,
+    product.typeGram
+  );
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append(
@@ -484,7 +500,7 @@ export async function updateProduct(id, product) {
     loggedUserVer
     );
 
-  var raw = JSON.stringify(product);
+  var raw = JSON.stringify(productDto);
 
   var requestOptions = {
     method: 'PUT',
@@ -494,10 +510,11 @@ export async function updateProduct(id, product) {
   };
 
   try {
-    let updateResponse = await fetch(`${BE_URL}/api/product/${id}`, requestOptions);
+    let updateResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
     let updatedProduct = await updateResponse.json();
     return updatedProduct;
   } catch {
-    console.log('Something Went Wrong!', error);
+    let val = !loggedUserVer ? "Administrator Login Required": `Something went wrong: ${error}`
+    console.log(val);
   }
 }
