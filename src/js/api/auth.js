@@ -20,45 +20,53 @@ const userLoggedFake = new LoggedUser(
  * @param {*} userData
  */
 export async function login(userData) {
-  const myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
+  try{
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+  
+    const raw = JSON.stringify(userData);
+  
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
+  
+  
+    const resp = await fetch(`${BE_URL}/auth/login`, requestOptions);
+    const json = await resp.json();
+  
+    return new LoggedUser(json.id, json.firstName, json.lastName, json.email, json.token);
+  } catch(error) {
+    console.log(error);
+  }
 
-  const raw = JSON.stringify(userData);
-
-  const requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow',
-  };
-
-
-  const resp = await fetch(`${BE_URL}/auth/login`, requestOptions);
-  const json = await resp.json();
-
-  return json;
 }
 
 /**
- *
+ *Funcion asincrona para llamar a POST /api/auth/register
  * @param {CreateUserDto} userData
  * @returns
  */
 export async function createUser(userData) {
-  const myHeaders = new Headers();
-  myHeaders.append('Content-Type', 'application/json');
+  try{
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
 
-  const raw = JSON.stringify(userData);
+    const raw = JSON.stringify(userData);
 
-  const requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow',
-  };
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow',
+    };
 
-  const response = await fetch(`${BE_URL}/auth/register`, requestOptions);
-  const json = await response.json();
-
-  return json;
+    const response = await fetch(`${BE_URL}/auth/register`, requestOptions);
+    const newUser = await response.json();
+    return newUser;
+  } catch (error) {
+    console.log(error);
+  }
 }

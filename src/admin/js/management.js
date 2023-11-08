@@ -1,5 +1,5 @@
 import { ProductListItem } from '../../js/lib/minirender/admin/productList.js';
-import { URL_REGEX } from '../../js/utils/constants.js';
+import { LOGGED_USER_LS_KEY, URL_REGEX, jwtDecode } from '../../js/utils/constants.js';
 import { NewProductDto } from '../../js/api/dtos/newProduct.js';
 import {
   createProduct,
@@ -241,10 +241,26 @@ MANAGEMENT_DOM.addForm.addEventListener('submit', (ev) => {
  * Event listener cuando la ventana carga
  */
 window.addEventListener('load', () => {
+
+  const loggedUser = localStorage.getItem(LOGGED_USER_LS_KEY);
+  console.log(loggedUser);
+  if(!loggedUser){
+    window.location.href = "../";
+    return;
+  } 
+  
+  const decodedJwt = jwtDecode(JSON.parse(loggedUser).token);
+  if(!decodedJwt || decodedJwt.payload.role !== "ADMIN"){
+    window.location.href = "../";
+    return;
+  }
+  
   //Get products from API
   fetchProductsFromAPI();
   setInputValidation(MANAGEMENT_DOM.addProduct);
   setInputValidation(MANAGEMENT_DOM.updateProduct);
+  
+
 });
 
 //Aqui se reasignan los parametros de cada uno de los inputs
