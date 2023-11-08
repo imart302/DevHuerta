@@ -10,7 +10,8 @@ import propolioImg from '../../assets/imgs/propolio.webp';
 import honeyImg from '../../assets/imgs/honey1.webp';
 import { NewProductDto } from './dtos/newProduct.js';
 import { BE_URL } from '../utils/constants.js';
-//PAra uso de funciones Fetch falta declarar URL en utils e importar
+import { LOGGED_USER_LS_KEY } from '../utils/constants.js';
+
 
 const stubProducts = [
   new ProductDbDto(
@@ -363,6 +364,10 @@ const stubWeekProductDb = [
   ),
 ];
 
+
+const loggedUserVer =  'Bearer ' + JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).token;
+
+
 /**
  * Obtiene los productos de la Api GET /api/products
  * @returns Product
@@ -397,11 +402,12 @@ export async function createProduct(product) {
     product.stock,
     product.typeGram
   );
+  
   var myHeaders = new Headers();
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append(
     'Authorization',
-    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
+    loggedUserVer
   );
 
   var raw = JSON.stringify(productDto);
@@ -442,8 +448,8 @@ export async function deleteProduct(id) {
   var myHeaders = new Headers();
   myHeaders.append(
     'Authorization',
-    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
-  );
+    loggedUserVer
+    );
 
   var raw = '';
 
@@ -453,6 +459,8 @@ export async function deleteProduct(id) {
     body: raw,
     redirect: 'follow',
   };
+  
+
   try {
     let deleteResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
     // const response = await fetch(URL + product.id, { method: 'DELETE' });
@@ -473,8 +481,8 @@ export async function updateProduct(id, product) {
   myHeaders.append('Content-Type', 'application/json');
   myHeaders.append(
     'Authorization',
-    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
-  );
+    loggedUserVer
+    );
 
   var raw = JSON.stringify(product);
 
@@ -484,10 +492,6 @@ export async function updateProduct(id, product) {
     body: raw,
     redirect: 'follow',
   };
-  console.log(
-    '🚀 ~ file: products.js:476 ~ updateProduct ~ product:',
-    `${BE_URL}/product/${id}`
-  );
 
   try {
     let updateResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
