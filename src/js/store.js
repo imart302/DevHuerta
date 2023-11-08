@@ -122,6 +122,8 @@ STORE_DOM.fabCart.addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', () => {
   /* Obtén los productos de la API y hacer render en el DOM */
   getProducts().then((products) => {
+    console.log("🚀 ~ file: store.js:125 ~ getProducts ~ products:", products)
+    
     localStorage.setItem(LS_PRODUCTS_KEY, JSON.stringify(products));
     products.forEach((product) => {
       const productShopCard = new ProductShopCard(product).renderDom();

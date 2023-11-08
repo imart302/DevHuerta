@@ -1,5 +1,5 @@
 import { ProductListItem } from '../../js/lib/minirender/admin/productList.js';
-import { URL_REGEX } from '../../js/utils/constants.js';
+import { LOGGED_USER_LS_KEY, URL_REGEX, jwtDecode } from '../../js/utils/constants.js';
 import { NewProductDto } from '../../js/api/dtos/newProduct.js';
 import {
   createProduct,
@@ -181,7 +181,7 @@ function validateFieldsOnSubmit(formToValidate) {
  */
 function sendCreateProduct(product) {
   createProduct(product)
-    .then((productResponse) => {
+    .then((productResponse) => {      
       const newItem = new ProductListItem(productResponse);
       const renderNewItem = newItem.renderDom(setValuestoModal);
       MANAGEMENT_DOM.listProducts.listContainer.appendChild(renderNewItem);
@@ -190,7 +190,7 @@ function sendCreateProduct(product) {
         icon: 'success',
         confirmButtonText: 'Entendido',
       });
-      //return productResponse  <== Se puede hacer esto??
+      
     })
     .catch((error) => {
       console.log(error);
@@ -217,7 +217,7 @@ MANAGEMENT_DOM.addForm.addEventListener('submit', (ev) => {
    * Si Se pasan todas las validaciones, procede a crear el producto
    */
   if (validateFieldsOnSubmit(MANAGEMENT_DOM.addProduct)) {
-    // Si todos los campos estaban bien continua
+    // Si todos los campos estaban bien, continua
     const ADD_PRODUCT = MANAGEMENT_DOM.addProduct;
     const product = new NewProductDto(
       ADD_PRODUCT.inputCategory.value,
@@ -230,7 +230,6 @@ MANAGEMENT_DOM.addForm.addEventListener('submit', (ev) => {
       ADD_PRODUCT.inputL.checked ? 'l' : 'g'
     );
 
-    // sendFormData(product);
     // funcion fetch con Metodo POST implementado en CreateProduct()
     sendCreateProduct(product);
     MANAGEMENT_DOM.clearInputs();
@@ -241,13 +240,29 @@ MANAGEMENT_DOM.addForm.addEventListener('submit', (ev) => {
  * Event listener cuando la ventana carga
  */
 window.addEventListener('load', () => {
+
+  const loggedUser = localStorage.getItem(LOGGED_USER_LS_KEY);
+  console.log(loggedUser);
+  if(!loggedUser){
+    window.location.href = "../";
+    return;
+  } 
+  
+  const decodedJwt = jwtDecode(JSON.parse(loggedUser).token);
+  if(!decodedJwt || decodedJwt.payload.role !== "ADMIN"){
+    window.location.href = "../";
+    return;
+  }
+  
   //Get products from API
   fetchProductsFromAPI();
   setInputValidation(MANAGEMENT_DOM.addProduct);
   setInputValidation(MANAGEMENT_DOM.updateProduct);
+  
+
 });
 
-//Aqui se reasignan los parametros de cada uno de los inputs
+//Aqui se reasignan los parametros de cada uno de los inputs en el modal de modificacion
 function setValuestoModal(product) {
   MANAGEMENT_DOM.updateProduct.modifiedId.value = product.id;
   MANAGEMENT_DOM.updateProduct.modifiedName.value = product.name;
@@ -261,17 +276,19 @@ function setValuestoModal(product) {
     : (MANAGEMENT_DOM.updateProduct.modifiedG.checked = true);
   //
   MANAGEMENT_DOM.updateProduct.modifiedImgUrl.value = product.imgUrl;
-  MANAGEMENT_DOM.updateProduct.modifiedCategory.value = product.category;
+  MANAGEMENT_DOM.updateProduct.modifiedCategory.value = product.category.name;
 
   validateFieldsOnSubmit(MANAGEMENT_DOM.updateProduct);
 }
 
 //Event listener para borrar elementos de la BD y del DOM
 MANAGEMENT_DOM.deleteProduct.addEventListener('click', async () => {
-  let ID = MANAGEMENT_DOM.updateProduct.modifiedId.value;
+  
+  let id = MANAGEMENT_DOM.updateProduct.modifiedId.value;
   let deletedItem = MANAGEMENT_DOM.listProducts.listContainer.querySelector(
-    `#id-product-${ID}`
+    `#id-product-${id}`
   );
+  deleteProduct(id);
 
   MANAGEMENT_DOM.listProducts.listContainer.removeChild(deletedItem);
   //Alerta de confirmación
@@ -280,15 +297,16 @@ MANAGEMENT_DOM.deleteProduct.addEventListener('click', async () => {
     icon: 'success',
     confirmButtonText: 'Entendido',
   });
-  //recargar página
-  //window.location.reload();
+
 });
+
+
 // Event Listner encargado de guradar cambios en BD y mostrar en DOM
 MANAGEMENT_DOM.saveProduct.addEventListener('click', async () => {
   if (validateFieldsOnSubmit(MANAGEMENT_DOM.updateProduct)) {
+
     //Crea el producto con la información modificada en el modal
-    const product = new ProductDbDto(
-      MANAGEMENT_DOM.updateProduct.modifiedId.value,
+    const product = new NewProductDto(
       MANAGEMENT_DOM.updateProduct.modifiedCategory.value,
       MANAGEMENT_DOM.updateProduct.modifiedGrammage.value,
       MANAGEMENT_DOM.updateProduct.modifiedImgUrl.value,
@@ -298,32 +316,34 @@ MANAGEMENT_DOM.saveProduct.addEventListener('click', async () => {
       MANAGEMENT_DOM.updateProduct.modifiedStock.value,
       MANAGEMENT_DOM.updateProduct.modifiedL.checked ? 'l' : 'g'
     );
-    //Funcion fetch con el metodo PUT (modifica BD) declarado en products.js
-    //product = await updateProduct(product);
+    const id = MANAGEMENT_DOM.updateProduct.modifiedId.value
 
+    //Funcion fetch con el metodo PUT (modifica BD) declarado en products.js
+    let updatedProduct = await updateProduct(id, product)
+    
     //Crea una nueva instancia de product list Item, para
-    //poder acceder a los metodos renderDom
-    const updatedItem = new ProductListItem(product);
+    //poder acceder a los metodos renderDom (Crear HTML element)
+    const updatedItem = new ProductListItem(updatedProduct);
     const renderUpdatedItem = updatedItem.renderDom(setValuestoModal);
-    //Se accede al elemento a sustituir
-    let ID = product.id;
+
+    // //Se accede al elemento a sustituir
     let oldItem = MANAGEMENT_DOM.listProducts.listContainer.querySelector(
-      `#id-product-${ID}`
-    );
-    //Se sustituye el elemento original con la información nueva
+    `#id-product-${id}`);
+
+    // //Se sustituye el elemento original con la información nueva
     oldItem.replaceWith(renderUpdatedItem);
+
     //Alerta de confirmación
     await swalWithBootstrapButtons.fire({
       title: 'Producto modificado',
       icon: 'success',
       confirmButtonText: 'Entendido',
-    });
+    })
+    
 
     //Cerrar el modal
     MANAGEMENT_DOM.modalModifyProdcuct.hide();
-    // document.getElementById('#id-modal-modifyProducts').
-    //Recargar pagina
-    //window.location.reload();
+    
   } else {
     await swalWithBootstrapButtons.fire({
       title: 'Campos no validos',

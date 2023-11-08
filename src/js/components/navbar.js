@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Obtener el usuario logeado de local storage
   const loggedUser = localStorage.getItem(LOGGED_USER_LS_KEY);
-  console.log(loggedUser);
+  //console.log(loggedUser);
   if (loggedUser) {
     // No hay que mostrar login cuando hay un usuario logeado
     NAVBAR_DOM.dropdown.login.classList.add('d-none');
