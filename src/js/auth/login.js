@@ -1,4 +1,4 @@
-import { EMAIL_REGEX, LOGGED_USER_LS_KEY } from '../utils/constants.js';
+import { EMAIL_REGEX, LOGGED_USER_LS_KEY, jwtDecode } from '../utils/constants.js';
 import { login } from '../api/auth.js';
 import { LoggedUser } from '../api/dtos/loggedUser.js';
 
@@ -93,6 +93,8 @@ function validateFields() {
 function loginUser(userData) {
 	login(userData).then((loggedUser) => {
 		const userString = JSON.stringify(loggedUser);
+    const jwtDecoded = jwtDecode(loggedUser.token);
+    console.log(jwtDecoded);
 		localStorage.setItem(LOGGED_USER_LS_KEY, userString);
     LOGIN_DOM.clearFormInputs();
     swalBootstrapBtn.fire({
@@ -106,9 +108,15 @@ function loginUser(userData) {
       const fromCart = urlParams.get('fromCart');
       const fromReview=urlParams.get('fromReview');
       const fromAccount = urlParams.get('fromAccount');
-      
+    
+
       // Construye la URL de redirección basada en los parámetros
       let redirectUrl = "../";
+
+      if(jwtDecoded.payload.role === "ADMIN"){
+        redirectUrl = "../admin/management.html";
+      }
+
       if (fromCart && fromCart.toLowerCase() === 'true') {
         redirectUrl = "../cart.html";
       }

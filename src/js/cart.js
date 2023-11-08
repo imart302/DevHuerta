@@ -2,6 +2,8 @@ import { CartItem } from './lib/minirender/cartItem.js';
 import { swalWithBootstrapButtons } from './utils/sweetAlert.js';
 import { LOGGED_USER_LS_KEY } from './utils/constants.js';
 import './components/navbar.js';
+import { CreateOrderDto, CreateOrderItem } from './api/dtos/createOrder.js';
+import { createOrder } from './api/orders.js';
 
 const CART_DOM = {
   cartContainer: document.getElementById('id-cartItemContainer'),
@@ -21,12 +23,9 @@ const CART_DOM = {
       contactPhone: document.getElementById('id-input-phone'),
     },
     btnFinish: document.getElementById('id-btn-finish-buy'),
-    modal:new bootstrap.Modal(
-      document.getElementById('id-modal-finish-buy'),
-      {
-        backdrop: true
-      }
-    ),
+    modal: new bootstrap.Modal(document.getElementById('id-modal-finish-buy'), {
+      backdrop: true,
+    }),
     cleanModal: function () {
       Object.keys(CART_DOM.finishBuyModal.inputs).forEach((inputKey) => {
         const input = CART_DOM.finishBuyModal.inputs[inputKey];
@@ -35,7 +34,6 @@ const CART_DOM = {
     },
   },
 };
-
 
 /**
  * Establece evento de escucha de cada input
@@ -53,7 +51,6 @@ Object.keys(CART_DOM.finishBuyModal.inputs).forEach((inputKey) => {
     }
   });
 });
-
 
 /**
  * Valida que todos los campos del modal
@@ -126,15 +123,15 @@ function viewCartNotEmpty() {
 
 /**
  * Funcion auxiliar para renderizar el total
- * de la compra en el DOM Itera sobre todo el 
+ * de la compra en el DOM Itera sobre todo el
  * carrito en local storage y calcula la suma
- * @returns 
+ * @returns
  */
-function renderTotalShop(){
+function renderTotalShop() {
   const totalDiv = document.getElementById('Total');
 
   const cart = localStorage.getItem('cart');
-  if(!cart){
+  if (!cart) {
     return;
   }
 
@@ -205,7 +202,11 @@ function renderLocalStorageCart() {
   cartClean.forEach((cartItem) => {
     const cartRenderItem = new CartItem(cartItem.product, cartItem.quantity);
     CART_DOM.cartContainer.appendChild(
-      cartRenderItem.renderDOM(renderLocalStorageCart, cartObject, renderTotalShop)
+      cartRenderItem.renderDOM(
+        renderLocalStorageCart,
+        cartObject,
+        renderTotalShop
+      )
     );
   });
 }
@@ -235,7 +236,6 @@ CART_DOM.btnConfirmBuy.addEventListener('click', () => {
   CART_DOM.finishBuyModal.modal.show();
 });
 
-
 /**
  * Cuando se presiona finalizar compra
  * valida los campos, si todo es correcto
@@ -254,7 +254,46 @@ CART_DOM.finishBuyModal.btnFinish.addEventListener('click', () => {
       {}
     );
 
-    console.log(buyInfo);
+    const cart = localStorage.getItem('cart');
+
+    const cartObject = JSON.parse(cart);
+    const cartClean = cartObject.reduce((accumulator, currentValue) => {
+      const item = accumulator.find(
+        (cartItem) => cartItem.product.id === currentValue.product.id
+      );
+      if (item) {
+        item.quantity += currentValue.quantity;
+      } else {
+        accumulator.push(currentValue);
+      }
+      return accumulator;
+    }, []);
+
+    const totalCart = cartClean.reduce(
+      (total, actualItemCart) =>
+        (total += actualItemCart.product.price * actualItemCart.quantity),
+      0
+    );
+
+    const orderItems = cartClean.map((cartItem) => {
+      return new CreateOrderItem(cartItem.product.id, cartItem.quantity);
+    });
+
+    const orderDto = new CreateOrderDto(
+      `${buyInfo.state},${buyInfo.city},${buyInfo.postalCode},${buyInfo.address}`,
+      totalCart,
+      orderItems
+    );
+
+    createOrder(orderDto).then((orderId) => {
+      swalWithBootstrapButtons.fire({
+        title: 'Orden creada',
+        text: `El id de su orden es ${orderId}`,
+        icon: 'success',
+        confirmButtonText: 'Entendido'
+      });
+    });
+
     CART_DOM.finishBuyModal.cleanModal();
     CART_DOM.finishBuyModal.modal.hide();
     localStorage.removeItem('cart');
