@@ -9,6 +9,7 @@ import maskImg from '../../assets/imgs/mascarilla.webp';
 import propolioImg from '../../assets/imgs/propolio.webp';
 import honeyImg from '../../assets/imgs/honey1.webp';
 import { NewProductDto } from './dtos/newProduct.js';
+import { BE_URL } from '../utils/constants.js';
 //PAra uso de funciones Fetch falta declarar URL en utils e importar
 
 const stubProducts = [
@@ -367,12 +368,16 @@ const stubWeekProductDb = [
  * @returns Product
  */
 export async function getProducts() {
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow',
+  };
   try {
-    // const  response = await fetch(URL);
-    // return response.json()
-    return products2;
+    let getPoductsResponse = await fetch(`${BE_URL}/product`, requestOptions);
+    let productsList = await getPoductsResponse.json();
+    return productsList;
   } catch (error) {
-    console.log("Something went wrong!", error)
+    console.log('Something Went Wrong!', error);
   }
 }
 
@@ -382,8 +387,7 @@ export async function getProducts() {
  * @returns
  */
 export async function createProduct(product) {
-  return new ProductDbDto(
-    Math.floor(Math.random() * 10000),
+  const productDto = new ProductDbDto(
     product.category,
     product.gram,
     product.imgUrl,
@@ -393,14 +397,31 @@ export async function createProduct(product) {
     product.stock,
     product.typeGram
   );
-//Formato para funcion fetch:
-// try {
-//   response = await fetch(URL,{method:"POST", body:product})
-//   return response.json()
-// } catch (error) {
-//   console.log("Something went wrong!:", error)
-// }
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append(
+    'Authorization',
+    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
+  );
 
+  var raw = JSON.stringify(productDto);
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
+  try {
+    let createdPoductResponse = await fetch(
+      `${BE_URL}/product`,
+      requestOptions
+    );
+    let createdProduct = await createdPoductResponse.json();
+    return createdProduct;
+  } catch (error) {
+    console.log('Something Went Wrong!', error);
+  }
 }
 
 /**
@@ -417,11 +438,26 @@ export async function getWeekProducts() {
  * Elimina productos de la Api atraves de DELETE method /api/products/
  * @returns HTTP response
  */
-export async function deleteProduct(product) {
+export async function deleteProduct(id) {
+  var myHeaders = new Headers();
+  myHeaders.append(
+    'Authorization',
+    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
+  );
+
+  var raw = '';
+
+  var requestOptions = {
+    method: 'DELETE',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
   try {
+    let deleteResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
     // const response = await fetch(URL + product.id, { method: 'DELETE' });
     // return response;
-    return "Ok"
+    return deleteResponse;
   } catch (error) {
     console.log('Unable to delete:', error);
   }
@@ -431,13 +467,33 @@ export async function deleteProduct(product) {
  * Fetch con método PUT, actualiza la base de datos
  * @param {ProductDbDto} product
  */
-export async function updateProduct(product) {
+export async function updateProduct(id, product) {
+  //
+  var myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append(
+    'Authorization',
+    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJEdWxjZU5lY3RhclN5cyIsInN1YiI6ImRhbmVma2hnZmpAZW1haWwuY29tIiwiaWQiOjEsInJvbGUiOiJVU0VSIiwiaWF0IjoxNDY2Nzk2ODIyfQ.XJLa2z2wR8cSIGjFvv9Bzu8lPRVENtXCc1ZxmzNitiM'
+  );
+
+  var raw = JSON.stringify(product);
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
+  console.log(
+    '🚀 ~ file: products.js:476 ~ updateProduct ~ product:',
+    `${BE_URL}/product/${id}`
+  );
+
   try {
-    // const response  =  await fetch(URL+product.id,{method: "PUT",body: product})
-    // const body = await response.json()
-    return product;
-  } catch (error) {
-    console.log('Algo salio mal', error);
+    let updateResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
+    let updatedProduct = await updateResponse.json();
+    return updatedProduct;
+  } catch {
+    console.log('Something Went Wrong!', error);
   }
 }
-
