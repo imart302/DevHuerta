@@ -7,12 +7,20 @@ import { BE_URL } from '../utils/constants.js';
  * de la API de login o Register
  */
 
+
+const userLoggedFake = new LoggedUser(
+  123,
+  'Alberto',
+  'Diaz',
+  'albertodiaz@hotmail.com',
+  'asdfgh'
+);
+
 /**
  * Funcion asincrona para llamar a POST /api/auth/login
  * @param {*} userData
  */
 export async function login(userData) {
-
   try{
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');

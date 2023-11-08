@@ -21,6 +21,7 @@ export const PRODUCT_CATEGORIES = [
   "OTROS"
 ]
 
+
 export const BE_URL = import.meta.env.VITE_BE_URL;
 
 export function jwtDecode(t) {
@@ -30,3 +31,4 @@ export function jwtDecode(t) {
   token.payload = JSON.parse(window.atob(t.split('.')[1]));
   return (token)
 }
+
