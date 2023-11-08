@@ -3,6 +3,7 @@
  * API de un producto
  */
 export class ProductDbDto {
+  id ="";
   category = '';
   gram = 0;
   imgUrl = '';
@@ -12,7 +13,8 @@ export class ProductDbDto {
   stock = 0;
   typeGram = '';
 
-  constructor(category, gram, imgUrl, info, name, price, stock, typeGram) {
+  constructor(id, category, gram, imgUrl, info, name, price, stock, typeGram) {
+    this.id = id;
     this.category = category;
     this.gram = gram;
     this.imgUrl = imgUrl;

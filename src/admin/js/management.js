@@ -306,7 +306,7 @@ MANAGEMENT_DOM.saveProduct.addEventListener('click', async () => {
   if (validateFieldsOnSubmit(MANAGEMENT_DOM.updateProduct)) {
 
     //Crea el producto con la información modificada en el modal
-    const product = new ProductDbDto(
+    const product = new NewProductDto(
       MANAGEMENT_DOM.updateProduct.modifiedCategory.value,
       MANAGEMENT_DOM.updateProduct.modifiedGrammage.value,
       MANAGEMENT_DOM.updateProduct.modifiedImgUrl.value,
