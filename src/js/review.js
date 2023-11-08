@@ -4,7 +4,7 @@ import { getProducts } from './api/products.js';
 import { ReviewCard } from './lib/minirender/reviewsCard.js';
 import './components/navbar.js';
 import { LOGGED_USER_LS_KEY } from './utils/constants.js';
-import { getReviews } from './api/reviews.js';
+import { getReviews, createReview, getProdTemp, currentUser } from './api/reviews.js';
 
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
@@ -24,31 +24,35 @@ const sweetAlertBtn = Swal.mixin({
 
 /**Evento para cargar las reseñas existentes al cargar la pagina */
 let reviewsDB = [];
-let filterValues = [];
+let filterValues = new Set();
 window.addEventListener('DOMContentLoaded', async () => {
     const response = await getReviews();
     response.forEach(review => {
       const reviewCard = new ReviewCard(review);
       reviewsDB.push(reviewCard);
-      filterValues.push(review.productName)
+      filterValues.add(review.productName)
     })
-    /**Obtnemos los productos para renderizarlos en el filtro 
-     * se usa un Set, para evitar valores repetidos
-    */
+    renderFilter(filterValues);
     renderReviewList(reviewsDB);
-    [...new Set(filterValues)].forEach(product => {
-      reviewFilter.insertAdjacentHTML('beforeend', `<option>${product}</option>`);
-    })
   });
+
+  /**Render de lso elementos del filtro de la lista de reseñas */
+  function renderFilter(setProducts){
+    setProducts.forEach( product => reviewFilter.insertAdjacentHTML('beforeend', `<option>${product}</option>`));
+  }
 
 /**Filtro de la lista de reseñas */
 reviewFilter.addEventListener('change', () => {
   let selected = reviewFilter.value;
   if(selected == 'Todos los productos'){
     renderReviewList(reviewsDB);
+  } else if( selected == 'Mis reseñas'){
+    let currentUserName = `${currentUser.firstName} ${currentUser.lastName}`
+    const filtered = reviewsDB.filter(rev => rev.review.userName == currentUserName);
+    renderReviewList( filtered );
   } else {
     const filtered = reviewsDB.filter(rev => rev.review.productName === selected);
-    renderReviewList( filtered )
+    renderReviewList( filtered );
   }
 })
 
@@ -65,7 +69,7 @@ function renderReviewList(arr){
 /**Se carga la lista de productos en el select del formulario */
 let productList;
 window.addEventListener('DOMContentLoaded', async () => {
-  productList = await getProducts();
+  productList = await getProdTemp();
   productList.forEach((product) => {
     const option = `<option value="${product.id}" >${product.info}</option>`;
     productName.insertAdjacentHTML('beforeend', option);
@@ -121,7 +125,7 @@ const clearForm = () => {
 };
 
 /**Evento del botón para agregar agregar reseñas */
-formSubmit.addEventListener('click', (e) => {
+formSubmit.addEventListener('click', async (e) => {
   e.preventDefault();
   const userLogged = localStorage.getItem('userLogged');
   /**Verifica si el usuario ya inicio sesion */
@@ -141,16 +145,10 @@ formSubmit.addEventListener('click', (e) => {
       formSubmit.classList.add('is-invalid');
     } else {
       //creacion de nueva reseña
-      const newReview = new Review(
-        JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY)).firstName,
-        productList[productName.value].info,
-        productList[productName.value].imgUrl,
-        ratingValue,
-        review.value
-      );
-      const addReview = new ReviewCard(newReview);
-      reviewsDB.push(addReview);
-      reviewlist.insertAdjacentHTML('afterbegin', addReview.renderCard());
+      const newReviewCard = new ReviewCard(await createReview(review.value, ratingValue, productName.value));
+      reviewsDB.push(newReviewCard);
+      reviewlist.insertAdjacentHTML('afterbegin', newReviewCard.renderCard());
+      filterValues.has(newReviewCard.review.productName) ? true : reviewFilter.insertAdjacentHTML('beforeend', `<option>${newReviewCard.review.productName}</option>`);
       clearForm();
     }
   }
