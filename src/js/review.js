@@ -1,10 +1,10 @@
 /* Se importa la clase que renderiza las tarjetas de reseñas */
 import { Review } from './api/dtos/review.js';
-import { getReviews } from './api/reviews.js';
 import { getProducts } from './api/products.js';
 import { ReviewCard } from './lib/minirender/reviewsCard.js';
 import './components/navbar.js';
 import { LOGGED_USER_LS_KEY } from './utils/constants.js';
+import { getReviews } from './api/reviews.js';
 
 const stars = document.querySelectorAll('.stars');
 const formSubmit = document.getElementById('reviewSubmit');
@@ -24,20 +24,26 @@ const sweetAlertBtn = Swal.mixin({
 });
 
 /**Evento para cargar las reseñas existentes al cargar la pagina */
-window.addEventListener('DOMContentLoaded', () => {
-  getReviews().then((reviews) => {
-    reviews.forEach((review) => {
-      const cardReview = new ReviewCard(review).renderCard();
-      reviewlist.insertAdjacentHTML('beforeend', cardReview);
-    });
-  });
+window.addEventListener('DOMContentLoaded', async () => {
+    const reviewsDB = await getReviews();
+    renderReview(reviewsDB);
 });
+
+/**Funcion para renderizar reviews en la lista de reviews */
+function renderReview(arr){
+  arr.forEach(review => {
+    const cardReview = new ReviewCard(review);
+    reviewlist.insertAdjacentHTML('beforeend', cardReview.renderCard());
+  })
+}
+
+/**Filtro de reviews */
+
 
 /**Se carga la lista de productos en el select del formulario */
 let productList;
 window.addEventListener('DOMContentLoaded', async () => {
   productList = await getProducts();
-  console.log(productList);
   productList.forEach((product) => {
     const option = `<option value="${product.id}" >${product.info}</option>`;
     productName.insertAdjacentHTML('beforeend', option);

@@ -23,12 +23,12 @@ export class ReviewCard {
           </div>
           <div class="review-description card m-1 p-1 d-flex flex-column">
               <div class="review-desc-head d-flex">
-                <p class="m-0 p-1"><b>Producto: ${this.review.product}</b></p>
+                <p class="m-0 p-1"><b>Producto: ${this.review.productName}</b></p>
                 <div class="rating-cont-2 m-0 p-1">
                   ${stars}
                 </div>
               </div>
-              <p class="m-0 p-1">Usuario: ${this.review.user}</p>
+              <p class="m-0 p-1">Usuario: ${this.review.userName}</p>
               <div class="review-desc-body p-1">
                 ${this.review.review}
               </div>

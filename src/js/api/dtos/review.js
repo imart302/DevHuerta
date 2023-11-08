@@ -4,16 +4,16 @@
 
 export class Review {
   id = 0;
-  user = '';
-  product = '';
+  username = '';
+  productName = '';
   ImgUrl = '';
   rating = 0;
   review = '';
 
-  constructor(id, user, product, imgUrl, rating, review) {
+  constructor(id, username, productName, imgUrl, rating, review) {
     this.id = id;
-    this.user = user;
-    this.product = product;
+    this.username = username;
+    this.productName = productName;
     this.imgUrl = imgUrl;
     this.rating = rating;
     this.review = review;

@@ -7,6 +7,7 @@
 .dn-reviews-cont {
   margin: 0 auto;
   width: 90%;
+  height: 100vh;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
@@ -34,8 +35,8 @@
 
 /**Lista de reseñas*/
 .dn-review-list {
-	width: clamp(18em, 50vw, 35em);
-	height: 800px;
+	width: clamp(18em, 50vw, 40em);
+	max-height: 80vh;
 	overflow-y: scroll;
 }
 
