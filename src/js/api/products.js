@@ -378,7 +378,7 @@ export async function getProducts() {
     redirect: 'follow',
   };
   try {
-    let getPoductsResponse = await fetch(`${BE_URL}/product`, requestOptions);
+    let getPoductsResponse = await fetch(`${BE_URL}/api/product`, requestOptions);
     let productsList = await getPoductsResponse.json();
     return productsList;
   } catch (error) {
@@ -420,7 +420,7 @@ export async function createProduct(product) {
   };
   try {
     let createdPoductResponse = await fetch(
-      `${BE_URL}/product`,
+      `${BE_URL}/api/product`,
       requestOptions
     );
     let createdProduct = await createdPoductResponse.json();
@@ -462,7 +462,7 @@ export async function deleteProduct(id) {
   
 
   try {
-    let deleteResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
+    let deleteResponse = await fetch(`${BE_URL}/api/product/${id}`, requestOptions);
     // const response = await fetch(URL + product.id, { method: 'DELETE' });
     // return response;
     return deleteResponse;
@@ -494,7 +494,7 @@ export async function updateProduct(id, product) {
   };
 
   try {
-    let updateResponse = await fetch(`${BE_URL}/product/${id}`, requestOptions);
+    let updateResponse = await fetch(`${BE_URL}/api/product/${id}`, requestOptions);
     let updatedProduct = await updateResponse.json();
     return updatedProduct;
   } catch {
