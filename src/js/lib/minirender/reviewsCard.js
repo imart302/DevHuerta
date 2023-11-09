@@ -27,7 +27,7 @@ export class ReviewCard {
       editreview =
         currentUsername == this.review.userName
           ? `<hr/>
-            <div class="d-flex justify-content-center p-0">
+            <div class="d-flex justify-content-end p-0">
               <button class="dn-button-reviewCard btn btn-primary deleteBtn">
                 <i class="bi bi-trash deleteBtn"></i>
                 <!-- </button><button class="dn-button-reviewCard btn btn-primary updateBtn">
