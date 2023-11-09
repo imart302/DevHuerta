@@ -1,4 +1,5 @@
 /**Clase para renderizar una nueva tarjeta de reseñas en la pagina de reseñas */
+import { currentUser } from '../../api/reviews';
 
 export class ReviewCard {
   review = null;
@@ -15,9 +16,29 @@ export class ReviewCard {
     for (let i = 0; i < 5; i++) {
       i < this.review.rating ? (stars += starChecked) : (stars += starGray);
     }
+    let background = 'normalBg';
+    let editreview = '';
+    if (!currentUser) {
+      background = 'normalBg';
+    } else {
+      let currentUsername = `${currentUser.firstName} ${currentUser.lastName}`;
+      background =
+        currentUsername == this.review.userName ? 'myReview' : 'normalBg';
+      editreview =
+        currentUsername == this.review.userName
+          ? `<hr/>
+            <div class="d-flex justify-content-end p-0">
+              <button class="dn-button-reviewCard btn btn-primary deleteBtn">
+                <i class="bi bi-trash deleteBtn"></i>
+                <!-- </button><button class="dn-button-reviewCard btn btn-primary updateBtn">
+                <i class="bi bi-pencil-square updateBtn" ></i>
+              </button> -->
+            </div>`
+          : '';
+    }
 
     return `
-        <div class="dn-review-card w-99 border d-flex flex-wrap m-1 p-1" >
+        <div class="dn-review-card w-99 border d-flex flex-wrap m-1 p-1 ${background}" data-id="${this.review.id}">
           <div class="mx-auto my-auto card">
             <img class="dn-review-img card-img" src="${this.review.imgUrl}" alt="">
           </div>
@@ -32,7 +53,8 @@ export class ReviewCard {
               <div class="review-desc-body p-1">
                 ${this.review.review}
               </div>
-            </div>
+              ${editreview}
+          </div>
         </div>
         `;
   }
