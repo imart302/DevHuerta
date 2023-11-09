@@ -55,8 +55,12 @@
 }
 
 /*Inicia estilos para las tarjeta de reseñas*/
-.dn-review-card {
-	background-color: var(--yellow1-base);
+.normalBg{
+  background-color: var(--yellow1-light);
+}
+
+.myReview{
+  background-color: var(--yellow1-base);
 }
 
 .dn-review-img {
@@ -83,4 +87,13 @@
 .rating-cont-2 {
 	color: var(--gray);
 	font-size: 1em;
+}
+
+.dn-button-reviewCard{
+  width: 5em;
+  margin: 0 2em;
+}
+
+.hidden{
+  display: none;
 }
