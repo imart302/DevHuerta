@@ -6,6 +6,7 @@ import {
   createReview,
   getProdTemp,
   currentUser,
+  removeReview
 } from './api/reviews.js';
 
 const stars = document.querySelectorAll('.stars');
@@ -179,3 +180,23 @@ formSubmit.addEventListener('click', async (e) => {
     }
   }
 });
+
+
+reviewlist.addEventListener('click', (e)=> {
+  const element = e.target;
+  if(element.classList.contains('deleteBtn')){
+    const card = element.offsetParent.parentNode;
+    const revId = card.dataset.id;
+    reviewsDB = reviewsDB.filter( rev => rev.review.id !== Number(revId) );
+    reviewlist.removeChild(card);
+    removeReview(card.dataset.id);
+    sweetAlertBtn
+    .fire({
+      title: 'Reseña eliminada exitosamente',
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+    });
+  } else if(element.classList.contains('updateBtn')){
+    console.log('por implementar')
+  }
+})
