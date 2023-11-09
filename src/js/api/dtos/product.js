@@ -3,7 +3,7 @@
  * API de un producto
  */
 export class ProductDbDto {
-  id = 0;
+  id ="";
   category = '';
   gram = 0;
   imgUrl = '';

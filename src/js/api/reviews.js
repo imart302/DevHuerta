@@ -1,51 +1,55 @@
-import { Review } from './dtos/review.js';
-import mielImg from '../../assets/imgs/miel_frasco.webp';
+import { LOGGED_USER_LS_KEY, BE_URL } from '../utils/constants';
 
-/**
- * Array de reseñas(fake) existentes, que serán llamadas al cargar la pagina
- *
- * sintaxis para crear nueva Review a partir de la clase reseña:
- * new Review(id, 'user', 'category', 'product', 'imgUrl', rating, 'review');
- */
-
-let reviewList = [
-  new Review(
-    1,
-    'antonio',
-    'miel de 100ml',
-    mielImg,
-    3,
-    'Lorem ipsum Nostrum atque quia soluta sequi'
-  ),
-  new Review(
-    2,
-    'ivan_mtz',
-    'dulce de miel',
-    mielImg,
-    5,
-    'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores, consectetur corporis eius ipsaconsequuntur minus?'
-  ),
-  new Review(
-    3,
-    'lu-gallardo',
-    'jabon 60g',
-    mielImg,
-    2,
-    'Lorem ipsum, consectetur corporis eius ipsaconsequuntur minus? Pariatur?'
-  ),
-  new Review(
-    4,
-    'johann',
-    'dulce de miel',
-    mielImg,
-    4,
-    'Lorem ipsum Nostrum atque quia soluta sequi exercitationem dolores'
-  ),
-];
-
-/**
- * Funcion para simular la petición de la lista de reseñas a la API
- */
-export async function getReviews() {
-  return reviewList;
+async function getProdTemp() {
+  const response = await fetch(`${BE_URL}/product`);
+  const data = await response.json();
+  return data;
 }
+
+/**Petición GET para la lista de reseñas */
+async function getReviews() {
+  try {
+    const response = await fetch(`${BE_URL}/review`);
+    if (response.status !== 302) {
+      throw new Error('No se pudieron obtener los datos de la API');
+    }
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    alert('Ocurrio un error al obtener los datos, estamos trabajando en ello');
+    console.error(err);
+  }
+}
+
+/**Petición POST para crear una reseña */
+let currentUser = JSON.parse(localStorage.getItem(LOGGED_USER_LS_KEY));
+async function createReview(reviewValue, ratingValue, productIdValue) {
+  let postHeaders = new Headers();
+  postHeaders.append('Content-Type', 'application/json');
+  postHeaders.append('Authorization', `Bearer ${currentUser.token}`);
+  let raw = JSON.stringify({
+    review: reviewValue,
+    rating: ratingValue,
+    productId: productIdValue,
+  });
+  let requestOptions = {
+    method: 'POST',
+    headers: postHeaders,
+    body: raw,
+    redirect: 'follow',
+  };
+
+  try {
+    const response = await fetch(URL, requestOptions);
+    if (response.status !== 201) {
+      throw new Error('Error en el servidor al crear la reseña');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    alert('No se pudo crear la reseña, intentelo mas tarde');
+    console.error(error);
+  }
+}
+
+export { getProdTemp, getReviews, createReview, currentUser };
